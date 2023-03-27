@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Untitled</title>
+<!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+{% for p in posts %}
+<h3>{{ p.title }}</h3>
+<h4>{{ p.created_at }}</h4>
+<p>{{ p.content }}</p>
+{% endfor %}
+<script src="main.js"></script>
+</body>
+</html>
