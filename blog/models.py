@@ -7,6 +7,9 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+#  __str__메서드 : 객체 자체의 내용을 출력
     def __str__(self):
         return f'[{self.pk}] {self.title}'
+    def get_absolute_url(self):
+        return f'/blog/{self.pk}'
 
