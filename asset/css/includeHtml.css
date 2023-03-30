@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/* *************************************************************
+	include Html
+************************************************************** */
+.blue_table{width:100%;border-collapse:collapse;border:1px solid #d0e4f7;color:#555}
+.blue_table th{padding:7px 2px;border-bottom:1px solid #d0e4f7;background:#e9f5ff none repeat scroll 0 0;font-weight:normal}
+.blue_table td{padding:7px;border-bottom:1px solid #d0e4f7;border-left:1px solid #d0e4f7;line-height:18px}
+.blue_table td.first{border-left:0 none}
+.blue_table .green{color:#008040}
+.blue_table2{width:100%;border-collapse:collapse;border-top:1px solid #d0e4f7;color:#555}
+.blue_table2 th{padding:2px;border-bottom:1px solid #d0e4f7;border-left:1px solid #d0e4f7;background:#e9f5ff none repeat scroll 0 0;font-weight:normal}
+.blue_table2 td{padding:7px;border-bottom:1px solid #d0e4f7;border-left:1px solid #d0e4f7;border-right:1px solid #d0e4f7;line-height:18px}
+.blue_table2 ol.list_no li{padding-left:15px;text-indent:-15px}
+.tac{text-align:center}
+.vat{vertical-align:top}
+.blue_table.prodDetail{font-size:14px}
+
+/* 기존사이트 */
+.proddetailContTab{overflow:hidden}
+.proddetailContTab .tab{overflow:hidden;width:712px;height:41px;margin-bottom:11px;background:rgba(0, 0, 0, 0) url(/n_images/common/bg_tab_view_detail.gif) repeat-x scroll left top}
+.proddetailContTab .tab li{float:left}
+.proddetailContTab .blue_table_tit{height:21px;padding:8px 0 0 14px;background:#d0e4f7 none repeat scroll 0 0;font-weight:bold}
+.proddetailContTab .blue_table_tit img{vertical-align:middle}
+.proddetailContTab .blue_table_tit .day{padding:0 10px 0 0;background:rgba(0, 0, 0, 0) url(/n_images/common/line_red.gif) no-repeat scroll right 3px;font-size:14px}
+.tab_hotel{overflow:hidden;/* border-bottom: 1px solid #d0e4f7; */margin:12px 0 4px;padding-left:17px;line-height:18px}
+.tab_hotel_img{float:left;width:313px}
+.tab_hotel .tab_hotel_con{float:left;width:375px;line-height:18px;color:#555}
+.tab_hotel .tab_hotel_con dt{float:left;padding:4px 0 4px 8px;border-bottom:1px solid #d0e4f7;font-weight:bold}
+.tab_hotel .tab_hotel_con dt.no_b{border-bottom:0 none}
+.tab_hotel .tab_hotel_con dd{padding:4px 0;border-bottom:1px solid #d0e4f7}
+.tab_hotel .tab_hotel_con2{overflow:hidden;width:100%;color:#555}
+.tab_hotel .tab_hotel_con2 dt{padding-top:15px;font-weight:bold}
+.tab_hotel .tab_hotel_con2 dd{padding-bottom:30px}
+
+/* 외부html */
+.includeHtml p + .listStyDot {margin-top:8px;}
+.includeHtml .listStyDot li {line-height:22px;}
+
+/* 보물투어 */
+.includeHtml.contBomultour {width:760px;}
+.includeHtml.contBomultour table {table-layout:auto;}
+.includeHtml.contBomultour table tr,
+.includeHtml.contBomultour table th,
+.includeHtml.contBomultour table td {vertical-align:inherit;padding:0;line-height:normal;}
+
+/* 여행박사 */
+.container .leftArea .wrapper {min-width:190px;}
+
+/* 카카오페이 결제 > 국내항공 */
+/* 
+.contents.styReserve #id_payment_form {border:1px solid #999;}
+.contents.styReserve #kakaopay_layer {width:426px;margin-left:-213px;border:1px solid red !important;} 
+*/

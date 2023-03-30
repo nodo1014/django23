@@ -1,0 +1,524 @@
+@charset "utf-8";
+
+
+/* *************************************************************
+ PC > base.css
+************************************************************** */
+body,div,ul,li,p,span{font-family:'Nanum Gothic',sans-serif,dotum,'돋움',Helvetica}
+textarea,select,button,table,input,input[type=text],input[type=password]{font-family:'Nanum Gothic',sans-serif,dotum,'돋움',Helvetica}
+html,body,ul,ol,li,form,fieldset,legend,h1,h2,h3,h4,h5,h6,p,dl,dt,dd{font-weight:normal}
+
+body,table{font-size:14px;color:#323232}
+input,textarea,select,button{font-size:14px;color:#323232}
+caption,th,td{font-weight:normal;text-align:left;vertical-align:top}
+
+
+/* favorite class */
+.cl{clear:both}
+.blind{visibility:hidden;overflow:hidden;position:absolute;width:0;height:0;font-size:0;line-height:0}
+.hide{display:none !important}
+.lh{line-height:1.6em !important}
+.lh18{line-height:18px !important}
+.lh23{line-height:23px !important}
+.ltsNarrow {letter-spacing:-.035em !important;}
+.ltsNarrow2 {letter-spacing:-.05em !important;}
+.lts0 {letter-spacing:0 !important}
+.lts0 .tblA {letter-spacing:0 !important}
+span.wrapspan,.wrapspan span{display:inline-block;white-space:nowrap}
+.indentNum,.indentNumUl li{padding-left:15px;text-indent:-15px}
+.indentStar,.indentStarUl li{padding-left:12px;text-indent:-10px}
+
+
+
+/* magin */
+.mt0{margin-top:0 !important}
+.mt3{margin-top:3px !important}
+.mt05, 
+.mt5{margin-top:5px !important}
+.mt08,
+.mt8{margin-top:8px !important}
+.mt10{margin-top:10px !important}
+.mt12{margin-top:12px !important}
+.mt14{margin-top:14px !important}
+.mt15{margin-top:15px !important}
+.mt17{margin-top:17px !important}
+.mt20{margin-top:20px !important}
+.mt25{margin-top:25px !important}
+.mt30{margin-top:30px !important}
+.mt35{margin-top:35px !important}
+.mt50{margin-top:50px !important}
+.mt60{margin-top:60px !important}
+.mt65{margin-top:65px !important}
+.mt80{margin-top:80px !important}
+.mt100{margin-top:100px !important}
+.mt-15 {margin-top:-15px !important}
+.mb-10{margin-bottom:-10px !important}
+.mb10{margin-bottom:10px !important}
+.mb15{margin-bottom:15px !important}
+.mb50{margin-bottom:50px !important}
+.ml2{margin-left:2px !important}
+.ml5{margin-left:5px !important}
+.ml6{margin-left:6px !important}
+.ml7{margin-left:7px !important}
+.ml10{margin-left:10px !important}
+.ml20{margin-left:20px !important}
+.ml30{margin-left:30px !important}
+.mr2{margin-right:2px !important}
+.mr6{margin-right:6px !important}
+.pd8{padding:8px !important}
+.pd15{padding:15px !important}
+.pd20{padding:20px !important}
+.pd30{padding:30px !important}
+.pt0{padding-top:0px !important}
+.pt2{padding-top:2px !important}
+.pt3{padding-top:3px !important}
+.pt5{padding-top:5px !important}
+.pt8{padding-top:8px !important}
+.pt10{padding-top:10px !important}
+.pt14{padding-top:14px !important}
+.pt15{padding-top:15px !important}
+.pt18{padding-top:18px !important}
+.pt20{padding-top:20px !important}
+.pt25{padding-top:25px !important}
+.pt30{padding-top:30px !important}
+.pt40{padding-top:40px !important}
+.pt48{padding-top:48px !important}
+.pt50{padding-top:50px !important}
+.pt60{padding-top:60px !important}
+.pt70{padding-top:70px !important}
+.pt80{padding-top:80px !important}
+.pb0{padding-bottom:0px !important}
+.pb5{padding-bottom:5px !important}
+.pb6{padding-bottom:6px !important}
+.pb8{padding-bottom:8px !important}
+.pb10{padding-bottom:10px !important}
+.pb15{padding-bottom:15px !important}
+.pb30{padding-bottom:30px !important}
+.pb35{padding-bottom:35px !important}
+.pb40{padding-bottom:40px !important}
+.pb50{padding-bottom:50px !important}
+.pb100{padding-bottom:100px !important}
+.pl0{padding-left:0 !important}
+.pl5{padding-left:5px !important}
+.pl10{padding-left:10px !important}
+.pl45{padding-left:45px !important}
+.pl60{padding-left:60px !important}
+.pl70{padding-left:70px !important}
+.pr2{padding-right:2px !important}
+.pr15{padding-right:15px !important}
+.pr30{padding-right:30px !important}
+.ptb0 {padding-top:0 !important; padding-bottom:0 !important;}
+.ptb10 {padding-top:10px !important; padding-bottom:10px !important;}
+.ptb30 {padding-top:30px !important; padding-bottom:30px !important;}
+.plr0 {padding-left:0px !important; padding-right:0px !important;}
+.plr20 {padding-left:20px !important; padding-right:20px !important;}
+.plr30 {padding-left:30px !important; padding-right:30px !important;}
+.ac{text-align:center !important}
+.al{text-align:left !important}
+.ar{text-align:right !important}
+.vt{vertical-align:top !important}
+.vc{vertical-align:middle !important}
+
+.f12 {font-size:12px !important;}
+.f13 {font-size:13px !important;}
+.f14 {font-size:14px !important;}
+.f15 {font-size:15px !important;}
+.f16 {font-size:16px !important;}
+.f18 {font-size:18px !important;}
+
+.scr{overflow-y:auto}
+.scr.h80{height:80px}
+.scr.h150M{max-height:150px}
+.scr.h160{height:160px}
+.scr.h250M{max-height:250px}
+.scr.h260M{max-height:260px}
+.scr.h385{height:385px}
+.scr.h395{height:395px}
+.scr.h420{max-height:420px}
+.scr.h480{height:480px}
+.scr.h480M{max-height:480px}
+.ruleWrap.scr.h480 {height:auto;max-height:480px}
+.ruleWrap.scr.h534 {height:auto;max-height:534px}
+.scr.h500{height:500px}
+.scr.h540{height:540px}
+.scr.h503M {max-height:503px;}
+.scr.h570M {max-height:570px;}
+.scr.h620M{max-height:620px}
+.scr_x{overflow-y:auto;}
+.scr_x.tblAWrap {*padding-bottom:26px !important;}
+.prodDetailTxt .scr.h420{max-height:420px;height:auto}
+.layerWrap .layerScroll {overflow-y:auto;height:550px;}
+.iframeScroll {overflow-x:hidden;overflow-y:auto;}
+.iframeScroll .layerWrap{width:auto;}
+
+/* font style, color */
+.fc_red1{color:#e35354 !important}
+.fc_blue1{color:#0186c4 !important}
+.fc_blk1{color:#1a1a1a !important}
+.fc_blk2{color:#323232 !important}
+.fc_blk3{color:#727272 !important}
+.fc_blk4{color:#a0a0a0 !important}
+
+.fc_tmp_red{color:#fb203a !important}
+.fc_tmp_red2{color:#c52d2d !important}
+.fc_tmp_red3{color:#ed1231 !important}
+.fc_tmp_red5{color:#ff3b30 !important}
+.fc_tmp_red6{color:#ff2b53 !important}
+.fc_tmp_red7{color:#b41b1b !important}
+.fc_tmp_red8{color:#ed3939 !important}
+.fc_tmp_blue1{color:#00aeef !important}
+.fc_tmp_blue2{color:#138bb3 !important}
+.fc_tmp_blue3{color:#2673c1 !important}
+.fc_tmp_blue4{color:#00a1e9 !important}
+.fc_tmp_blue5{color:#0967b7 !important}
+.fc_tmp_orenge1{color:#ff8a00 !important}
+
+/* 멀티라인말줄임은 현재  크롬만 적용 가능함 */
+.shortCutLinel2,
+.shortCutLinel3,
+.shortCutLinel4{overflow:hidden;text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 3; -webkit-box-orient: vertical;}
+.shortCutLinel2{-webkit-line-clamp:2;}
+.shortCutLinel3{-webkit-line-clamp:3;}
+.shortCutLinel4{-webkit-line-clamp:4;}
+
+/* form define */
+input.inpDef, input[type=text],input[type=password],input[type=number],input[type=email],input[type=date]{width:90px;height:24px;margin:0;padding:0 10px;border:1px solid #dfdfdf;line-height:24px;vertical-align:middle}
+input[type=image]{vertical-align:middle}
+input[type=checkbox],input[type=radio],label{cursor:pointer}
+button{}
+select{min-width:65px;height:26px;border:1px solid #ccc;line-height:26px}
+select {/* position: relative; */display: inline-block;background-color: #fff;border: 1px solid #dfdfdf;height: 32px;min-width: 60px;vertical-align: middle;zoom: 1;} 
+
+
+textarea{min-height:150px;padding:10px;border:1px solid #dfdfdf;line-height:18px}
+textarea.on {border:1px solid #a0a0a0}
+.textareaByteCount{font-size:10px;text-align:right}
+.txtareaGrayBg {display:block;}
+.txtareaGrayBg textarea {background:#f3f3f3;display:block;padding:15px 20px;width:100%;box-sizing:border-box;}
+
+input.inpDef, .tblA input[type=text],.tblA  input[type=password],.tblA  input[type=number],.tblA input[type=email],.tblA input[type=date]{height:32px;line-height:32px;letter-spacing:-.035em;}
+/* input.inpDef.hMLong, .tblA input[type=text].hMLong,.tblA input[type=password].hMLong,.tblA input[type=number].hMLong,.tblA input[type=email].hMLong, .tblA input[type=date].hMLong{line-height:38px;height:38px;} */
+input.inpDef.hLong, .tblA input[type=text].hLong,.tblA input[type=password].hLong,.tblA input[type=number].hLong,.tblA input[type=email].hLong, .tblA input[type=date].hLong{line-height:48px;height:48px;}
+input[type=text].on,input[type=password].on,input[type=number].on,input[type=email].on,input[type=date].on{border:1px solid #a0a0a0}
+input.disa {background:#f7f7f7;color:#a0a0a0}
+.disa label {color:#a0a0a0}
+/* .disa .sbHolder .sbFocus,
+.disa .sbHolder a {color:#a0a0a0;} */
+
+
+input.s52{width:30px !important}
+input.s60{width:38px !important}
+input.s70{width:48px !important}
+input.s80{width:58px !important}
+input.s82{width:60px !important}
+input.s90{width:68px !important}
+input.s100{width:78px !important}
+input.s104{width:82px !important}
+input.s110{width:90px !important}
+input.s115{width:95px !important}
+input.s120{width:100px !important}
+input.s129{width:109px !important}
+input.s140{width:120px !important}
+input.s145{width:125px !important}
+input.s150{width:128px !important}
+input.s160{width:138px !important}
+input.s180{width:158px !important}
+input.s192{width:170px !important}
+input.s198{width:176px !important}
+input.s210{width:188px !important}
+input.s218{width:196px !important}
+input.s225{width:203px !important}
+input.s230{width:208px !important}
+input.s252{width:232px !important}
+input.s276{width:254px !important}
+input.s282{width:260px !important}
+input.s309{width:287px !important}
+input.s320{width:298px !important}
+input.s364{width:342px !important}
+input.s406{width:384px !important}
+input.s545{width:523px !important}
+input.s742{width:720px !important}
+textarea.h90 {height:80px;min-height:80px;}
+textarea.h180 {height:160px;}
+textarea.hLong {height:230px;}
+textarea.h360 {height:360px;}
+textarea.s740 {width:720px}
+
+.selS78 select{width:78px !important;}
+.selS80 select{width:80px !important;}
+.selS86 select{width:86px !important;}
+.selS90 select{width:90px !important;}
+.selS96 select{width:96px !important;}
+.selS100 select{width:100px !important;}
+.selS110 select{width:110px !important;}
+.selS114 select{width:114px !important;}
+.selS120 select{width:120px !important;}
+.selS130 select{width:130px !important;}
+.selS140 select{width:140px !important;}
+.selS150 select{width:150px !important;}
+.selS160 select{/* width:160px !important; */}
+.selS162 select{width:162px !important;}
+.selS180 select{width:180px !important;}
+.selS190 select{width:190px !important;}
+.selS210 select{width:210px !important;}
+.selS223 select{width:223px !important;}
+.selS252 select{width:252px !important;}
+.selS270 select{width:270px !important;}
+.selS280 select{width:280px !important;}
+.selS320 select{width:320px !important;}
+.selS349 select{width:349px !important;}
+.selS386 select{width:386px !important;}
+.sel select {display:inline-block;*display:inline;zoom:1;vertical-align:middle;}
+
+.selS78 .sbHolder{width:78px !important;}
+.selS80 .sbHolder{width:80px !important;}
+.selS86 .sbHolder{width:86px !important;}
+.selS90 .sbHolder{width:90px !important;}
+.selS96 .sbHolder{width:96px !important;}
+.selS100 .sbHolder{width:100px !important;}
+.selS110 .sbHolder{width:110px !important;}
+.selS114 .sbHolder{width:114px !important;}
+.selS120 .sbHolder{width:120px !important;}
+.selS130 .sbHolder{width:130px !important;}
+.selS140 .sbHolder{width:140px !important;}
+.selS150 .sbHolder{width:150px !important;}
+.selS160 .sbHolder{/* width:160px !important; */}
+.selS162 .sbHolder{width:162px !important;}
+.selS180 .sbHolder{width:180px !important;}
+.selS190 .sbHolder{width:190px !important;}
+.selS210 .sbHolder{width:210px !important;}
+.selS223 .sbHolder{width:223px !important;}
+.selS252 .sbHolder{width:252px !important;}
+.selS270 .sbHolder{width:270px !important;}
+.selS280 .sbHolder{width:280px !important;}
+.selS320 .sbHolder{width:320px !important;}
+.selS349 .sbHolder{width:349px !important;}
+.selS386 .sbHolder{width:386px !important;}
+.sel .sbHolder {display:inline-block;*display:inline;zoom:1;vertical-align:middle;}
+
+.wflWrap dl{zoom:1}
+.wflWrap dl:after{display:block;visibility:hidden;clear:both;height:0;content:''}
+.wflWrap dt{float:left;margin-left:20px;/* line-height:26px */line-height:34px}
+.wflWrap dd{float:left;margin-left:10px}
+.wflWrap dt:first-child{margin-left:0}
+.wflWrap dt.tit.bgDot {width:108px;font-family:NanumGothicBold;padding-left:8px;background:url(/images/common/colorchip/c_727272_3x3.png) no-repeat left center}
+.inp .wfullWrap{display:block;/* padding:0 10px */padding:0 12px 0 10px}
+.inp .wfullWrap input{width:100%;margin-left:-10px}
+.sel .wfullWrap{display:block}
+.sel .wfullWrap select{width:100%;padding-right:2px}
+.sel .wfullWrap .sbHolder{width:100%}
+.txtarea .wfullWrap{display:block;padding:0 10px}
+.wfullWrap textarea{width:100%;margin-left:-10px}
+.rdoWrap{padding-left:15px}
+.rdoWrap:first-child{padding-left:0}
+.chkWrap{padding-left:15px}
+.chkWrap:first-child{padding-left:0}
+.listSelct select{min-width:110px;margin-left:4px}
+.listSelct select:first-child{margin-left:0}
+
+/* [ezMark] checkbox & radio design */
+.ez-hide{opacity:0;filter:alpha(opacity=0)}
+.ez-checkbox{display:inline-block;width:20px;height:20px;background:transparent url(/images/common/form/form_checkbox.png) 0 0 no-repeat;vertical-align:middle}
+.ez-radio{display:inline-block;width:20px;height:20px;background:transparent url(/images/common/form/form_radio.png) 0 0 no-repeat;vertical-align:middle}
+.chkStyle .ez-radio{background-image:url(/images/common/form/form_checkbox.png);}
+
+.ez-checked{background-position:0 -22px}
+.ez-selected{background-position:0 -22px}
+.ez-checkbox input,.ez-radio input{/width:20px;height:20px;margin:0}
+.ez-checkbox,.ez-radio{*display:inline;_height:20px;line-height:20px;vertical-align:middle;zoom:1}
+.chk label,.chk .label{padding-left:6px;vertical-align:middle;line-height:20px;}
+.rdo label,.rdo .label{padding-left:5px;vertical-align:middle;line-height:20px;}
+
+/* input > remove */
+.inpRemove {position:relative;/* display:inline-block; */}
+.inpRemove input {padding-right:30px;}
+.inpRemove .txtRemove {position:absolute;top:1px;right:1px;width:27px;height:32px;background:url(/images/contents/icon_close2.png) no-repeat center center;}
+
+
+.boxAddFile {background:#f3f3f3; border:1px solid #dfdfdf; padding:30px 0;}
+.boxAddFile .wrap {margin:0 auto;width:500px;}
+.boxAddFile input[type="file"] {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0;}
+.boxAddFile label {vertical-align:middle;margin-left:2px;}
+.boxAddFile .inp_name {background:#fff;line-height:32px;height:32px;width:378px;}
+
+
+
+/* btn 정렬 */
+.btnWrap{margin-top:40px;text-align:center}
+.btnWrap.topBd1 {border-top:1px solid #dfdfdf;}
+.btnWrap.abRbtn {position:relative;}
+.btnWrap.abRbtn .abR {position:absolute;top:0;right:0}
+.btnWrap.fixRbtn {position:relative;text-align:right;}
+.btnWrap.fixRbtn .abC {position:absolute;top:0;left:50%;margin-left:-250px;width:500px;text-align:center;}
+
+.rsvOkInairBox .btnWrap {margin-top:30px;}
+.popupWrap .btnWrap{/* margin-top:30px; */}
+.layerWrap .btnWrap{margin-top:30px;padding-bottom:20px;}
+.layerWrap .btnWrap.topBd {margin-top:0;padding-top:20px;padding-bottom:0;border-top:1px solid #dfdfdf;}
+.btnWrap .btnSty1{margin-left:6px}
+.btnWrap .btnSty1:first-child{margin-left:0}
+.btnWrap.my_rsvDetail {/* border-top:1px solid #dfdfdf; margin-top:20px; padding-top:30px; */}
+
+/* btn > btnSty1, btnSty2 */
+.btnSty1{display:inline-block;font-size:14px;text-align:center;padding:0 19px; line-height:40px;font-family:NanumGothicBold;cursor: pointer; *overflow:visible}
+.btnSty1 span {font-family:NanumGothicBold;}
+a.btnSty1.line2 {line-height:16px;padding-top:2px;padding-bottom:2px;}
+a.btnSty1.line2 .subtxt {font-size:12px;}
+.btnSty1.wide {min-width:180px;padding:0}
+.btnSty1.wfull {display:block;}
+.btnSty1.sBig{line-height:50px;}
+.btnSty1.sBig2{line-height:40px;}
+.btnSty1.sMid{line-height:30px;letter-spacing:-.035em}
+.btnSty1.sMid.cDGrayLine {line-height:26px;}
+.btnSty1.sMdl{line-height:34px;}
+
+.btnSty2{display:inline-block;border-radius:3px;font-size:13px;letter-spacing:-.035em;text-align:center;padding:0 9px; line-height:28px;cursor: pointer; *overflow:visible}
+.btnSty2.wide1 {min-width:;}
+.btnSty2.wide2 {min-width:45px;}
+a.btnSty2:hover,
+a.btnSty2:hover span {text-decoration:none;}
+.btnSty2.sSml {font-size:12px;line-height:18px;}
+.btnSty2.sMdl {font-size:13px;line-height:32px;}
+.btnSty1.disa,
+.btnSty2.disa,
+a:hover.btnSty1.disa,
+a:hover.cGrayLine.disa {cursor:default;text-decoration:none}
+.btnSty1.disa  {background:#a0a0a0 !important;color:#fff !important;}
+.btnSty2.disa, a:hover.btnSty2.disa {border:1px solid #dfdfdf !important; color:#a0a0a0 !important;}
+.btnIcon{display:inline-block;font-size:12px;}
+
+/* btn > color */
+.btnSty1.cBlue {background:#00aeef;color:#fff;border: none;}
+.btnSty2.cBlue {background:#00aeef;color:#fff;border:1px solid #00aeef}
+.btnSty1.cDBlue {background:#0186c4;color:#fff;border: none;}
+.btnSty1.cGray {background:#727272;color:#fff;border: none;}
+.btnSty2.cGray {background:#727272;color:#fff;border:1px solid #727272}
+.btnSty2.crGray {background:#a0a0a0 ;color:#fff;border:1px solid #a0a0a0;}
+a.btnSty1.crGray:hover , a.btnSty2.crGray:hover {background:#727272;border:1px solid #727272; text-decoration:none;}
+.btnSty1.cRed {background:#e35354;color:#fff;border: none;}
+.btnSty2.cRed {background:#e35354;color:#fff;border:1px solid #e35354;}
+.btnSty1.cOrange {background:#ee6628;color:#fff;border: none;}
+.btnSty2.cOrange {background:#ee6628;color:#fff;border:1px solid #ee6628;}
+
+.btnSty1.cGrayLine{line-height:38px;}
+.btnSty1.cGrayLine, .btnSty2.cGrayLine {color:#323232;border:1px solid #dfdfdf; background-color:#ffffff;}
+a:hover.btnSty1.cGrayLine, a:hover.btnSty2.cGrayLine {border:1px solid #a0a0a0;text-decoration:none;}
+.btnSty1.cGrayLine.on, .btnSty2.cGrayLine.on {color:#ffffff;border:1px solid #727272; background-color:#727272}
+
+.btnSty1.cRGrayLine{line-height:38px;}
+.btnSty1.cRGrayLine, .btnSty2.cRGrayLine {color:#a0a0a0;border:1px solid #dfdfdf; background-color:#ffffff;}
+a.btnSty1.cRGrayLine:hover , a.btnSty2.cRGrayLine:hover {border:1px solid #a0a0a0; text-decoration:none;}
+a.btnSty1.cRGrayLine:hover span , a.btnSty2.cRGrayLine:hover span {text-decoration:none;}
+.btnSty1.cRGrayLine.on, .btnSty2.cRGrayLine.on {color:#323232;border:1px solid #a0a0a0;}
+
+.btnSty1.cDGrayLine {line-height:36px;}
+.btnSty1.cDGrayLine, .btnSty2.cDGrayLine {color:#323232;border:2px solid #727272; background-color:#ffffff}
+a:hover.btnSty1.cDGrayLine, a:hover.btnSty2.cDGrayLine {background:#727272;text-decoration:none;color:#ffffff;}
+.btnSty1.cDGrayLine.disa, .btnSty2.cDGrayLine.disa {border:2px solid #a0a0a0 !important; background:#fff !important; color:#a0a0a0 !important;}
+
+.btnSty1.cRedLine, .btnSty2.cRedLine {color:#e35354;border:1px solid #e35354;background:#fff;}
+a:hover.btnSty1.cRedLine, a:hover.btnSty2.cRedLine {color:#ffffff;border:1px solid #e35354; background:#e35354;text-decoration:none;}
+
+/* btn > icon */
+.btnSty1 span, .btnSty2 span{display:inline-block;vertical-align:top;}
+.btnSty1:hover span, .btnSty2:hover span{text-decoration:underline;}
+.btnSty1.iWrite span{padding-left:15px;background:url(/images/contents/icon_btn_iWrite.png) no-repeat left center}
+.btnSty1.iPrint span{padding-left:22px;background:url(/images/contents/ico_print.png) no-repeat left center}
+.btnSty1.iRefresh span{padding-right:22px;background:url(/images/contents/icon_reflash.png) no-repeat right center}
+.btnSty1.iToggle span{padding-right:22px;background:url(/images/contents/arr_arr_white.png) no-repeat right center}
+.btnSty1.iToggle.on span{background-image:url(/images/contents/arr_arr_white_on.png)}
+.btnSty1.iCheck {padding:0 10px;}
+.btnSty1.iCheck span{padding-left:22px;background:url(/images/contents/icon_check_off.png) no-repeat 0px center}
+.btnSty1.iCheck.on span{background-image:url(/images/contents/icon_check_on.png)}
+.btnSty1.cart {padding:0 10px 0 10px;}
+.btnSty1.cart span{padding-left:22px;background:url(/images/contents/icon_cart.png) no-repeat 0px center}
+
+.btnSty2.iMore span {padding-right:15px;background:url(/images/contents/arr_more_mainH2.png) no-repeat right center}
+.btnSty2.iList span {padding-left:22px;background:url(/images/contents/icon_btn_list.png) no-repeat left center}
+.btnSty2.iList.on span {background-image:url(/images/contents/icon_btn_list_on.png)}
+.btnSty2.iMap span {padding-left:25px;background:url(/images/contents/icon_btn_map.png) no-repeat left center}
+.btnSty2.iMap.on span {background-image:url(/images/contents/icon_btn_map_on.png)}
+.btnSty2.iTripAv span {padding-left:116px;background:url(/images/contents/icon_btn_tripAv.png) no-repeat left center}
+.btnSty2.iTripAv.on span {background-image:url(/images/contents/icon_btn_tripAv_on.png)}
+.btnSty2.arr.iconOn {border-color:#a0a0a0;}
+.btnSty2.arr span {padding-right:15px;background:url(/images/contents/arr_tblList_down.png) no-repeat right center}
+.btnSty2.arr.iconOn span {background-image:url(/images/contents/arr_tblList_up.png)}
+
+
+
+.btnSty2.tag{border-radius:3px;background:#727272;font-size:11px;color:#ffffff;line-height:19px;letter-spacing:0;padding:1px 5px 0 5px;margin-right:-1px;}
+.btnSty2.tag.prodTag01{background:#a55ec2;} /* 프로모션	*/
+.btnSty2.tag.prodTag02{background:#ea4c89;} /* 베스트		*/
+.btnSty2.tag.prodTag03{background:#1bbec5;} /* 오늘오픈 	*/
+.btnSty2.tag.prodTag04{background:#fc9a00;} /* 마감임박 	*/
+.btnSty2.tag.prodTag05{background:#e14142;} /* 강력추천	*/
+.btnSty2.tag.prodTag06{background:#0186c4;} /* 땡처리단독 	*/
+.btnSty2.tag.prodTag07{background:#ee6628;} /* 쿠폰할인 	*/
+.btnSty2.tag.prodTag08{background:#98b925;} /* 상품권특전 	*/
+
+
+.btnSty2.tag.prodTag09{background:#8d46aa;} /* 얼리버드 	*/
+.btnSty2.tag.prodTag10{background:#cb2666;} /* 전세기추천 	*/
+.btnSty2.tag.prodTag11{background:#389da1;} /* 집중모객 	*/
+.btnSty2.tag.prodTag12{background:#d4860c;} /* 이달의추천 	*/
+.btnSty2.tag.prodTag13{background:#ee145b;} /* 크루즈 	*/
+.btnSty2.tag.prodTag14{background:#f78e56;} /* 좌석확보 	*/
+.btnSty2.tag.prodTag15{background:#00aef0;} /* 출발확정 	*/
+.btnSty2.tag.prodTag16{background:#9e0b0f;} /* 연휴추천 	*/
+.btnSty2.tag.prodTag17{background:#92278f;} /* 인솔자동반 	*/
+.btnSty2.tag.prodTag18{background:#a186be;} /* 효도여행 	*/
+.btnSty2.tag.prodTag19{background:#197b30;} /* 단체배낭 	*/
+.btnSty2.tag.prodTag20{background:#39b54a;} /* 료깐추천 	*/
+
+.btnSty2.tag.hotelTag01{background:#ea4c89;} /* 인기 */
+.btnSty2.tag.hotelTag02{background:#000000;} /* 블랙수요일 */
+.btnSty2.tag.hotelTag03{background:#0186c4;} /* 땡처리호텔  */
+.btnSty2.tag.hotelTag04{background:#a55ec2;} /* 프로모션 */
+.btnSty2.tag.hotelTag05{background:#ee6628;} /* 쿠폰할인 */
+.btnSty2.tag.hotelTag06{background:#f84545;} /* 13일의금요일 */
+
+.btnSty2.tag.airTag01{background:#0186c4;} /* 공동구매 */
+.btnSty2.tag.airTag02{background:#1bbec5;} /* 실시간 */
+.btnSty2.tag.airTag03{background:#f84545;} /* 추천 */
+
+.btnSty2.tag.golfTag01{background:#b04600;} /* 골프텔 */
+.btnSty2.tag.golfTag02{background:#008766;} /* 그린피온니 */
+.btnSty2.tag.golfTag03{background:#ab8d00;} /* 전지훈련 */
+
+.btnSty2.tag.ticketTag01,
+.prodCard .photo .btnSty2.tag.ticketTag01 {background:#ee6628;} /* E바우처 */
+.btnSty2.tag.ticketTag02,
+.prodCard .photo .btnSty2.tag.ticketTag02{background:#2b649f;} /* 추가용 */
+.btnSty2.tag.ticketTag03,
+.prodCard .photo .btnSty2.tag.ticketTag03{background:#e35354;} /* 추가용 */
+
+
+/* 지역별 카테고리 컬러 */
+.landColor_01 {background:#1bbec5;} /* 동남아 */
+.landColor_02 {background:#ff7800;} /* 중국/대만/홍콩/마카오 */
+.landColor_03 {background:#e35354;} /* 일본 */
+.landColor_04 {background:#0086c5;} /* 남태평양/괌/사이판 */
+.landColor_05 {background:#efca00;} /* 유럽/아프리카 */
+.landColor_06 {background:#49b600;} /* 미주/중남미 */
+
+/* btn > btnIcon */
+.btnIcon.iBack span{padding-left:19px;background:url(/images/contents/icon_btn_back.png) no-repeat left center}
+
+/* btn > btnRound */
+.btnRound {display:inline-block;line-height:24px;text-align:center;font-size:13px;font-family:NanumGothicBold;border-radius:20px;}
+.btnRound.cBlue {color:#ffffff;background:#2b649f;}
+.btnRound.cLBlue {color:#ffffff;background:#0186c4;}
+.btnRound.cDGray {color:#ffffff;background:#727272;}
+.btnRound.cRed {color:#ffffff;background:#e35354;}
+.btnRound.cWhite {color:#2b649f;background:#fff;}
+.btnRound.sMid {min-width:40px;padding:0 10px;}
+.btnRound.cLBlueLine {color:#0186c4;background:#ffffff;border:1px solid #0186c4;line-height:22px;}
+
+
+.btnRound2 {font-size:13px;color:#323232;font-family:NanumGothicBold; line-height:30px;padding:0 20px;display:inline-block;border-radius:20px;}
+.btnRound2.cGray {background:#dfdfdf}
+.btnRound2.cRed {background:#fdd8d8}
+.btnRound2.cBlue {background:#d7e8f6}
+.btnRound2.cWhite {background:#ffffff}
+
+

@@ -1,0 +1,1 @@
+document.write('<div class="ttangComm quickLeft"><!-- 	여기에 contents 넣어서 사용하시면 됩니다. --></div>'); <!-- 메인컨텐츠 영역 --> 

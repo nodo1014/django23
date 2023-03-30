@@ -1,0 +1,2605 @@
+<!doctype html>
+<script type="text/javascript">
+    var V_SCRIPT_VERSION = "20230324";
+    var IMAGE_DOMAIN = "http://images.ttang.com";
+</script>
+<html lang="ko">
+
+<head>
+    <title>땡처리닷컴</title>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]><script type="text/javascript" src="/asset/js/plugin/html5shiv.js"></script><![endif]-->
+    <link rel="shortcut icon" href="/images/common/favicon/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="/asset/css/ttang_import.css?v=20230324" />
+    <link type="text/css" rel="stylesheet" href="/asset/css/import.css?v=20230324" />
+    <script type="text/javascript" src="/asset/js/plugin/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/asset/js/plugin/common.js?v=20230324"></script>
+    <script type="text/javascript" src="/asset/js/dev/product/pkg/common.js?v=20230324"></script>
+</head>
+
+<body class="cate_package">
+
+    <div class="wrapper" id="wrapper">
+
+        <script type="text/javascript" src="/asset/js/include/header.js?v=20230324" charset="utf-8"></script>
+        <!-- gnb 영역 -->
+
+        <form name="goodsSearchForm" method="get">
+            <input type="hidden" name="cityCd">
+            <input type="hidden" name="strCity">
+            <input type="hidden" name="minCost" value="0">
+            <input type="hidden" name="maxCost" value="0">
+            <input type="hidden" name="departureDateList">
+            <input type="hidden" name="onlyUrgentYn">
+            <input type="hidden" name="confirmYn">
+            <input type="hidden" name="ttangOnlyYn">
+            <input type="hidden" name="searchKind">
+            <input type="hidden" name="searchKeyword">
+        </form> <!-- 상품 검색 form -->
+
+        <section class="section" id="section">
+
+            <!-- contents -->
+            <div id="contents" class="contents">
+                <div class="wrap_innerbg">
+
+                    <div class="lnbWrap print_hide">
+                        <div class="lnb cate_package">
+                            <div class="innerWrap">
+                                <a href="#none" class="btn lnbAll"><span>패키지메뉴전체보기</span></a>
+                                <ul>
+                                    <li class="on"><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=C001', '40', 'P13', 'C001');">동남아</a>
+                                    </li>
+                                    <li><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=C011', '40', 'P13', 'C011');">대만/홍콩/마카오</a>
+                                    </li>
+                                    <li><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=C002', '40', 'P13', 'C002');">중국/몽골</a>
+                                    </li>
+                                    <li><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=C003', '40', 'P13', 'C003');">일본</a>
+                                    </li>
+                                    <li><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=C009', '40', 'P13', 'C009');">괌/사이판</a>
+                                    </li>
+                                    <li><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=C004', '40', 'P13', 'C004');">남태평양</a>
+                                    </li>
+                                    <li><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=C005', '40', 'P13', 'C005');">유럽</a>
+                                    </li>
+                                    <li><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=C006', '40', 'P13', 'C006');">미주/중남미</a>
+                                    </li>
+                                    <li><a
+                                            href="javascript:USER_MAIN_LINK('/product/pkg/subIndex.do?majorCategoryCd=PUS', '40', 'P13', 'PUS');">지방출발</a>
+                                    </li>
+                                </ul>
+                                <a href="#none" class="btn cateSrch up"
+                                    onclick="openGnbGoodsSearch();"><span>상품검색</span></a>
+                            </div>
+                        </div>
+
+                        <!-- lnb > 패키지 > 전체보기 -->
+                        <div class="lnbAllWrap wrap_innerbg package">
+                            <div class="lnbMenuAllCont fwrap" style="display:none;">
+                                <div class="fl menu">
+                                    <ul>
+                                        <li class="on"><a href="#none" class="n01"><span>동남아</span></a></li>
+                                        <li><a href="#none" class="n02"><span>중국/대만/홍콩/마카오</span></a></li>
+                                        <li><a href="#none" class="n03"><span>일본</span></a></li>
+                                        <li><a href="#none" class="n04"><span>남태평양/괌/사이판</span></a></li>
+                                        <li><a href="#none" class="n05"><span>유럽/아프리카</span></a></li>
+                                        <li><a href="#none" class="n06"><span>미주/중남미</span></a></li>
+                                        <li><a href="#none" class="n07"><span>부산/대구/무안/지방출발</span></a></li>
+                                    </ul>
+                                    <div class="link_banner">
+                                        <a href="/sharp/main.do" class="btnSty2 cGrayLine">땡처리#(샵) 보러가기</a>
+                                    </div>
+                                </div>
+
+                                <!-- innerWrap > default > display:none   -->
+                                <!-- (09/14) 패키지 데이터 : W072_화면정의서_땡처리패키지_V1.5_20150826_디자인산출과현행화.pptx -->
+                                <!-- (12/07) 패키지 데이터 : 디자인 (psd) 참고     -->
+                                <div class="fr cont">
+                                    <!-- 01 동남아 -->
+                                    <div class="innerWrap n01">
+                                        <div class="theme">
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=C001', '40', 'P14', 'PACK_LNK03');"
+                                                class="btnSty2 cRedLine">동남아 긴급모객</a>
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=CFM&majorCategoryCd=C001', '40', 'P14', 'PACK_LNK01');"
+                                                class="btnSty2 cRedLine">동남아 99%확정</a>
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=C001', '40', 'P14', 'PACK_LNK02');"
+                                                class="btnSty2 cRedLine">동남아 땡처리전용</a>
+                                        </div>
+
+                                        <div class="wrap cl">
+                                            <h3><a href="#none">태국</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA001', '40', 'P11', 'CA001');">방콕.파타야</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA002', '40', 'P11', 'CA002');">푸켓</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CU8', '40', 'P11', 'CU8');">카오락</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA051', '40', 'P11', 'CA051');">크라비</a>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA003', '40', 'P11', 'CA003');">치앙마이</a>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA010', '40', 'P11', 'CA010');">코사무이</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA004', '40', 'P11', 'CA004');">후아힌</a>
+                                                </li>
+                                                <!--<li><a href="#none">아유타야</a></li>-->
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">필리핀</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=CA006', '40', 'P11', 'CA006');">세부</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=CA007', '40', 'P11', 'CA007');">보라카이</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=CA005', '40', 'P11', 'CA005');">마닐라</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=TAG', '40', 'P11', 'TAG');">보홀</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=CA008', '40', 'P11', 'CA008');">팔라완/엘니도</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=CA009', '40', 'P11', 'CA009');">클락</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">싱가포르</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA007&cityCd=CA043', '40', 'P11', 'CA043');">싱가포르</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA007&cityCd=CA041', '40', 'P11', 'CA041');">싱가포르
+                                                        빈탄</a></li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA007&cityCd=CA044', '40', 'P11', 'CA044');">싱가포르
+                                                        바탐</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">베트남</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA019', '40', 'P11', 'CA019');">하노이</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA034', '40', 'P11', 'CA034');">다낭</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA076', '40', 'P11', 'CA076');">나트랑</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA021', '40', 'P11', 'CA021');">호치민</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=PQC', '40', 'P11', 'PQC');">푸꾸옥</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA022', '40', 'P11', 'CA022');">베트남&amp;캄보디아</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">캄보디아</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA020', '40', 'P11', 'CA020');">씨엠립(앙코르왓)</a>
+                                                </li>
+                                                <!--<li><a href="#none">프놈펜(앙코르왓)</a></li>-->
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA011', '40', 'P11', 'CA011');">태국/캄보디아</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap cl">
+                                            <h3><a href="#none">라오스</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA037', '40', 'P11', 'CA037');">비엔티엔/방비엥/루앙프라방</a>
+                                                </li>
+                                                <!--<li><a href="/product/pkg/goodsList.do?natCd=NA003&cityCd=CA037">방비엥</a></li>
+							<li><a href="/product/pkg/goodsList.do?natCd=NA003&cityCd=CA037">루앙프라방</a></li>-->
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">말레이시아</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA005&cityCd=CA031', '40', 'P11', 'CA031');">코타키나발루</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA005&cityCd=CA033', '40', 'P11', 'CA033');">쿠알라룸푸르</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA005&cityCd=CA032', '40', 'P11', 'CA032');">랑카위</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA005&cityCd=CA073', '40', 'P11', 'CA073');">조호바루</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA005&cityCd=PEN', '40', 'P11', 'PEN');">페낭</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="wrap">
+                                            <h3><a href="#none">브루나이</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA010&cityCd=BWN', '40', 'P11', 'BWN');">브루나이</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="wrap">
+                                            <h3><a href="#none">인도네시아</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA004&cityCd=CA012', '40', 'P11', 'CA012');">발리</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA004&cityCd=CA013', '40', 'P11', 'CA013');">자카르타</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA004&cityCd=CA074', '40', 'P11', 'CA074');">족자카르타</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA004&cityCd=CA045', '40', 'P11', 'CA045');">롬복</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">미얀마</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA038', '40', 'P11', 'CA038');">양곤/바간/만달레이</a>
+                                                </li>
+                                                <!--<li><a href="/product/pkg/goodsList.do?natCd=NA003&cityCd=CA038">바간</a></li>
+							<li><a href="/product/pkg/goodsList.do?natCd=NA003&cityCd=CA038">만달레이</a></li>-->
+                                            </ul>
+
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">인도및특수지역</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NI001&cityCd=CI001', '40', 'P11', 'CI001');">인도</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NI001&cityCd=PBH', '40', 'P11', 'PBH');">부탄</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NI001&cityCd=CI002', '40', 'P11', 'CI002');">네팔</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NI001&cityCd=CI003', '40', 'P11', 'CI003');">스리랑카</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NI001&cityCd=CI005', '40', 'P11', 'CI005');">중동</a>
+                                                </li>
+                                            </ul>
+                                            <h3><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA009&cityCd=CA015', '40', 'P11', 'CA015');">몰디브</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <!-- 01 동남아 -->
+
+                                    <!-- 02 중국/대만/홍콩/마카오  -->
+                                    <div class="innerWrap n02 divN32">
+                                        <div class="divFL">
+                                            <div class="theme">
+                                                <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=C002', '40', 'P14', 'PACK_LNK03');"
+                                                    class="btnSty2 cRedLine">중국 긴급모객</a>
+                                                <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=C002', '40', 'P14', 'PACK_LNK02');"
+                                                    class="btnSty2 cRedLine">중국 땡처리전용</a>
+                                            </div>
+                                            <div class="wrap">
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC001', '40', 'P11', 'CC001');">북경
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CP015', '40', 'P11', 'CP015');">계림
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC003', '40', 'P11', 'CC003');">장가계</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC002', '40', 'P11', 'CC002');">상해/항주/소주
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC014', '40', 'P11', 'CC014');">하이난/해구
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC007', '40', 'P11', 'CC007');">황산/삼청산
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC013', '40', 'P11', 'CC013');">태항산
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC031', '40', 'P11', 'CC031');">하문
+                                                    </a></h3>
+                                            </div>
+                                            <div class="wrap">
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC034', '40', 'P11', 'CC034');">백두산
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC008', '40', 'P11', 'CC008');">성도/구채구
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC032', '40', 'P11', 'CC032');">중경/귀양/은시
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC009', '40', 'P11', 'CC009');">몽골/내몽고
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC006', '40', 'P11', 'CC006');">곤명
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC033', '40', 'P11', 'CC033');">대련
+                                                    </a></h3>
+                                            </div>
+                                            <div class="wrap">
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC010', '40', 'P11', 'CC010');">청도/위해/제남
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC012', '40', 'P11', 'CC012');">서안/정주
+                                                    </a></h3>
+
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC015', '40', 'P11', 'CC012');">기타지역
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC048', '40', 'P11', 'CC012');">리장/여강
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC016', '40', 'P11', 'CC012');">난주
+                                                    </a></h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=ca1111', '40', 'P11', 'CC012');">티벳
+                                                    </a></h3>
+                                            </div>
+                                        </div>
+                                        <div class="divFR">
+                                            <div class="theme">
+                                                <a class="btnSty2 cRedLine"
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=C011', '40', 'P14', 'PACK_LNK03');">대만/홍콩
+                                                    긴급모객</a>
+                                                <a class="btnSty2 cRedLine"
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=C011', '40', 'P14', 'PACK_LNK02');">땡처리전용</a>
+                                            </div>
+                                            <div class="wrap">
+                                                <h3><a href="#">대만</a></h3>
+                                                <ul>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=ND001&cityCd=CC005', '40', 'P11', 'CC005');">타이페이</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=ND001&cityCd=CC035', '40', 'P11', 'CC035');">타이중</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=ND001&cityCd=CC036', '40', 'P11', 'CC036');">까오슝</a>
+                                                    </li>
+                                                </ul>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=ND001&cityCd=CC004', '40', 'P11', 'CC004');">홍콩</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=ND001&cityCd=CC041', '40', 'P11', 'CC041');">마카오</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=ND001&cityCd=CC043', '40', 'P11', 'CC043');">심천</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=ND001&cityCd=CC044', '40', 'P11', 'CC044');">홍콩/마카오/심천</a>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <!--<div class="banner1">
+						  <img src="/images/event/common/lnbAll_pack_@.png" alt="배너명">
+					</div>-->
+                                    </div>
+                                    <!-- // 02 대만/홍콩/마카오   -->
+
+                                    <!-- 03 일본  -->
+                                    <div class="innerWrap n03">
+                                        <div class="theme">
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=C003', '40', 'P14', 'PACK_LNK03');"
+                                                class="btnSty2 cRedLine">일본 긴급모객</a>
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=CFM&majorCategoryCd=C003', '40', 'P14', 'PACK_LNK01');"
+                                                class="btnSty2 cRedLine">일본 99%확정</a>
+                                            <a class="btnSty2 cRedLine"
+                                                href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=C003', '40', 'P14', 'PACK_LNK02');">일본
+                                                땡처리전용</a>
+                                        </div>
+                                        <div class="wrap cl">
+                                            <h3><a href="#none">동경</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ001', '40', 'P11', 'CJ001');">도쿄</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ036', '40', 'P11', 'CJ036');">시즈오카</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">간사이</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ002', '40', 'P11', 'CJ002');">오사카/교토/나라/고베</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">큐슈</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ010', '40', 'P11', 'CJ010');">후쿠오카/벳부/유후인</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ015', '40', 'P11', 'CJ015');">나가사키</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ031', '40', 'P11', 'CJ031');">가고시마</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ032', '40', 'P11', 'CJ032');">미야자키</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ033', '40', 'P11', 'CJ033');">사가/우레시노</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">오키나와</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ005', '40', 'P11', 'CJ005');">오키나와</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ071', '40', 'P11', 'CJ071');">이시가키</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">북해도</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ003', '40', 'P11', 'CJ003');">삿뽀로</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ041', '40', 'P11', 'CJ041');">아사히키와</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ042', '40', 'P11', 'CJ042');">하코다테</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap cl mt50">
+                                            <h3><a href="#none">나고야</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ018', '40', 'P11', 'CJ018');">도야마</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ020', '40', 'P11', 'CJ020');">고마츠/알펜루트</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ036', '40', 'P11', 'CJ036');">시즈오카</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ044', '40', 'P11', 'CJ044');">다카야마</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap mt50">
+                                            <h3><a href="#none">기타지역</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ045', '40', 'P11', 'CJ045');">요나고</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ046', '40', 'P11', 'CJ046');">돗토리</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ047', '40', 'P11', 'CJ047');">다카마츠</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ008', '40', 'P11', 'CJ008');">오카야마/나오시마</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!--<div class="wrap">
+						<h3><a href="#none">일본선박</a></h3>
+					</div>-->
+                                        <!--<div class="banner1">
+						  <img src="/images/event/common/lnbAll_pack_@.png" alt="배너명">
+					</div>-->
+                                    </div>
+                                    <!-- // 03 일본  -->
+
+                                    <!-- 04 남태평양/괌/사이판 -->
+                                    <div class="innerWrap n04 divN32">
+                                        <div class="divFL">
+                                            <div class="theme">
+                                                <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=C004', '40', 'P14', 'PACK_LNK03');"
+                                                    class="btnSty2 cRedLine">남태평양 긴급모객</a>
+                                                <a class="btnSty2 cRedLine"
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=C004', '40', 'P14', 'PACK_LNK02');">남태평양
+                                                    땡처리전용</a>
+                                            </div>
+                                            <div class="wrap">
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO004', '40', 'P11', 'CO004');">팔라우</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=GA003', '40', 'P11', 'GA003');">티니안</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO007', '40', 'P11', 'CO007');">타히티</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO006', '40', 'P11', 'CO006');">뉴칼레도니아</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO005', '40', 'P11', 'CO005');">피지</a>
+                                                </h3>
+                                            </div>
+                                            <div class="wrap">
+                                                <h3><a href="#none">호주</a></h3>
+                                                <ul>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO022', '40', 'P11', 'CO022');">시드니</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO023', '40', 'P11', 'CO023');">시드니/골드코스트</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO024', '40', 'P11', 'CO024');">시드니/포트스테판</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO025', '40', 'P11', 'CO025');">브리즈번</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO026', '40', 'P11', 'CO026');">멜번</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO003', '40', 'P11', 'CO003');">호주/뉴질랜드</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="wrap">
+                                                <h3><a href="#none">뉴질랜드</a></h3>
+                                                <ul>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO027', '40', 'P11', 'CO027');">북섬</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO028', '40', 'P11', 'CO028');">남섬</a>
+                                                    </li>
+                                                    <li><a
+                                                            href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO029', '40', 'P11', 'CO029');">남북섬</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="divFR">
+                                            <div class="theme">
+                                                <a class="btnSty2 cRedLine"
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=C009', '40', 'P14', 'PACK_LNK03');">괌/사이판
+                                                    긴급모객</a>
+                                                <a class="btnSty2 cRedLine"
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=C009', '40', 'P14', 'PACK_LNK02');">땡처리전용</a>
+                                            </div>
+                                            <div class="wrap">
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NG001&cityCd=GA001', '40', 'P11', 'GA001');">괌</a>
+                                                </h3>
+                                                <h3><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NG001&cityCd=GA002', '40', 'P11', 'GA002');">사이판</a>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <!--<div class="banner1">
+						  <img src="/images/event/common/lnbAll_pack_@.png" alt="배너명">
+					</div>-->
+                                    </div>
+                                    <!-- // 04 남태평양/괌/사이판  -->
+
+                                    <!-- 05 유럽/아프리카 -->
+                                    <div class="innerWrap n05">
+                                        <div class="theme">
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=C005', '40', 'P14', 'PACK_LNK03');"
+                                                class="btnSty2 cRedLine">유럽/아프리카 긴급모객</a>
+                                            <a class="btnSty2 cRedLine"
+                                                href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=C005', '40', 'P14', 'PACK_LNK02');">유럽/아프리카
+                                                땡처리전용</a>
+                                        </div>
+                                        <div class="wrap cl">
+                                            <h3><a href="#none">서유럽</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU001', '40', 'P11', 'CU001');">단기(6일~8일)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU021', '40', 'P11', 'CU021');">중기(9일~10일)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU022', '40', 'P11', 'CU022');">장기(11일
+                                                        이상)</a></li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU023', '40', 'P11', 'CU023');">서유럽
+                                                        1~2국</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">동유럽</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU002', '40', 'P11', 'CU002');">단기(7일~8일)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU024', '40', 'P11', 'CU024');">중기(9일~10일)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU025', '40', 'P11', 'CU025');">장기(11일
+                                                        이상)</a></li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU091', '40', 'P11', 'CU091');">동유럽
+                                                        1~2국</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">발칸</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU026', '40', 'P11', 'CU026');">단기(7일~8일)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU027', '40', 'P11', 'CU027');">중기(9일~10일)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU028', '40', 'P11', 'CU028');">장기(11일
+                                                        이상)</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">터키</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=EU004', '40', 'P11', 'EU004');">터키일주</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU029', '40', 'P11', 'CU029');">터키/그리스</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=EU005', '40', 'P11', 'EU005');">스페인</a>
+                                            </h3>
+                                            <h3><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU032', '40', 'P11', 'CU032');">포르투갈</a>
+                                            </h3>
+                                            <h3><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU033', '40', 'P11', 'CU033');">모로코</a>
+                                            </h3>
+                                            <h3><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU032', '40', 'P11', 'CU032');">스페인/포르투갈</a>
+                                            </h3>
+                                        </div>
+                                        <div class="wrap cl mt50">
+                                            <h3><a href="#none">그리스/지중해/중동</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU042', '40', 'P11', 'CU042');">그리스</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU043', '40', 'P11', 'CU043');">이집트</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU044', '40', 'P11', 'CU044');">두바이<br>(아랍에미레이트)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CI005', '40', 'P11', 'CI005');">요르단/이스라엘</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap colsum2 mt50">
+                                            <h3><a href="#none">러시아/북유럽/중앙아시아</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=EU006', '40', 'P11', 'EU006');">러시아
+                                                    </a></li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=EU003', '40', 'P11', 'EU003');">북유럽
+                                                    </a></li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU051', '40', 'P11', 'CU051');">러시아/북유럽
+                                                    </a></li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU054', '40', 'P11', 'CU054');">발트3국
+                                                    </a></li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU055', '40', 'P11', 'CU055');">우즈베키스탄/카자흐스탄/키르키즈스탄</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap colsum2 mt50">
+                                            <h3><a href="#none">아프리카</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NF001&cityCd=CI004', '40', 'P11', 'CI004');">케냐일주</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NF001&cityCd=CI011', '40', 'P11', 'CI011');">3/4개국
+                                                        (7~10일)</a></li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NF001&cityCd=CI012', '40', 'P11', 'CI012');">5/6개국
+                                                        (11~15일)</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- // 05 유럽/아프리카 -->
+
+                                    <!-- 06 미주/중남미 -->
+                                    <div class="innerWrap n06">
+                                        <div class="theme">
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=C006', '40', 'P14', 'PACK_LNK03');"
+                                                class="btnSty2 cRedLine">미주/중남미 긴급모객</a>
+                                            <a class="btnSty2 cRedLine"
+                                                href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=C006', '40', 'P14', 'PACK_LNK02');">미주/중남미
+                                                땡처리전용</a>
+                                        </div>
+                                        <div class="wrap cl">
+                                            <h3><a href="#none">미서부</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS002', '40', 'P11', 'CS002');">로스앤젤레스</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS021', '40', 'P11', 'CS021');">샌프란시스코</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS022', '40', 'P11', 'CS022');">라스베이거스</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">미동부</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS003', '40', 'P11', 'CS003');">뉴욕</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS023', '40', 'P11', 'CS023');">워싱턴</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS027', '40', 'P11', 'CS027');">빅아일랜드</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">하와이</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS001', '40', 'P11', 'CS001');">호놀룰루</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS026', '40', 'P11', 'CS026');">마우이</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS027', '40', 'P11', 'CS027');">빅아일랜드</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h3><a href="#none">캐나다</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS004', '40', 'P11', 'CS004');">밴쿠버</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS028', '40', 'P11', 'CS028');">빅토리아</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS029', '40', 'P11', 'CS029');">캘거리</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS030', '40', 'P11', 'CS030');">토론토(나이아가라)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS031', '40', 'P11', 'CS031');">몬트리올(퀘백)</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS032', '40', 'P11', 'CS032');">휘슬러</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS033', '40', 'P11', 'CS033');">밴프</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap ">
+                                            <h3><a href="#none">중남미</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS071', '40', 'P11', 'CS071');">멕시코</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS006', '40', 'P11', 'CS006');">칸쿤</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS005', '40', 'P11', 'CS005');">브라질</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS041', '40', 'P11', 'CS041');">칠레</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS042', '40', 'P11', 'CS042');">아르헨티나</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS043', '40', 'P11', 'CS043');">페루</a>
+                                                </li>
+                                            </ul>
+                                            <h3><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS025', '40', 'P11', 'CS025');">미주/캐나다</a>
+                                            </h3>
+                                        </div>
+                                        <!--<div class="banner1">
+						  <img src="/images/event/common/lnbAll_pack_@.png" alt="배너명">
+					</div>-->
+                                    </div>
+                                    <!-- // 06 미주/중남미 -->
+
+
+                                    <!-- 07 지방출발 -->
+                                    <div class="innerWrap n07 divN3">
+                                        <div class="theme">
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=URGENT&majorCategoryCd=PUS', '40', 'P14', 'PACK_LNK03');"
+                                                class="btnSty2 cRedLine">지방출발 긴급모객</a>
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=CFM&majorCategoryCd=PUS', '40', 'P14', 'PACK_LNK01');"
+                                                class="btnSty2 cRedLine">지방출발 99%확정</a>
+                                            <a href="javascript:USER_MAIN_LINK('/product/pkg/themeList.do?themeKind=TTANG&majorCategoryCd=PUS', '40', 'P14', 'PACK_LNK02');"
+                                                class="btnSty2 cRedLine">지방출발 땡처리전용</a>
+                                        </div>
+                                        <div class="wrap cl">
+                                            <h2 class="tit">동남아</h2>
+                                            <h3><a href="#none">태국</a></h3>
+                                            <ul>
+                                                <li>
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA001&regionDepYn=Y', '40', 'P31', 'CA001');">방콕/파타야</a>&nbsp;&nbsp;/
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA002&regionDepYn=Y', '40', 'P31', 'CA002');">푸켓</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA001&cityCd=CA003&regionDepYn=Y', '40', 'P31', 'CA003');">치앙마이</a>
+                                                </li>
+                                            </ul>
+                                            <h3><a href="#none">필리핀</a></h3>
+                                            <ul>
+                                                <li>
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=CA006&regionDepYn=Y', '40', 'P31', 'CA006');">세부</a>&nbsp;&nbsp;/
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=CA007&regionDepYn=Y', '40', 'P31', 'CA007');">보라카이</a>&nbsp;&nbsp;/
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA002&cityCd=CA005&regionDepYn=Y', '40', 'P31', 'CA005');">마닐라</a>
+                                                </li>
+                                            </ul>
+                                            <h3><a href="#none">말레이시아</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA005&cityCd=CA031&regionDepYn=Y', '40', 'P31', 'CA031');">코타키나발루</a>
+                                                </li>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA005&cityCd=CA033&regionDepYn=Y', '40', 'P31', 'CA033');">쿠알라룸푸르</a>
+                                                </li>
+                                            </ul>
+                                            <h3><a href="#none">베트남/캄보디아</a></h3>
+                                            <ul>
+                                                <li>
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA034&regionDepYn=Y', '40', 'P31', 'CA034');">다낭</a>&nbsp;&nbsp;/
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA003&cityCd=CA037&regionDepYn=Y', '40', 'P31', 'CA037');">라오스</a>
+                                                </li>
+                                            </ul>
+                                            <h3><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA007&cityCd=CA043&regionDepYn=Y', '40', 'P31', 'CA043');">싱가포르</a>
+                                            </h3>
+                                            <h3><a href="#none">인도네시아</a></h3>
+                                            <ul>
+                                                <li><a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NA004&cityCd=CA012&regionDepYn=Y', '40', 'P31', 'CA012');">발리</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="wrap">
+                                            <h2 class="tit"><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=ND001&cityCd=CC005&regionDepYn=Y', '40', 'P31', 'CC005');">대만/홍콩/마카오</a>
+                                            </h2>
+                                            <h2 class="tit">중국</h2>
+                                            <h3>
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC001&regionDepYn=Y', '40', 'P31', 'CC001');">북경</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC002&regionDepYn=Y', '40', 'P31', 'CC002');">상해</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC007&regionDepYn=Y', '40', 'P31', 'CC007');">황산</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC006&regionDepYn=Y', '40', 'P31', 'CC006');">곤명</a>
+                                                <br>
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC003&regionDepYn=Y', '40', 'P31', 'CC003');">장가계</a>
+                                                &nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC034&regionDepYn=Y', '40', 'P31', 'CC034');">백두산</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CP015&regionDepYn=Y', '40', 'P31', 'CP015');">계림</a>
+                                                <br>
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC013&regionDepYn=Y', '40', 'P31', 'CC013');">태항산</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC012&regionDepYn=Y', '40', 'P31', 'CC012');">서안</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC010&regionDepYn=Y', '40', 'P31', 'CC010');">청도</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NC001&cityCd=CC014&regionDepYn=Y', '40', 'P31', 'CC014');">하이난</a>
+                                            </h3>
+                                            <h2 class="tit">일본</h2>
+                                            <h3>
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ001&regionDepYn=Y', '40', 'P31', 'CJ001');">도쿄</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ002&regionDepYn=Y', '40', 'P31', 'CJ002');">오사카</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ010&regionDepYn=Y', '40', 'P31', 'CJ010');">후쿠오카/벳부/유후인</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ003&regionDepYn=Y', '40', 'P31', 'CJ003');">북해도</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ005&regionDepYn=Y', '40', 'P31', 'CJ005');">오키나와</a>/<br>
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NJ001&cityCd=CJ020&regionDepYn=Y', '40', 'P31', 'CJ020');">도야마/알펜루트</a>
+                                            </h3>
+                                            <h2 class="tit"><a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NG001&cityCd=GA001&regionDepYn=Y', '40', 'P31', 'GA001');">괌/사이판</a>
+                                            </h2>
+                                            <h2 class="tit">남태평양</h2>
+                                            <h3>
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO022&regionDepYn=Y', '40', 'P31', 'CO022');">호주</a>&nbsp;&nbsp;/
+                                                <a
+                                                    href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NO001&cityCd=CO027&regionDepYn=Y', '40', 'P31', 'CO027');">뉴질랜드</a>
+                                            </h3>
+                                        </div>
+                                        <div class="wrap">
+                                            <h2 class="tit">미주</h2>
+                                            <ul>
+                                                <li>
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NS001&cityCd=CS001&regionDepYn=Y', '40', 'P31', 'CS002');">미주전체</a>&nbsp;&nbsp;/
+                                                </li>
+                                            </ul>
+                                            <h2 class="tit">유럽</h2>
+                                            <ul>
+                                                <li>
+                                                    <a
+                                                        href="javascript:USER_MAIN_LINK('/product/pkg/goodsList.do?natCd=NU001&cityCd=CU001&regionDepYn=Y', '40', 'P31', 'CU001');">유럽전체</a>&nbsp;&nbsp;/
+                                                </li>
+                                            </ul>
+
+                                            <!--<span class="btnRound cBlue sMid mt50">광주출발</span>					
+						<h2 class="tit"><a href="#none">동남아</a></h2>								
+						<h2 class="tit"><a href="#none">중국</a></h2>-->
+
+                                        </div>
+                                        <!--<div class="wrap">						
+						<span class="btnRound cBlue sMid">청주출발</span>				
+						<h2 class="tit"><a href="#none">동남아</a></h2>								
+						<h2 class="tit"><a href="#none">중국</a></h2>		
+						<h2 class="tit"><a href="#none">일본</a></h2>		
+					</div>-->
+                                    </div>
+                                    <!-- // 07 지방출발 -->
+                                </div>
+                                <a href="#none" class="close txtImg">close</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- GNB 영역의 상품검색 팝업 영역 -->
+                    <div class="layerGnbGoodsSearch" style="display:none;"></div>
+
+                    <script type="text/javascript">
+
+                        // GNB 의 상품검색 팝업을 띄운다.
+                        function openGnbGoodsSearch() {
+                            var layerGnbGoodsSearch = $(".layerGnbGoodsSearch");
+
+                            if (layerGnbGoodsSearch.html() == "") {
+                                $.ajax({
+                                    type: "GET",
+                                    url: "/product/pkg/popup/gnbGoodsSearch.do",
+                                    dataType: "html",
+                                    success: function (data) {
+                                        layerGnbGoodsSearch.html(data);
+
+                                        layerGnbGoodsSearch.bPopup();
+                                    },
+                                    error: function (xhr, status, error) {
+                                        alert("잠시 후 다시 이용해 주세요.");
+                                    }
+                                });
+
+                            } else {
+                                layerGnbGoodsSearch.bPopup();
+                            }
+                        }
+                    </script>
+
+
+
+                    <script type="text/javascript">
+                        /* lnb > 전체메뉴  */
+                        $(function () {
+                            $('.lnb .lnbAll').click(function () {
+                                $('.lnbMenuAllCont').slideToggle();
+                                $(this).toggleClass('on');
+                            });
+                        });
+                    </script>
+                    <script type="text/javascript">
+                        /* lnb > 메뉴 > hover  */
+                        $(function () {
+                            var $menuItem = $('.lnbAllWrap .menu li a');
+                            var $contents = $('.lnbAllWrap .cont .innerWrap')
+                            var selected;
+                            $menuItem.on('mouseenter', function () { select(this); });
+                            function select(item) {
+                                var $item = $(item);
+                                $menuItem.parent().removeClass('on');
+                                $item.parent().addClass('on');
+                                selected = item;
+                                $contents.hide();
+                                showContentsAt($menuItem.index($item));
+                            }
+                            function showContentsAt(index) {
+                                $contents.eq(index).fadeIn(100);
+                            }
+                            select($menuItem.get(0));
+                        });
+                    </script>
+                    <!-- // lnb > 전체보기 -->
+                    <!-- 2차 메뉴 -->
+
+                    <form name="searchForm" method="get">
+                        <input type="hidden" name="themeKind" value="URGENT">
+                        <input type="hidden" id="sSearchDate" name="sSearchDate" value="">
+                        <input type="hidden" id="eSearchDate" name="eSearchDate" value="">
+                        <input type="hidden" id="order" name="order" value="">
+                        <input type="hidden" id="page" name="page">
+
+                        <div class="mainSection">
+
+                            <div class="h2Wrap">
+                                <h2><span class="fc_red1">긴급</span>모객 </h2>
+                            </div>
+                            <p class="h1_underSubtit">
+                                출발임박, 모객부족, 특가요금 상품을 긴급하게 모객해야하는 상품입니다.<br>
+                                선착순 마감 상품으로 예약상태가 빠르게 변하오니 예약접수후에 담당자 확인 받으시기 바랍니다.
+                            </p>
+
+                            <div class="box_bgBd airListB_srch mt15 myrsvListBox">
+
+                                <p class="subtit bd" style="color:#1a1a1a;padding-bottom:15px;">도시카테고리</p>
+                                <div class="sel ie7Layer1">
+
+                                    <span class="selS210">
+                                        <select title="지역선택 1" class="inpSelect" id="majorCategoryCd"
+                                            name="majorCategoryCd">
+                                            <option value="">전체</option>
+                                            <option value="C001" selected="selected">동남아시아</option>
+                                            <option value="C002">중국/몽골</option>
+                                            <option value="C011">대만/홍콩/마카오</option>
+                                            <option value="C003">일본</option>
+                                            <option value="C004">남태평양</option>
+                                            <option value="C009">괌/사이판</option>
+                                            <option value="C005">유럽</option>
+                                            <option value="C006">미주</option>
+                                            <option value="C010">아프리카</option>
+                                            <option value="C012">국내</option>
+                                            <option value="PUS">지방출발</option>
+                                        </select>
+                                    </span>
+                                    <span class="selS280">
+                                        <select title="지역선택 2" class="inpSelect" id="cityCd" name="cityCd">
+                                            <option value="">전체</option>
+                                            <option value="CRUIS">[크루즈]크루즈</option>
+                                            <option value="CA001">[태국]방콕/파타야</option>
+                                            <option value="CA002">[태국]푸켓</option>
+                                            <option value="CA003">[태국]치앙마이</option>
+                                            <option value="CA010">[태국]코사무이</option>
+                                            <option value="CA051">[태국]크라비</option>
+                                            <option value="CA004">[태국]후아힌</option>
+                                            <option value="CU8">[태국]까오락</option>
+                                            <option value="CA050">[태국]홍콩/코사무이</option>
+                                            <option value="CA005">[필리핀]마닐라</option>
+                                            <option value="CA006">[필리핀]세부</option>
+                                            <option value="CA007">[필리핀]보라카이</option>
+                                            <option value="CA008">[필리핀]팔라완</option>
+                                            <option value="CA009">[필리핀]클락</option>
+                                            <option value="TAG">[필리핀]보홀</option>
+                                            <option value="CA012">[인도네시아]발리</option>
+                                            <option value="CA013">[인도네시아]자카르타</option>
+                                            <option value="CA074">[인도네시아]족자카르타</option>
+                                            <option value="CA045">[인도네시아]룸복</option>
+                                            <option value="CA031">[말레이시아]코타키나발루</option>
+                                            <option value="CA033">[말레이시아]쿠알라룸푸르</option>
+                                            <option value="CA032">[말레이시아]랑카위</option>
+                                            <option value="CA072">[말레이시아]채러팅</option>
+                                            <option value="CA073">[말레이시아]조호바루</option>
+                                            <option value="CA039">[말레이시아]콴탄</option>
+                                            <option value="PEN">[말레이시아]페낭</option>
+                                            <option value="CA043">[싱가포르]싱가포르</option>
+                                            <option value="CA041">[싱가포르]빈탄</option>
+                                            <option value="CA044">[싱가포르]바탐</option>
+                                            <option value="CA015">[몰디브]몰디브</option>
+                                            <option value="BWN">[브루나이]브루나이</option>
+                                            <option value="CA019">[베트남]하노이</option>
+                                            <option value="CA034">[베트남]다낭</option>
+                                            <option value="CA021">[베트남]호치민</option>
+                                            <option value="퀴논">[베트남]퀴논</option>
+                                            <option value="CA035">[베트남]달랏</option>
+                                            <option value="CA076">[베트남]나트랑</option>
+                                            <option value="PQC">[베트남]푸꾸옥</option>
+                                            <option value="CA020">[캄보디아]씨엠립(앙코르와트)</option>
+                                            <option value="CA037">[라오스]라오스</option>
+                                            <option value="CA022">[베트남/캄보디아]베트남/캄보디아</option>
+                                            <option value="CA038">[미얀마]미얀마</option>
+                                            <option value="CA011">[태국/캄보디아]태국/캄보디아</option>
+                                            <option value="CI001">[인도및특수지역]인도</option>
+                                            <option value="CI002">[인도및특수지역]네팔</option>
+                                            <option value="CI003">[인도및특수지역]스리랑카</option>
+                                            <option value="PBH">[인도및특수지역]부탄</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="ritBbtmBtn" style="bottom:20px;"><a class="btnSty1 cBlue wide" href="#none"
+                                        onclick="onSearchByCategory(); return false;">검색하기</a></div>
+                            </div>
+
+                            <div class="resultPagingCnt btBd">
+                                <p class="bd">
+                                    <span class="fc_blue1">
+                                        동남아시아 </span>
+                                    카테고리에 총 <span class="fc_red1">1,914</span>개의 상품이 등록되어 있습니다.
+                                </p>
+                            </div>
+
+                            <div class="box_reSrch listThemePack mt10">
+                                <div class="ezmark rdo">
+                                    <span class="rdoWrap">
+                                        <input type="radio" id="tmp_rdo01a" name="dateRangeKind" value="all"
+                                            checked="checked" /><label for="tmp_rdo01a">기간전체</label>
+                                    </span>
+                                    <span class="rdoWrap">
+                                        <input type="radio" id="tmp_rdo01b" name="dateRangeKind" value="part" /><label
+                                            for="tmp_rdo01b">기간설정</label>
+                                    </span>
+                                    <div class="dateSet_wrap">
+                                        <div class="inpStyWrap">
+                                            <a href="#none" class="inp date js_inplayer_btn" id="start_calendar_bt">
+                                                <span class="ico"></span>
+                                                <span class="txt" id="start_date">&nbsp;</span>
+                                            </a>
+
+                                            <!--  시작일 달력 영역 -->
+                                            <div class="inplayer_wrap date_n1" style="display:none" id="start_calendar">
+                                            </div>
+
+                                        </div>
+                                        ~
+                                        <div class="inpStyWrap">
+                                            <a href="#none" class="inp date js_inplayer_btn" id="end_calendar_bt">
+                                                <span class="ico"></span>
+                                                <span class="txt" id="end_date">&nbsp;</span>
+                                            </a>
+
+                                            <!--  종료일 달력 영역 -->
+                                            <div class="inplayer_wrap date_n1" style="display:none" id="end_calendar">
+                                            </div>
+
+                                        </div>
+                                    </div><!-- // dateSet_wrap -->
+                                    <span class="btn"><a href="#none" class="btnSty1 sMdl cBlue"
+                                            onclick="onSearchByDate(); return false;">검색하기</a></span>
+                                </div>
+                            </div>
+
+                            <div class="clear pt20">
+                                <div class="fl">
+                                    <!-- p style="margin-top:12px;">땡처리닷컴은 여행사들의 집합상품으로 구성되어 있어 예약상태가 빠르게 변경되고 있습니다.</p -->
+                                    <span class="selS130"
+                                        style="display:inline-block; *display:inline;zoom:1; vertical-align:middle;">
+                                        <select title="리스트 개수 선택" class="inpSelect" id="airCd" name="airCd">
+                                            <option value="" selected="selected">항공사전체</option>
+                                            <option value="KE">대한항공</option>
+                                            <option value="QV">라오항공</option>
+                                            <option value="VN">베트남항공 </option>
+                                            <option value="VJ">비엣젯항공</option>
+                                            <option value="5J">세부퍼시픽</option>
+                                            <option value="OZ">아시아나항공</option>
+                                            <option value="BX">에어부산</option>
+                                            <option value="RS">에어서울</option>
+                                            <option value="Z2">에어아시아 제스트</option>
+                                            <option value="YP">에어프레미아</option>
+                                            <option value="7C">제주항공</option>
+                                            <option value="LJ">진에어</option>
+                                            <option value="XJ">타이에어아시아엑스</option>
+                                            <option value="TW">티웨이항공</option>
+                                            <option value="PR">필리핀항공</option>
+                                        </select>
+                                    </span>
+                                    <span class="selS130"
+                                        style="display:inline-block; *display:inline;zoom:1; vertical-align:middle;">
+                                        <select title="리스트 개수 선택" class="inpSelect" id="strCity" name="strCity">
+                                            <option value="" selected="selected">출발지전체</option>
+                                            <option value="ICN">인천</option>
+                                            <option value="CJJ">청주</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fr">
+                                    <div class="tabLigline cBlue"
+                                        style="display:inline-block;  *display:inline;zoom:1; vertical-align:middle;">
+                                        <ul>
+                                            <li class="order_opt on" order=""
+                                                onclick="onSetOrder($(this)); return false;"><a href="#none">출발일빠른순</a>
+                                            </li>
+                                            <li class="order_opt " order="SALE_ADT_AMT"
+                                                onclick="onSetOrder($(this)); return false;"><a href="#none">낮은가격순</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span class="selS130"
+                                        style="display:inline-block;  *display:inline;zoom:1; vertical-align:middle;">
+                                        <select title="리스트 개수 선택" class="inpSelect" id="scale" name="scale">
+                                            <option value="20" selected="selected">20개씩보기</option>
+                                            <option value="40">40개씩보기</option>
+                                            <option value="60">60개씩보기</option>
+                                            <option value="80">70개씩보기</option>
+                                            <option value="100">100개씩보기</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <!-- comment(확인후 삭제) 151119 : table > 출발지, 항공사  sorting은 다음에 다시 추가할게요.  -->
+                            <table class="tblListB noBd line2 mt10">
+                                <caption>항공상품 리스트</caption>
+                                <colgroup>
+                                    <col style="width:115px">
+                                    <col style="width:72px">
+                                    <col style="width:103px">
+                                    <col style="width:93px">
+                                    <col style="width:60px">
+                                    <col style="width:*">
+                                    <col style="width:103px">
+                                    <col style="width:111px">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">출발일/도착일</th>
+                                        <th scope="col">출발지</th>
+                                        <th scope="col">목적지</th>
+                                        <th scope="col">항공사</th>
+                                        <th scope="col">일정</th>
+                                        <th scope="col">상품명</th>
+                                        <th scope="col">가격</th>
+                                        <th scope="col" class="last">예약상태</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/04(화) 08:10</p>
+                                            <p class="fc_blk3">04/07(금) 18:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박4일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="37204"
+                                                pnum="APP2218-230404TW00" onclick="MAIN('goodsInfo', $(this))">[보라카이] TW
+                                                3박4일 - #픽업샌딩#해양스포츠3종SET#카사필라 패키지</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">659,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 659,000원</li>
+                                                            <li>유류할증료: 0원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="37204"
+                                                pnum="APP2218-230404TW00" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/04(화) 19:35</p>
+                                            <p class="fc_blk3">04/08(토) 06:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="37204"
+                                                pnum="APP2218-230404TW01" onclick="MAIN('goodsInfo', $(this))">TW 3박5일
+                                                [보라카이X창립기념]#픽업샌딩#해양스포츠3종SET#카사필라</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">619,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 619,000원</li>
+                                                            <li>유류할증료: 0원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="37204"
+                                                pnum="APP2218-230404TW01" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/03(월) 19:35</p>
+                                            <p class="fc_blk3">04/07(금) 06:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="22732"
+                                                pnum="APP1855-230403TW00" onclick="MAIN('goodsInfo', $(this))">TW 3박5일
+                                                [보라카이/할인챌린지] 헤난 라군 룸UP 세미패키지</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">559,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 559,000원</li>
+                                                            <li>유류할증료: 0원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="22732"
+                                                pnum="APP1855-230403TW00" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/04(화) 08:10</p>
+                                            <p class="fc_blk3">04/07(금) 18:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박4일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="606" pnum="67538430"
+                                                onclick="MAIN('goodsInfo', $(this))">[비치근접/동급최강] 보라카이 / 라까멜라 신관 프리미어
+                                                디럭스룸 3박4일</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">659,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 659,000원</li>
+                                                            <li>유류할증료: 82,000원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="606" pnum="67538430"
+                                                onclick="MAIN('goodsInfo', $(this))">예약하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/06(목) 17:10</p>
+                                            <p class="fc_blk3">04/10(월) 05:50</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[태국]</p>
+                                            <p class="shortCut">방콕/파타야</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/YP.png"></p>
+                                            <p class="shortCut">에어프레미아</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="45425"
+                                                pnum="ATP1109-230406YP00" onclick="MAIN('goodsInfo', $(this))">[방콕&파타야]
+                                                베이욕뷔페+어메이징 돌핀쇼 포함 가성비UP! 특급호텔 5일</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">479,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 479,000원</li>
+                                                            <li>유류할증료: 101,800원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="45425"
+                                                pnum="ATP1109-230406YP00" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/04(화) 08:10</p>
+                                            <p class="fc_blk3">04/07(금) 18:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박4일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="606" pnum="67538339"
+                                                onclick="MAIN('goodsInfo', $(this))">
+                                                [프라이빗비치] 보라카이 / 벨몬트 디럭스룸 3박4일
+                                            </a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">669,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 669,000원</li>
+                                                            <li>유류할증료: 82,000원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="606" pnum="67538339"
+                                                onclick="MAIN('goodsInfo', $(this))">예약하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/06(목) 19:35</p>
+                                            <p class="fc_blk3">04/10(월) 06:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="37204"
+                                                pnum="APP2218-230406TW01" onclick="MAIN('goodsInfo', $(this))">TW 3박5일
+                                                [보라카이X창립기념]#픽업샌딩#해양스포츠3종SET#카사필라</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">509,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 509,000원</li>
+                                                            <li>유류할증료: 0원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="37204"
+                                                pnum="APP2218-230406TW01" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/03(월) 19:35</p>
+                                            <p class="fc_blk3">04/07(금) 06:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="37204"
+                                                pnum="APP2218-230403TW01" onclick="MAIN('goodsInfo', $(this))">TW 3박5일
+                                                [보라카이X창립기념]#픽업샌딩#해양스포츠3종SET#카사필라</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">449,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 449,000원</li>
+                                                            <li>유류할증료: 0원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="37204"
+                                                pnum="APP2218-230403TW01" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/04(화) 08:10</p>
+                                            <p class="fc_blk3">04/07(금) 18:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박4일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="606" pnum="67538522"
+                                                onclick="MAIN('goodsInfo', $(this))">
+                                                [비치근접/가성비갑] 보라카이 / 카사필라 디럭스룸 3박4일
+                                            </a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">619,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 619,000원</li>
+                                                            <li>유류할증료: 82,000원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="606" pnum="67538522"
+                                                onclick="MAIN('goodsInfo', $(this))">예약하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/06(목) 06:20</p>
+                                            <p class="fc_blk3">04/10(월) 04:20</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[베트남]</p>
+                                            <p class="shortCut">나트랑</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/VN.png"></p>
+                                            <p class="shortCut">베트남항공 </p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="1182" pnum="67363967"
+                                                onclick="MAIN('goodsInfo', $(this))">
+                                                ★출발확정★[휴양형/1일자유] 나트랑 3박5일 [4성호텔]
+                                            </a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">657,200원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 657,200원</li>
+                                                            <li>유류할증료: 151,200원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="1182" pnum="67363967"
+                                                onclick="MAIN('goodsInfo', $(this))">예약하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/05(수) 21:35</p>
+                                            <p class="fc_blk3">04/09(일) 08:40</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[베트남]</p>
+                                            <p class="shortCut">다낭</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="50716"
+                                                pnum="B27A230405TW011" onclick="MAIN('goodsInfo', $(this))">*#■출발확정#특가#
+                                                선착순 단6명 [TWㅣ3박5일][신라모노그램 다낭][프리미엄 미식투어_6大맛집디저트][1DAY 호이안 완전정복+오전자유시간]
+                                                다낭,호이안 ▶논누억 프라이빗비치 보유</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">769,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 769,000원</li>
+                                                            <li>유류할증료: 107,000원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="50716"
+                                                pnum="B27A230405TW011" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/04(화) 19:35</p>
+                                            <p class="fc_blk3">04/08(토) 06:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="22732"
+                                                pnum="APP1855-230404TW00" onclick="MAIN('goodsInfo', $(this))">TW 3박5일
+                                                [보라카이/할인챌린지] 헤난 라군 룸UP 세미패키지</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">729,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 729,000원</li>
+                                                            <li>유류할증료: 0원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="22732"
+                                                pnum="APP1855-230404TW00" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/06(목) 20:15</p>
+                                            <p class="fc_blk3">04/10(월) 06:55</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[베트남]</p>
+                                            <p class="shortCut">다낭</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="50716"
+                                                pnum="B27A230406TW031"
+                                                onclick="MAIN('goodsInfo', $(this))">★출발확정★[TW증편ㅣ3박5일][신라모노그램 다낭][프리미엄
+                                                미식투어_6大맛집디저트][1DAY 호이안 완전정복+오전자유시간] 다낭,호이안 ▶논누억 프라이빗비치 보유</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">719,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 719,000원</li>
+                                                            <li>유류할증료: 107,000원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="50716"
+                                                pnum="B27A230406TW031" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/06(목) 18:20</p>
+                                            <p class="fc_blk3">04/10(월) 06:40</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[태국]</p>
+                                            <p class="shortCut">치앙마이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/KE.png"></p>
+                                            <p class="shortCut">대한항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="26311"
+                                                pnum="ATP5003-230406KE00"
+                                                onclick="MAIN('goodsInfo', $(this))">[치앙마이/치앙라이]핫플레이스 골든트라이앵글 관광 5일</a>
+                                        </td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">789,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 789,000원</li>
+                                                            <li>유류할증료: 120,000원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="26311"
+                                                pnum="ATP5003-230406KE00" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/06(목) 06:20</p>
+                                            <p class="fc_blk3">04/10(월) 04:30</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[베트남]</p>
+                                            <p class="shortCut">나트랑</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/VN.png"></p>
+                                            <p class="shortCut">베트남항공 </p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="1182" pnum="67364038"
+                                                onclick="MAIN('goodsInfo', $(this))">★출발확정★[휴양형/1일자유] 나트랑 3박5일
+                                                [5성호텔]</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">687,200원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 687,200원</li>
+                                                            <li>유류할증료: 151,200원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="1182" pnum="67364038"
+                                                onclick="MAIN('goodsInfo', $(this))">예약하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/05(수) 19:35</p>
+                                            <p class="fc_blk3">04/09(일) 06:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="37204"
+                                                pnum="APP2218-230405TW01" onclick="MAIN('goodsInfo', $(this))">TW 3박5일
+                                                [보라카이X창립기념]#픽업샌딩#해양스포츠3종SET#카사필라</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">389,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 389,000원</li>
+                                                            <li>유류할증료: 0원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="37204"
+                                                pnum="APP2218-230405TW01" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/05(수) 15:30</p>
+                                            <p class="fc_blk3">04/09(일) 06:40</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[태국]</p>
+                                            <p class="shortCut">치앙마이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/KE.png"></p>
+                                            <p class="shortCut">대한항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="26311"
+                                                pnum="ATP5003-230405KE00"
+                                                onclick="MAIN('goodsInfo', $(this))">[치앙마이/치앙라이]핫플레이스 골든트라이앵글 관광 5일</a>
+                                        </td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">769,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 769,000원</li>
+                                                            <li>유류할증료: 120,000원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="26311"
+                                                pnum="ATP5003-230405KE00" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/05(수) 20:25</p>
+                                            <p class="fc_blk3">04/09(일) 07:05</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">세부</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/LJ.png"></p>
+                                            <p class="shortCut">진에어</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="619" pnum="70195216"
+                                                onclick="MAIN('goodsInfo', $(this))">
+                                                [가족결합할인][세부 제이파크 아일랜드] 세부스윗(2베드룸)가든뷰룸+하프보드 3박5일 [4인기준]
+                                            </a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">929,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 929,000원</li>
+                                                            <li>유류할증료: 114,400원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="619" pnum="70195216"
+                                                onclick="MAIN('goodsInfo', $(this))">예약하기</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/05(수) 08:10</p>
+                                            <p class="fc_blk3">04/08(토) 18:00</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[필리핀]</p>
+                                            <p class="shortCut">보라카이</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/TW.png"></p>
+                                            <p class="shortCut">티웨이항공</p>
+                                        </td>
+                                        <td>3박4일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="37204"
+                                                pnum="APP2218-230405TW00" onclick="MAIN('goodsInfo', $(this))">[보라카이] TW
+                                                3박4일 - #픽업샌딩#해양스포츠3종SET#카사필라 패키지</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">539,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 539,000원</li>
+                                                            <li>유류할증료: 0원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="37204"
+                                                pnum="APP2218-230405TW00" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="bd">04/05(수) 18:45</p>
+                                            <p class="fc_blk3">04/09(일) 05:40</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">인천</p>
+                                        </td>
+                                        <td>
+                                            <p class="shortCut">[베트남]</p>
+                                            <p class="shortCut">다낭</p>
+                                        </td>
+                                        <td class="line2 airlogo">
+                                            <p><img alt="" src="/images/common/airlineLogo/OZ.png"></p>
+                                            <p class="shortCut">아시아나항공</p>
+                                        </td>
+                                        <td>3박5일</td>
+                                        <td class="al"><a href="#none" class="shortCut" ddId="50716"
+                                                pnum="B27A230405OZ021"
+                                                onclick="MAIN('goodsInfo', $(this))">*#★출발확정★[OZ│3박5일][신라모노그램 다낭][프리미엄
+                                                미식투어_6大맛집디저트][1DAY 호이안 완전정복+오전자유시간] 다낭,호이안 ▶논누억 프라이빗비치 보유</a></td>
+                                        <td class="price">
+                                            <a href="#none" class="js_tooltip_btn">1,189,000원</a>
+                                            <div class="tooltip top">
+                                                <div class="tooltipInner" style="display:none">
+                                                    <div class="toolAirPrice">
+                                                        <p>[요금포함내역]</p>
+                                                        <ul>
+                                                            <li>기본운임: 1,189,000원</li>
+                                                            <li>유류할증료: 133,000원 </li>
+                                                            <li>제세공과금: 0원</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="arr"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="#none" class="btnSty1 cRed sMid" ddId="50716"
+                                                pnum="B27A230405OZ021" onclick="MAIN('goodsInfo', $(this))">예약하기</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <script type="text/javascript">
+                                /* 테이블 내 요금 mouseover 시 툴팁 show */
+                                $(function () {
+                                    $(".js_tooltip_btn").mouseover(function () {
+                                        $('.tooltip .tooltipInner').hide();
+                                        $(this).parent().find(".tooltip .tooltipInner").show();
+                                    });
+                                    $("td.price").mouseout(function () {
+                                        $('.tooltip .tooltipInner').hide();
+                                    });
+                                });
+                            </script>
+
+                            <div class="pageSty1 pt20">
+
+
+
+                                <a href="javascript:" page="1" onclick="MAIN('search',$(this));" class="num on">1</a>
+                                <a href="javascript:" page="2" onclick="MAIN('search',$(this));" class="num ">2</a>
+                                <a href="javascript:" page="3" onclick="MAIN('search',$(this));" class="num ">3</a>
+                                <a href="javascript:" page="4" onclick="MAIN('search',$(this));" class="num ">4</a>
+                                <a href="javascript:" page="5" onclick="MAIN('search',$(this));" class="num ">5</a>
+                                <a href="javascript:" page="6" onclick="MAIN('search',$(this));" class="num ">6</a>
+
+                                <span class="num">...</span>
+                                <a href="javascript:" page="96" onclick="MAIN('search',$(this));" class="num">96</a>
+
+                                <a href="javascript:" page="7" onclick="MAIN('search',$(this));"
+                                    class="btn btn_next"><span>Next</span></a>
+                            </div>
+
+                        </div>
+                    </form>
+
+
+                    <script type="text/javascript">
+                        // 기간 시작일 달력
+                        var startCal = objCal.getCalendar(3);
+
+                        // 기간 종료일 달력
+                        var endCal = objCal.getCalendar(3);
+
+                        // 시작 달력의 날짜가 선택 되는 경우 호출되는 callback 함수
+                        var onSelectedStartDay = function (selectDate) {
+                            $("#sSearchDate").val(selectDate);
+
+                            var startDate = selectDate.substring(0, 4) + "." + selectDate.substring(4, 6) + "." + selectDate.substring(6);
+                            $("#start_date").html(startDate);
+
+                            $(".js_inplayer_btn").parent().removeClass('on');
+                        }
+
+                        // 종료 달력의 날짜가 선택 되는 경우 호출되는 callback 함수
+                        var onSelectedEndDay = function (selectDate) {
+                            $("#eSearchDate").val(selectDate);
+
+                            var endDate = selectDate.substring(0, 4) + "." + selectDate.substring(4, 6) + "." + selectDate.substring(6);
+                            $("#end_date").html(endDate);
+
+                            $(".js_inplayer_btn").parent().removeClass('on');
+                        }
+
+                        //****************************************//
+                        //*** 이곳에 자바스크립를 작성하세요! ***********//
+                        //****************************************//
+                        //* 화면이 최초 로드될 때 호출되는 함수 *//
+                        $(document).ready(function () {
+
+                            // 휴일 목록
+                            var holidayList = "20230301|삼일절,20230501|근로자의날,20230505|어린이날,20230527|석가탄신일,20230606|현충일,20230815|광복절,20230928|추석연휴,20230929|추석,20230930|추석연휴,20231003|개천절,20231009|한글절,20231225|성탄절";
+
+                            // 시작일 달력 초기화
+                            startCal.init(
+                                "start_calendar",
+                                "startCal",
+                                "20230330",
+                                "",
+                                holidayList,
+                                true,
+                                onSelectedStartDay
+                            );
+
+                            // 종료일 달력 초기화
+                            endCal.init(
+                                "end_calendar",
+                                "endCal",
+                                "20230330",
+                                "",
+                                holidayList,
+                                true,
+                                onSelectedEndDay
+                            );
+
+                            // 기간 시작일
+                            $("#start_calendar_bt").click(function () {
+                                if ($(":radio[name='dateRangeKind']:checked").val() == "all") {
+                                    return false;
+                                }
+                                $('.inplayer_wrap').hide();
+                                $(".js_inplayer_btn").parent().removeClass('on');
+                                $(this).siblings(".inplayer_wrap").slideToggle();
+                                $(this).parent().addClass('on');
+                                return false;
+                            });
+
+                            // 기간 종료일
+                            $("#end_calendar_bt").click(function () {
+                                if ($(":radio[name='dateRangeKind']:checked").val() == "all") {
+                                    return false;
+                                }
+                                $('.inplayer_wrap').hide();
+                                $(".js_inplayer_btn").parent().removeClass('on');
+                                $(this).siblings(".inplayer_wrap").slideToggle();
+                                $(this).parent().addClass('on');
+                                return false;
+                            });
+
+                            // 달력 영역 밖을 클릭했을 때 달력 닫기
+                            $(document).click(function (e) {
+                                $(".inplayer_wrap").each(function () {
+                                    var inplayer = $(this);
+
+                                    if (inplayer.css("display") != "none" &&
+                                        !inplayer.is(e.target) && inplayer.has(e.target).length == 0 &&
+                                        $(e.target).attr("close") != "no") {
+
+                                        $(".inplayer_wrap").hide();
+                                        $(".js_inplayer_btn").parent().removeClass('on');
+                                    }
+                                });
+                            });
+
+                            // 지역 선택
+                            $("#majorCategoryCd").change(function () {
+                                MAIN("cityList");
+                            });
+
+                            // 검색 기간 종류 선택
+                            $("input[name=dateRangeKind]").change(function () {
+                                var dateRangeKind = $(this).val();
+
+                                if (dateRangeKind == "all") {
+                                    $("#sSearchDate").val("");
+                                    $("#eSearchDate").val("");
+
+                                    $("#start_date").html("&nbsp;");
+                                    $("#end_date").html("&nbsp;");
+                                }
+                            });
+
+                            // 항공사 필터 선택
+                            $("#airCd").change(function () {
+                                MAIN("search");
+                            });
+
+                            // 출발지 필터 선택
+                            $("#strCity").change(function () {
+                                MAIN("search");
+                            });
+
+                            // XX개씩보기
+                            $("#scale").change(function () {
+                                MAIN("search");
+                            });
+                        });
+
+
+                        // 도시 카테고리에 의한 검색
+                        function onSearchByCategory() {
+                            $("#sSearchDate").val("");
+                            $("#eSearchDate").val("");
+                            $("#airCd").val("");
+                            $("#strCity").val("");
+
+                            MAIN("searchByCategory");
+                        }
+
+
+                        // 기간 검색
+                        function onSearchByDate() {
+                            $("#airCd").val("");
+                            $("#strCity").val("");
+
+                            MAIN("search");
+                        }
+
+
+                        // 가격순 정렬
+                        function onSetOrder(opt) {
+                            var order = opt.attr("order");
+
+                            $("#order").val(order);
+
+                            $(".order_opt").each(function () {
+                                $(this).attr("class", "order_opt");
+                            });
+
+                            opt.attr("class", "order_opt on");
+
+                            MAIN("search");
+                        }
+
+
+                        //* MAIN 기본 함수 *//
+                        function MAIN(args, event) {
+                            if (!ISVALID(args)) return;
+
+                            switch (args) {
+                                // 마스터 상품 검색
+                                case "searchByCategory":
+                                case "search":
+                                    objInfo.jqueryLoading.search(true);
+                                    var d = document.searchForm;
+                                    if (d.majorCategoryCd.value == "") {
+                                        alert("지역을 선택해 주세요.");
+                                        d.majorCategoryCd.focus();
+                                        return;
+                                    }
+                                    objInfo.jqueryLoading.search(true);
+                                    d.page.value = (event != null) ? event.attr("page") : 1;
+
+                                    d.action = "./themeList.do";
+                                    d.submit();
+
+                                    break;
+
+                                // 도시 목록 조회
+                                case "cityList":
+                                    $("#cityCd option[value != '']").remove();
+
+                                    var majorCategoryCd = $("#majorCategoryCd option:selected").val();
+
+                                    if (majorCategoryCd != "") {
+                                        var param = "majorCategoryCd=" + majorCategoryCd + "&salesGbnFlag=T";
+
+                                        $.ajax({
+                                            type: "GET",
+                                            url: "/product/common/getCityListInMajor.do",
+                                            data: param,
+                                            dataType: "JSON",
+                                            success: function (data) {
+                                                if (data.cityList != null) {
+                                                    for (var i = 0; i < data.cityList.length; i++) {
+                                                        $("#cityCd option:eq(" + i + ")").after("<option value=\"" + data.cityList[i].categoryCd + "\">[" + data.cityList[i].pCategoryName + "]" + data.cityList[i].categoryName + "</option>");
+                                                    }
+                                                    $("#cityCd").selectbox("detach");
+                                                    $("#cityCd").selectbox("attach");
+                                                }
+                                            },
+                                            error: function (xhr, status, error) {
+                                                alert("잠시 후 다시 이용해 주세요.");
+                                            },
+                                            complete: function (data) {
+                                                $("#cityCd").selectbox("detach");
+                                                $("#cityCd").selectbox("attach");
+                                            }
+                                        });
+                                    } else {
+                                        $("#cityCd").selectbox("detach");
+                                        $("#cityCd").selectbox("attach");
+                                    }
+
+                                    break;
+
+                                // 상품 상세 정보
+                                case "goodsInfo":
+                                    objInfo.jqueryLoading.search(true);
+
+                                    var ddId = event.attr("ddId");
+                                    var pnum = event.attr("pnum");
+
+                                    location.href = "/product/common/pkg/getGoodsInfo.do?ddId=" + ddId + "&pnum=" + pnum;
+
+                                    break;
+
+                                default:
+                                    alert("Invalid CALL!");
+                                    return false;
+                                    break;
+                            }
+                        }
+                        //* validation 체크하기 위한 함수 *//
+                        function ISVALID(args) {
+                            switch (args) {
+                                case "search":
+                                    var dateRangeKind = $(":radio[name='dateRangeKind']:checked").val();
+                                    var sSearchDate = $("#sSearchDate").val();
+                                    var eSearchDate = $("#eSearchDate").val();
+
+                                    if (dateRangeKind == "part") {
+                                        if (sSearchDate == "" || eSearchDate == "") {
+                                            alert("검색 기간을 설정해주세요.");
+                                            return false;
+                                        }
+                                    }
+
+                                    break;
+                                default:
+                                    break;
+                            }
+                            return true;
+                        }
+
+
+                    </script>
+
+                    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+                    <script type="text/javascript">
+                        if (!wcs_add) var wcs_add = {};
+                        wcs_add["wa"] = "s_93a67f966b8";
+                        if (!_nasa) var _nasa = {};
+                        wcs.inflow("ttang.com");
+                        wcs_do(_nasa);
+                    </script>
+                    <!-- 메인컨텐츠 영역 -->
+
+                </div>
+            </div>
+
+            <!-- // contents -->
+
+        </section>
+
+        <div class="longbnrFooter" style="background:#129fe0;">
+            <div class="wrap_innerbg n2">
+                <a href="http://www.ttang.com/html/event/exhotel/20180801_vinpearl/detail_excludeGuide.html">
+                    <img src="/images/event/common/longbnrFooter_left_180814.png" alt="빈펄리조트">
+                </a>
+                <a href="javascript:;" onclick="USR_LAYER_POPUP('/etc/appdown.do', '780','620');">
+                    <img src="/images/event/common/longbnrFooter_right.png" alt="땡처리닷컴 모바일앱 오픈 - 모바일로 누리는 최저가 여행상품">
+                </a>
+            </div>
+        </div> <!-- footer 배너 영역 -->
+
+        <script type="text/javascript" src="/asset/js/include/footer.js?v=20230324" charset="utf-8"></script>
+        <!-- footer 영역 -->
+
+        <script type="text/javascript" src="/asset/js/include/left.js?v=20160316" charset="utf-8"></script>
+        <!-- 왼쪽날개 -->
+
+        <script type="text/javascript" src="/asset/js/include/right.js?v=20160317" charset="utf-8"></script>
+        <!-- 오른쪽날개  -->
+
+    </div>
+
+    <iframe name="behindFrame" src="/html/blank.html" style="display:none;"></iframe>
+
+
+    <!-- 핵심 정보 팝업 인쇄 -->
+    <div class="printLayer print_prod_summary" style="display:none;"></div>
+
+    <!-- 일정표 팝업 인쇄 -->
+    <div class="printLayer print_prod_detail print_detail_package" style="display:none;"></div>
+
+    <div id="id_loading_comm" class="lyLoading loading_comm" style="z-index:99999; display:none">
+        <div class="inner">
+            <div class="progress">
+                <span class="bgDot abL"></span>
+                <div class="animation">
+                    <span class="ico_plane" style="left:0%"></span>
+                    <span class="ing" style="width:0%"></span>
+                </div>
+                <span class="bgDot abR"></span>
+            </div>
+            <p class="txt1">고객님이 요청하신 <br>조회건을 처리하고 있습니다.</p>
+            <p class="txt2">잠시만 기다려 주세요.</p>
+        </div>
+    </div>
+    <div id="id_loading_comm_dimm" class="dimmedLayer" style="z-index:99998; display:none"></div>
+
+    <!-- 땡처리여행이 처음이라면 여기? -->
+    <div class="layerFirstGuide" style="display:none;">
+        <div class="layerWrap">
+            <div class="innerWrap">
+                <div class="headerWrap">
+                    <h2>땡처리여행상품이 처음이라면 여기를 !</h2>
+                    <a href="#none;" class="ico ico_close bClose" title="close">close</a>
+                </div>
+
+                <div class="layer_contents tmp_PKG_Guide">
+                    <h3 class="">땡처리여행상품이란?</h3>
+                    <div class=" box_notice">
+                        <p>땡처리여행상품(패키지,자유여행)은 타여행사의 마감임박된 상품이나 좌석이 팔리지 않아 요금이 낮아진 상품들입니다. 출발 2주전부터 빠르면 2일전 상품들로 날짜가
+                            가까워질수록 요금이 낮아지는 장점이 있지만 저렴한 요금 대신 빨리 마감이 되며 한정된 좌석과 취소&middot;환불조건이 까다로운 특성이 있습니다.</p>
+                        <p>땡처리여행상품은 확정을 받은후 바로 전액 완납을 하셔야 확정을 받을 수 있고 입금후라도 선착순으로 예약이 불가한 경우도 있으므로 이점 꼭 인지하시고 예약해야 합니다.
+                            (그럴 경우 전액환불 처리됩니다.) </p>
+                        <p>일반상품도 함께 노출이 되기 때문에 같은 조건의 상품이시면 좀 더 저렴한 상품으로 선택하여 예약신청(접수)해 주시면 됩니다.</p>
+                    </div>
+
+                    <h3>예약절차는?</h3>
+                    <h4 class="bd line">1. 상품선택</h4>
+                    <div class="txtBox">
+                        <p>
+                            땡처리패키지/자유여행 카테고리에서 고객님이 원하시는 도시/날짜의 상품을 직접 선택해야 합니다. <br>
+                            상품 선택시 포함/불포함사항/일정/유의사항/취소규정 등을 상세히 봐 주시기 바랍니다.
+                        </p>
+                    </div>
+
+                    <h4 class="bd">2. 예약신청(접수)</h4>
+                    <div class="txtBox">
+                        <p>원하시는 날짜와 상품을 선택 후 예약신청(접수)를 합니다.<br>
+                            예약신청(접수)시 한글이름/정확한 영문이름과 문자받으실 연락처는 필수로 입력해 주셔야 합니다.<br>
+                            땡처리패키지/자유여행 카테고리의 상품은 예약신청(접수)일 뿐 확정은 아닙니다.</p>
+                    </div>
+
+                    <h4 class="bd">3. 담당자확인</h4>
+                    <div class="txtBox">
+                        <p>예약신청(접수)하신 상품은 담당자가 가능여부를 체크합니다. (항공/호텔/예약진행 가능여부 등..) </p>
+                    </div>
+
+                    <h4 class="bd">4. 예약 가능여부 문자안내</h4>
+                    <div class="txtBox">
+                        <p class="subTit">1) 예약가능상품</p>
+                        <p class="subTxt">담당자가 예약가능여부 및 결제시한/결제금액을 핸드폰으로 문자 안내 해 드립니다. <br>
+                            문자 확인하시고 결제전 예약하신 상품 재확인 후 결제시한 내에 결제해 주시면 됩니다. <br> 단, 결제시한 내 미결제시 예약은 취소처리 됩니다.</p>
+
+                        <p class="subTit">2) 예약불가상품</p>
+                        <p class="subTxt">예약주신 상품이 마감되었거나, 최소출발인원이 충족이 안되서 예약진행이 불가할 경우 담당자가 예약마감/예약불가를 문자로 안내해 드립니다. 단,
+                            대안상품이 있을 경우엔 같이 안내가 나가오니 문자를 상세히 읽어 주시고 이해가 안되실 경우 고객님의 예약담당자에게 바로 전화주시기 바랍니다.</p>
+                        <p class="subTit bd">
+                            ※ 땡처리닷컴 상품의 모든 예약 가능여부는 문자로 안내해 드리오니 예약시 이점은 숙지해 주시기 바랍니다. <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;간혹, 핸드폰번호 오류입력으로 인해 문자발송이 가지 않는 경우 당사가 책임을 지지 않으므로 <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;정확한 핸드폰번호를 입력해 주시기 바랍니다.
+                        </p>
+                    </div>
+
+                    <h4 class="bd">5. 고객결제</h4>
+                    <div class="txtBox">
+                        <p>
+                            문자로 안내받은 결제방법에 따라 결제시한 내에 결제해 주시면 됩니다. <br>
+                            땡처리닷컴의 모든상품은 선착순 결제를 우선으로 진행하고 있습니다. <br>
+                            결제시한 내 결제하셨다 하더라도 상품이 조기 마감될 수 있습니다. <br>
+                            결제 후, 상품이 마감 되었을 경우엔 전액 환불이 가능합니다.
+                        </p>
+                    </div>
+
+                    <h4 class="bd">6. 예약확인</h4>
+                    <div class="txtBox">
+                        <p>마이페이지에서 고객님의 예약확인 및 담당자 확인이 가능하십니다. <br>각 상품별로 예약확인 방법은 고객님의 담당자를 통해서 재확인해 주시기 바랍니다. </p>
+                    </div>
+
+                    <h4 class="bd">7. 최종안내문</h4>
+                    <div class="txtBox">
+                        <p><span class="">출발 1-2일전 고객님의 이메일 또는 마이페이지에 기재후 담당자가 문자 안내 해 드립니다. <br>고객님께서는 담당자에게 받은 안내문과
+                                일정표를 확인하시고 여행준비 해 주시면 됩니다. </span></p>
+                    </div>
+
+                    <div class="btnWrap pb0"> <a href="#none" class="btnSty1 cGray bClose">닫기</a></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        // GNB 메뉴 셋팅
+        $(function () { $('.gnb .c04').addClass('on'); });
+
+        // UI Style 셋팅
+        $(window).ready(function () {
+            $('.ezmark input').ezMark();
+            $('.inpSelect').selectbox();
+        });
+    </script>
+
+</body>
+
+</html>
