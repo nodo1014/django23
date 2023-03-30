@@ -13,6 +13,7 @@
     <!--//TODO: Core theme CSS (includes Bootstrap)-->
     <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen" />
     <link href="{% static 'blog/css/blog-post.css' %}" rel="stylesheet" media="screen" />
+    <script src="https://kit.fontawesome.com/3806845bd2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -44,6 +45,9 @@
                     <header class="mb-4">
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">object:{{ object }}</h1>
+                        {% if post.hook_text %}
+                        <h4 class="text-muted">{{ post.hook_text|truncatewords:45 }}</h4>
+                        {% endif %}
                         <!-- Post meta content-->
                         <div class="text-muted fst-italic mb-2">{{ object.created_at }}</div>
                         <!-- Post categories-->
@@ -63,8 +67,22 @@
                         <p class="fs-5 mb-4">
                             {{ post.content }}
                         </p>
-                        
+                        {% if post.file_upload %}
+                            <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button" download>다운로드
+                            {% if post.get_file_ext == 'csv' %}
+                            <i class="fas fa-file-csv"></i>
+                            {% elif post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                            <i class="fas fa-file-excel"></i>
+                            {% elif post.get_file_ext == 'docx' or post.get_file_ext == 'doc' %}
+                            <i class="fas fa-file-word"></i>
+                            {% else %}
+                            <i class="far fa-file"></i>
+                            {% endif %}
+                            </a>
+                            <a href="{{ post.file_upload.url }}" target="_blank">{{ post.get_file_name }}</a><br>post.file_upload: {{ post.file_upload }}
+                        {% endif %}
                     </section>
+                    <hr>
                 </article>
                 <!-- Comments section-->
                 <section class="mb-5">

@@ -123,6 +123,9 @@
                     
                     <div class="card-body">
                         <h2 class="card-title">{{p.title}}</h2>
+                        {% if p.hook_text %}
+                        <h4 class="text-muted">{{ p.hook_text|truncatewords:45 }}</h4>
+                        {% endif %}
                         <p class="card-text">
                             {{ p.content }}
                         </p>
