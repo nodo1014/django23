@@ -12,7 +12,7 @@
     <h4 class="text-muted">{{ post.hook_text|truncatewords:45 }}</h4>
     {% endif %}
     <!-- Post meta content-->
-    <div class="text-muted fst-italic mb-2">{{ object.created_at }}</div>
+    <div class="text-muted fst-italic mb-2">{{ object.created_at }} {{post.author|upper}}</div>
     <!-- Post categories-->
     <a class="badge bg-secondary text-decoration-none link-light" href="#!">태그</a>
     <a class="badge bg-secondary text-decoration-none link-light" href="#!">태그2</a>

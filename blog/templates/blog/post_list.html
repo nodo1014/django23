@@ -27,8 +27,7 @@
                         <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More (rarr)&rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
-                        Posted on January 1, 2017 by
-                        <a href="{{ p.get_absolute_url }}">p.get_absolute_url</a>
+                        Posted on {{p.created_at}} by {{ p.author|upper }}
                     </div>
                 </div>
 {% endfor %}
