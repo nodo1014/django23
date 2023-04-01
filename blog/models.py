@@ -10,6 +10,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return f'/blog/category/{self.slug}/'
+        # return f'/blog/category/{self.slug}/'
+    class Meta:
+        verbose_name_plural = 'Categories'
 
 class Post(models.Model):
     title = models.CharField(max_length=80)

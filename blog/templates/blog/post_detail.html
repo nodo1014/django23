@@ -1,21 +1,25 @@
 {% extends 'blog/base.html' %}
 <!-- //TODO: <head> 설정으로 검색 유리 -->
 {% block head_title %}
-{{ post.title }} - 블로그
+{{ post.title }} - 브라우저 header
 {% endblock %}
 
 {% block main_area%}
 <div id="post-area">
 <!-- Post title-->
-    <h1 class="fw-bolder mb-1">object:{{ object }}</h1>
+    
+        {% if post.category %}
+            <span class="badge badge-secondary float-right">{{ post.category }}</span>
+        {% else %}
+            <span class="badge badge-secondary float-right">미분류</span>
+        {% endif %}
+        <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
     {% if post.hook_text %}
     <h4 class="text-muted">{{ post.hook_text|truncatewords:45 }}</h4>
     {% endif %}
     <!-- Post meta content-->
     <div class="text-muted fst-italic mb-2">{{ object.created_at }} {{post.author|upper}}</div>
     <!-- Post categories-->
-    <a class="badge bg-secondary text-decoration-none link-light" href="#!">태그</a>
-    <a class="badge bg-secondary text-decoration-none link-light" href="#!">태그2</a>
 </header>
 <!-- Preview image figure-->
 <figure class="mb-4">
