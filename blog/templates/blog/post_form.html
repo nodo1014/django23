@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block head_title %}
+    글쓰기post컨텍스트는? - 브라우저 header
+{% endblock %}
+
+{% block main_area %}
+    <h1>새 글 쓰기</h1>
+    <hr/>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <table>
+            {{form}}
+        </table>
+        <button type="submit" class="btn btn-primary float-right">Submit</button>
+    </form>
+{% endblock %}

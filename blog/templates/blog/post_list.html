@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
-
+{% block head_title %}
+    {{ post_list.first }} - 브라우저 header
+{% endblock %}
 {% block main_area %}
 <!-- //TODO: category 가 있으면? view에서 보내는 context에 category가 있으면..즉,views.category_page 로 들어온거면...  -->
 <!-- //FIXME: if category 는 category 객체가 있으면(즉, category_page뷰에서 넘어왔으면..  -->
