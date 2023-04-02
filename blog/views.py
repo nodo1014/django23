@@ -1,13 +1,32 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView
 
-from .models import Category, Post
+from .models import Category, Tag, Post
 
 
 # 함수형: {% for p in posts %} {% endfor %} {{p.get_absolute_url }}
 # 클래스형: for p in object_list
 
-# FBV views.함수뷰 , CBV views.클래스뷰.as_view()
+# //FIXME: tag 와 카테고리 차이. 미분류가 없다. N:N 으로..
+#  태그 전부 출력시. iterator, all 등 관계는 없는 듯.
+def tag_page(request, slug):
+#path('tag/<str:slug>/', views.tag_page)
+    tag = Tag.objects.get(slug=slug)
+    post_list = tag.post_set.all()
+    post_list2 = Post.objects.filter(tag=tag)
+
+    return render(
+        request,
+        'blog/post_list.html',
+        {
+            'post_list': post_list,
+            'post_list2': post_list2,
+            'tags': Tag.objects.all(),
+            'no_tag_post_count': Post.objects.filter(tag=None).count(),
+            'tag': tag,
+        }
+    )
+
 def category_page(request, slug):
 #path('category/<str:slug>/', views.category_page)
     if slug == 'no_category':
@@ -44,6 +63,7 @@ class PostList(ListView):
         # context = super(PostList, self).get_context_data()
         context = super().get_context_data()
         context['categories'] = Category.objects.all()
+        context['tags'] = Tag.objects.all()[:2]
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
 # PostList(ListView)에서 model = Post 만 하면,

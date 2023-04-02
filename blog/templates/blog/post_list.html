@@ -2,7 +2,16 @@
 
 {% block main_area %}
 <!-- //TODO: category 가 있으면? view에서 보내는 context에 category가 있으면..즉,views.category_page 로 들어온거면...  -->
-    <h1>블로그 {% if category %} <span class="badge badge-secondary">{{ category }}</span> {% endif %}</h1>
+<!-- //FIXME: if category 는 category 객체가 있으면(즉, category_page뷰에서 넘어왔으면..  -->
+<!-- //TODO : post_detail.html에서는 if post.category 즉, post.category 값이 있으면 출력, 없으면 '미분류' -->
+    <h1>블로그 
+        {% if category %}
+         <span class="badge badge-secondary">카테고리: {{ category }}</span> 
+        {% endif %}
+        {% if tag %}
+         <span class="badge badge-secondary">태그: {{ tag }}</span> 
+        {% endif %}
+    </h1>
 <p>get_context_data 오버라이딩으로 post_list 외, categories, no_category_post_count 사용가능</p>
     {% for p in post_list %}
     <!-- Blog Post -->
@@ -18,6 +27,12 @@
             <h2 class="card-title">{{p.title}}</h2>
             {% if p.hook_text %}
             <h4 class="text-muted">{{ p.hook_text|truncatewords:45 }}</h4>
+            {% endif %}
+            <!-- // FIXME: p.tags.iterator -->
+            {% if p.tags.exist %}
+                {% for tag in p.tags.iterator %}
+                    <a href="{{ tag.get_absolute.url }}">태그: {{ tag }}</a>
+                {% endfor %}
             {% endif %}
             <p class="card-text">
                 {{ p.content }}

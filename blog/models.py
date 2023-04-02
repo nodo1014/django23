@@ -4,6 +4,18 @@ from django.contrib.auth.models import User
 from django.db import models
 #django 라이브러리, db.models 모듈 임포트 후, Model클래스 상속
 #Post/title,content,created_at
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=50, unique=True, blank=True, allow_unicode=True)
+    # category=None 카테고리 미분류, 태그 미분류는 없자낭
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return f'/blog/tag/{self.slug}/'
+        # return f'/blog/category/{self.slug}/'
+
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=50, unique=True, null=True, blank=True, allow_unicode=True)
@@ -30,6 +42,7 @@ class Post(models.Model):
     author = models.ForeignKey(User,null=True, on_delete=models.SET_NULL)
     # 카테고리 삭제했다고, 연결된 Post까지 삭제되면 안됨 -> models.SET_NULL
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
+    tag = models.ManyToManyField(Tag,blank=True)
 
 #  __str__메서드 : 객체 자체의 내용을 출력
     def __str__(self):

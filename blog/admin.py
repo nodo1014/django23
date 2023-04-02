@@ -1,14 +1,17 @@
 from django.contrib import admin
-from .models import Category, Post
+from .models import Category, Tag, Post
 
 # register(모델, 모델Admin)
 admin.site.register(Post)
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('name',)}
+class TagAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('name',)}
     
 #//TODO: register(모델, 모델Admin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Tag, TagAdmin)
 
 
 # list_display = ["id", "__str__", "publishing_date",
