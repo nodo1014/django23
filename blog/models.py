@@ -42,7 +42,7 @@ class Post(models.Model):
     author = models.ForeignKey(User,null=True, on_delete=models.SET_NULL)
     # 카테고리 삭제했다고, 연결된 Post까지 삭제되면 안됨 -> models.SET_NULL
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
-    tag = models.ManyToManyField(Tag,blank=True)
+    tags = models.ManyToManyField(Tag,blank=True)
 
 #  __str__메서드 : 객체 자체의 내용을 출력
     def __str__(self):

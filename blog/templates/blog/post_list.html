@@ -9,7 +9,7 @@
          <span class="badge badge-secondary">카테고리: {{ category }}</span> 
         {% endif %}
         {% if tag %}
-         <span class="badge badge-secondary">태그: {{ tag }}</span> 
+         <span class="badge badge-light"><i class="fas fa-tags"></i>태그: {{ tag }}({{ tag.post_set.count }})</span> 
         {% endif %}
     </h1>
 <p>get_context_data 오버라이딩으로 post_list 외, categories, no_category_post_count 사용가능</p>
@@ -28,16 +28,21 @@
             {% if p.hook_text %}
             <h4 class="text-muted">{{ p.hook_text|truncatewords:45 }}</h4>
             {% endif %}
-            <!-- // FIXME: p.tags.iterator -->
-            {% if p.tags.exist %}
-                {% for tag in p.tags.iterator %}
-                    <a href="{{ tag.get_absolute.url }}">태그: {{ tag }}</a>
-                {% endfor %}
-            {% endif %}
+          
             <p class="card-text">
                 {{ p.content }}
             </p>
-            <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More (rarr)&rarr;</a>
+      
+            <p>
+            <i class="fas fa-tags"></i>태그: 
+            {% if p.tags.exists %}
+                {% for tag in p.tags.iterator %}
+                    {{ tag }} 이따레이터
+                {% endfor %} 
+            {% endif %}
+                <br><br>
+            <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More (&rarr세미)&rarr;</a>
+            </p>
         </div>
         <div class="card-footer text-muted">
             Posted on {{p.created_at}} by {{ p.author|upper }}

@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                                <!-- 태그 Widget -->
+                                <!-- 태그 Widget //TODO:-->
 
                 <div class="card my-4">
                     <h5 class="card-header">태그</h5>
@@ -94,7 +94,7 @@
                     <div class="card-body">
                         <div class="row">
                             <ul class="list-unstyled mb-0">
-                                <li><a href="#">post_list['tags']</a></li>
+                                <li><a href="#"></a></li>
                                 {% for tag in tags %}
                                 <li><a href="{{ tag.get_absolute_url }}">{{ tag }} ({{ tag.post_set.count}})</a></li>
                                 {% endfor %}
