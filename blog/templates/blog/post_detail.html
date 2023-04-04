@@ -1,34 +1,47 @@
 {% extends 'blog/base.html' %}
-<!-- //TODO: <head> 설정으로 검색 유리 -->
+
 {% block head_title %}
-{{ post.title }} - 브라우저 header
+    {{ post.title }} - Blog
 {% endblock %}
 
-{% block main_area%}
-<div id="post-area">
-<!-- Post title-->
-    
+
+{% block main_area %}
+    <div id="post-area">
         {% if post.category %}
             <span class="badge badge-secondary float-right">{{ post.category }}</span>
         {% else %}
             <span class="badge badge-secondary float-right">미분류</span>
         {% endif %}
-        <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
-    {% if post.hook_text %}
-    <h4 class="text-muted">{{ post.hook_text|truncatewords:45 }}</h4>
-    {% endif %}
-    <!-- Post meta content-->
-    <div class="text-muted fst-italic mb-2">{{ object.created_at }} {{post.author|upper}}</div>
-    <!-- Post categories-->
-</header>
-<!-- Preview image figure-->
-<figure class="mb-4">
-    {% if post.head_image %}
-        <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image">
-    {% else %}
-        <img class="img-fluid rounded" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image">
-    {% endif %}
-</figure>
+
+        <!-- Title -->
+        <h1 class="mt-4">{{ post.title }}</h1>
+        <h5 class="text-muted">{{ post.hook_text }}</h5>
+        <!-- Author -->
+        <p class="lead">
+            by
+            <a href="#">{{ post.author | upper }}</a>
+        </p>
+
+        <hr>
+
+        {% if user.is_authenticated and user == post.author %}
+            <a class="btn btn-info btn-sm float-right" href="/blog/update_post/{{ post.pk }}/" role="button"><i class="fas fa-pen"></i>  Edit Post</a>
+        {% endif %}
+
+        <!-- Date/Time -->
+        <p>Posted on {{ post.created_at }}</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        {% if post.head_image %}
+            <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image">
+        {% else %}
+            <img class="img-fluid rounded" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random_image">
+        {% endif %}
+
+
+        <hr>
 <!-- Post content-->
 <section class="mb-5">
     <p class="fs-5 mb-4">
