@@ -19,7 +19,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'crispy_forms',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # 장고_익스텐션스 :: python manage.py shell_plus 로 실행
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

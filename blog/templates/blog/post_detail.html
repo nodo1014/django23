@@ -24,7 +24,7 @@
 
         <hr>
 
-        {% if user.is_authenticated and user == post.author %}
+        {% if user.is_authenticated and user == post.author or user.is_superuser %}
             <a class="btn btn-info btn-sm float-right" href="/blog/update_post/{{ post.pk }}/" role="button"><i class="fas fa-pen"></i>  Edit Post</a>
         {% endif %}
 
@@ -61,7 +61,9 @@
         </a>
         <a href="{{ post.file_upload.url }}" target="_blank">{{ post.get_file_name }}</a><br>post.file_upload: {{ post.file_upload }}
     {% endif %}
-</section>
+    <br>
+    태그 : {{ tags }}
+    </section>
 <hr>
 </div>
 <div id="comment-area">
