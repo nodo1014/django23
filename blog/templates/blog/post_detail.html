@@ -62,7 +62,12 @@
         <a href="{{ post.file_upload.url }}" target="_blank">{{ post.get_file_name }}</a><br>post.file_upload: {{ post.file_upload }}
     {% endif %}
     <br>
-    태그 : {{ tags }}
+    태그 : {{ tags }} <br>
+    <i class="fas fa-tags"></i> 태그2 : {% if tags.exists %}
+        {% for tag in tags %}
+    <a href="{{ tag.get_absolute_url }}">{{ tag.name }} </a>
+        {% endfor %}
+    {% endif %}
     </section>
 <hr>
 </div>
@@ -70,6 +75,10 @@
     
     <div class="media mb-4">
         댓글
+                        # tags_str_list = list()
+            # for t in self.object.tags.all():
+            #     tags_str_list.append(t.name)
+            # context['tags'] = '; '.join(tags_str_list)
     </div>
 </div>
 {% endblock %}

@@ -89,11 +89,12 @@ class PostDetail(DetailView):
         context['categories'] = Category.objects.all()
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
         if self.object.tags.exists():
-            tags_str_list = list()
-            for t in self.object.tags.all():
-                tags_str_list.append(t.name)
-            context['tags'] = '; '.join(tags_str_list)
-
+            # tags_str_list = list()
+            # for t in self.object.tags.all():
+            #     tags_str_list.append(t.name)
+            # context['tags'] = '; '.join(tags_str_list)
+            context['tags'] = self.object.tags.all()
+            # self.object 가 post_list는 object_list처럼, object인데, 왜 self?? 클래스변수면 생략가능., 메서드, 객체변수니까.
 
         return context
     # template_name = 'blog/single_post_page.html'
