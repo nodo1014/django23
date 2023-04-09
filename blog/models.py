@@ -2,6 +2,10 @@ import os
 
 from django.contrib.auth.models import User
 from django.db import models
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdown
+
+
 #django 라이브러리, db.models 모듈 임포트 후, Model클래스 상속
 #Post/title,content,created_at
 class Tag(models.Model):
@@ -32,8 +36,8 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=80)
     hook_text = models.CharField(max_length=120, blank=True)
-    content = models.TextField()
-
+    # content = models.TextField()
+    content = MarkdownxField()
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
     file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -59,4 +63,7 @@ class Post(models.Model):
 
         return self.get_file_name().split('.')[-1]
         # return os.path.splitext(self.file_upload.name)
+
+    def get_content_markdown(self):
+        return markdown(self.content)
 

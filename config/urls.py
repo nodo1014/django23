@@ -9,6 +9,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('', include('single_pages.urls')),
     path('admin/', admin.site.urls),
+    path('markdownx/', include('markdownx.urls')),
 ]
 
 # static() 정적 파일들의 url을 관리. 접근한 url을 리턴.
