@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Tag, Post
+from .models import Category, Tag, Post, Comment
 from markdownx.admin import MarkdownxModelAdmin
 # register(모델, 모델Admin)
 # admin.site.register(Post)
@@ -13,6 +13,8 @@ class TagAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Post, MarkdownxModelAdmin)
+
+admin.site.register(Comment)
 
 
 # list_display = ["id", "__str__", "publishing_date",

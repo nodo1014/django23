@@ -6,6 +6,8 @@ from markdownx.models import MarkdownxField
 from markdownx.utils import markdown
 
 
+
+    # //FIXME: ForeignKey -> User의 pk와 연결돼 있다는 말
 #django 라이브러리, db.models 모듈 임포트 후, Model클래스 상속
 #Post/title,content,created_at
 class Tag(models.Model):
@@ -53,7 +55,7 @@ class Post(models.Model):
         return f'[{self.pk}] {self.title} :: {self.author}'
     
     def get_absolute_url(self):
-        return f'/blog/{self.pk}'
+        return f'/blog/{self.pk}/'
     
     def get_file_name(self):
         return os.path.basename(self.file_upload.name)
@@ -67,3 +69,17 @@ class Post(models.Model):
     def get_content_markdown(self):
         return markdown(self.content)
 
+class Comment(models.Model):
+    # Comment클래스는 Post보다 아래 있어야 한다!!
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    # updated_at = models.DateTimeField(auto_now=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.author} :: {self.content}'
+
+    def get_absolute_url(self):
+        return f'{self.post.get_absolute_url()}#comment-{self.pk}'
