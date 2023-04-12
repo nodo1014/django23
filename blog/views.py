@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.utils.text import slugify
 
 from .forms import CommentForm
@@ -47,6 +47,27 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
             return super(CommentUpdate, self).dispatch(request, *args, **kwargs)
         else:
             raise PermissionDenied
+
+# 클래스 만들 때, 모델명을 앞에 쓰는 것이 규칙! 템플릿 comment_list, _detail, form_class = CommentFomr()등
+# class CommentDelete(DeleteView):
+#     model = Comment
+#     context_object_name = 'comment'
+#     # fields
+#     # template_name =
+#     # success_url = reverse_lazy()
+#     success_url = 'blog/post_list/'
+#
+#     def get(self, request, *args, **kwargs):
+#         return self.comment(request, *args, **kwargs)
+
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    post = comment.post # redirect 위해, post 필요
+    if request.user.is_authenticated and request.user == comment.author:
+        comment.delete()
+        return redirect(post.get_absolute_url())
+    else:
+        raise PermissionDenied
 
 # 함수형: {% for p in posts %} {% endfor %} {{p.get_absolute_url }}
 # 클래스형: for p in object_list
