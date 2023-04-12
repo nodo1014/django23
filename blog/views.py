@@ -5,13 +5,14 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.utils.text import slugify
 
 from .forms import CommentForm
-from .models import Category, Tag, Post
+from .models import Category, Tag, Post, Comment
 
 
 # 코멘트폼 필요. forms.py 에 모델폼 상속.
 def new_comment(request, pk):
     # pk ? 폼 액션을 통해서 받겠지? post.get_absolute_url/new_comment/
     if request.user.is_authenticated:
+        # 포린키 저장시. post객체 필요. Comment(post = post 객체, author= request.user),
         post = get_object_or_404(Post, pk=pk)
 
         if request.method == 'POST':
@@ -28,8 +29,24 @@ def new_comment(request, pk):
     else:
         raise PermissionDenied
 
-def update_comment(request,pk):
-    pass
+# def update_comment(request,pk):
+#     pass
+    # template_name = Comment_form.html
+    # UpdateView
+
+    # ImproperlyConfigured at Using ModelFormMixin (base class of CommentUpdate) without the 'fields' attribute is prohibited.)
+class CommentUpdate(LoginRequiredMixin, UpdateView):
+    model = Comment
+    # model 을 지정하면, 자동으로 해당 ModelForm을 상속한 CommentForm이 생성.form_class = CommentForm
+    fields = ['content'] # form_class = CommentForm 로 커스텀 가능.
+    # fields를 지정하면, form_class 를 생략할 수 있다.
+
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and request.user == self.get_object().author:
+            return super(CommentUpdate, self).dispatch(request, *args, **kwargs)
+        else:
+            raise PermissionDenied
 
 # 함수형: {% for p in posts %} {% endfor %} {{p.get_absolute_url }}
 # 클래스형: for p in object_list
