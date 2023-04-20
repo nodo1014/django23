@@ -10,6 +10,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'django_tables2',
     'material',
     'widget_tweaks',
     'parsed_data',
