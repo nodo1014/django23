@@ -1,0 +1,69 @@
+{% extends 'tour/base.html' %}
+{% block head_title %}
+    {{ object_list.first }} - 브라우저 header
+{% endblock %}
+{% block main_area %}
+{% load humanize %}
+    {% if user.is_authenticated%}
+        {% if user.is_superuser or user.is_staff %}
+            <a class="btn btn-info btn-sm float-right" href="/tour/create_post/" role="button"><i class="fas fa-pen"></i>&nbsp;&nbsp;상품 등록</a>
+        {% endif %}
+    {% endif %}
+<!-- //TODO: category 가 있으면? view에서 보내는 context에 category가 있으면..즉,views.category_page 로 들어온거면...  -->
+<!-- //FIXME: if category 는 category 객체가 있으면(즉, category_page뷰에서 넘어왔으면..  -->
+<!-- //TODO : post_detail.html에서는 if post.category 즉, post.category 값이 있으면 출력, 없으면 '미분류' -->
+    <h1>object_list.first: {{object_list.first}} 
+        {% comment %} {% if category %}
+         <span class="badge badge-secondary">카테고리: {{ category }}</span> 
+        {% endif %} {% endcomment %}
+        {% comment %} {% if tag %}
+         <span class="badge badge-light"><i class="fas fa-tags"></i>태그: {{ tag }}({{ tag.object_set.count }})</span> 
+        {% endif %} {% endcomment %}
+    </h1>
+<h1>tour_item_list.html</h1>
+<div class="item_header" style="display:flex;padding:1px;border-style:solid">
+    <div>출발일</div>
+    <div>여정</div>
+    <div>항공</div>
+    <div>출/도착</div>
+    <div>출발시간</div>
+    <div>상품명</div>
+    <div>상품가</div>
+</div>
+
+    {% for p in object_list %}
+    <!-- Tour Post -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="item_header" style="display:flex;padding:1px;border-style:solid">
+                <div>{{p.d_date1 | date:'Y-m-d'}}</div>
+                <div>{{p.d_date1 | date:'Y-m-d'}}</div>
+                <div>{{p.airline | upper}}</div>
+                <div>
+                    <div>{{p.d_city1 | upper}}-{{p.d_city2 | upper}}</div>
+                    <div>{{p.r_city1 | upper}}-{{p.r_city2 | upper}}</div>
+                </div>
+                <div>
+                    <div>{{p.d_time1 | date:'H:i'}}-{{p.d_time2 | date:'H:i'}}+{{p.d_daychange}}</div>
+                    <div>{{p.r_time1 | date:'H:i'}}-{{p.r_time2 | date:'H:i'}}+{{p.r_daychange}}</div>
+                </div>
+                <div><h4>{{p.title}}</h4></div>
+                <div><h3 style="color:red">{{p.price | intcomma }}</h3></div>
+            </div>
+
+        </div>
+        <div class="card-footer text-muted">
+            {% comment %} Posted on {{p.created_at}} by {{ p.author|upper }} {% endcomment %}
+        </div>
+    </div>
+    {% endfor %}
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mb-4">
+        <li class="page-item">
+            <a class="page-link" href="#">&larr; Older</a>
+        </li>
+        <li class="page-item disabled">
+            <a class="page-link" href="#">Newer &rarr;</a>
+        </li>
+    </ul>
+{% endblock %}

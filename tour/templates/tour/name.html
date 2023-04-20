@@ -1,0 +1,76 @@
+
+
+{% load material_form %}
+<form action="{% url 'tour:index' %}" method="post">
+    {% csrf_token %}
+    {% comment %} {{form.as_p}}
+    <input type="submit" value="submit"> {% endcomment %}
+    {% form form=form %}{% endform %}
+    <button type="submit" name="_submit" class="btn">Submit</button>
+</form>
+
+
+{% if day_list2.exists %}
+{% for day2 in day_list2 %}
+<p>
+{{ day2 | date:'Y-m-d (D)' | cut:"요일"}}
+    </p>
+{% endfor %}
+{% endif %}
+{% if object_list %}
+    {{object_list.count}} 개 상품이 있습니다
+{% endif %}
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">chk</th>
+        <th scope="col">idx</th>
+        <th scope="col">출발일</th>
+        <th scope="col">b_code</th>
+        <th scope="col">a_code</th>
+        <th scope="col">s_code</th>
+        <th scope="col">도착일</th>
+        <th scope="col">항공</th>
+        <th scope="col">도시</th>
+        <th scope="col">도시2</th>
+        <th scope="col">일변경</th>
+        <th scope="col">시간1</th>
+        <th scope="col">시간2</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      
+  {% if object_list %}
+      {% for p in object_list %}
+          <tr>
+            <td><input type="checkbox" name="checkbox" value={{p.pk}} checked="checked"></td>
+            <td>{{p.id}}</td>
+            <td>{{ p.d_date1 | date:'Y-m-d (D)' | cut:"요일"}}</td>
+            <td>{{p.basic_code}}</td>
+            <td>{{p.air_code}}</td>
+            <td>{{p.suffix_code}}</td>
+            <td>{{p.d_date2 | date:'Y-m-d'}}</td>
+            <td>{{p.airline | upper}}</td>
+            <td>
+                <td>{{p.d_city1 | upper}}-{{p.d_city2 | upper}}</td>
+                <td>{{p.r_city1 | upper}}-{{p.r_city2 | upper}}</td>
+            </td>
+            <td>
+                <td>{{p.d_time1 | date:'H:i'}}-{{p.d_time2 | date:'H:i'}}+{{p.d_daychange}}</td>
+                <td>{{p.r_time1 | date:'H:i'}}-{{p.r_time2 | date:'H:i'}}+{{p.r_daychange}}</td>
+            </td>
+            <td><h4>{{p.title}}</h4></td>
+   
+
+
+          </tr>
+      {% endfor %}
+  
+  {% endif %}
+  
+      
+        </tbody>
+      </table>
+  

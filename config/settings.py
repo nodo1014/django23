@@ -10,6 +10,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'material',
+    'widget_tweaks',
+    'parsed_data',
+    'dbtest.apps.DbtestConfig',      
+    'tour',
     'blog',
     'single_pages',
     'django.contrib.admin',
@@ -20,9 +25,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'crispy_forms',
+    'crispy_bootstrap5',
     'markdownx',
+    'rangefilter',
+    'django.contrib.humanize',
+    'website',
 ]
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
 # 장고_익스텐션스 :: python manage.py shell_plus 로 실행
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,7 +89,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'ko-kr'
+LANGUAGE_CODE = 'ko-KR'
 
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Seoul'

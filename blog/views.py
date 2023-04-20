@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.utils.text import slugify
 
@@ -48,17 +49,6 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
         else:
             raise PermissionDenied
 
-# 클래스 만들 때, 모델명을 앞에 쓰는 것이 규칙! 템플릿 comment_list, _detail, form_class = CommentFomr()등
-# class CommentDelete(DeleteView):
-#     model = Comment
-#     context_object_name = 'comment'
-#     # fields
-#     # template_name =
-#     # success_url = reverse_lazy()
-#     success_url = 'blog/post_list/'
-#
-#     def get(self, request, *args, **kwargs):
-#         return self.comment(request, *args, **kwargs)
 
 def delete_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
@@ -68,6 +58,19 @@ def delete_comment(request, pk):
         return redirect(post.get_absolute_url())
     else:
         raise PermissionDenied
+
+# 클래스 만들 때, 모델명을 앞에 쓰는 것이 규칙! 템플릿 comment_list, _detail, form_class = CommentFomr()등
+# class CommentDelete(DeleteView):
+#     model = Comment
+#     context_object_name = 'comment' #post, post_list
+#
+#     # fields
+#     # template_name =
+#     success_url = ('/blog/') # post pk 를 어케 받지? 인자받는 방법. reverse_lazy, args .. 등. 몰라.
+#
+#
+#     def get(self, request, *args, **kwargs):
+#         return self.post(request, *args, **kwargs)
 
 # 함수형: {% for p in posts %} {% endfor %} {{p.get_absolute_url }}
 # 클래스형: for p in object_list
