@@ -121,80 +121,44 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">코드, 한글 , 날짜 조회</li>
                         </ol>
-{% comment %} 
+
+            <div>
                         <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            <div class="col">
+                                <div class="card card-body">    
+                                    <form action="{% url 'tour:index3' %}" method="post">
+                                        {% csrf_token %}
+                                    <div style="display:flex;align-items:center;">
+                                        {{form.as_p}}
+                                        <button class="btn btn-primary" type="submit">
+                                        날짜 조회
+                                        </button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> 
                         <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                            <div class="col">
+                                <div class="card card-body">    
+                                    <form method="get">
+                                        {{myFilter.form}}
+                                        <button class="btn btn-primary" type="submit">
+                                            검색
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
-{% endcomment %}
+                        </div> 
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                장고 table2 로 테이블
                             </div>
-                        <div class="">    
-{% comment %} //FIXME: url 수정 주의 {% endcomment %}
-                            <form action="{% url 'tour:index_table' %}" method="post">
-                                {% csrf_token %}
-                                {{form.as_p}}
-                                <input type="submit" value="submit">
-                            </form>
-                            
-                            
+                            <div>
+                                {% render_table table %}
+                            </div>
+                            {% comment %} //FIXME: url 수정 주의 {% endcomment %} 
                             {% if day_list2.exists %}
                             {% for day2 in day_list2 %}
                             <p>
@@ -202,78 +166,9 @@
                                 </p>
                             {% endfor %}
                             {% endif %}
-                            {% if object_list %}
-                                {{object_list.count}} 개 상품이 있습니다
-                            {% endif %}
-
+                            
                         </div>
-                            <div class="card-body">
 
-                                {% render_table table %}
-
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>출발일~도착일</th>
-                                            <th>출발일~도착일</th>
-                                            <th>요일</th>
-                                            <th>출발지</th>
-                                            <th>도착지</th>
-                                            <th>상품명</th>
-                                            <th>일정</th>
-                                            <th>상품가</th>
-                                            <th>항공</th>
-                                            <th>출발편</th>
-                                            <th>리턴편</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>출발일</th>
-                                            <th>출발일</th>
-                                            <th>요일</th>
-                                            <th>출발지</th>
-                                            <th>도착지</th>
-                                            <th>상품명</th>
-                                            <th>일정</th>
-                                            <th>상품가</th>
-                                            <th>항공</th>
-                                            <th>출발편</th>
-                                            <th>리턴편</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        {% for p in object_list %}
-                                        <tr>
-                                            <td>
-                                                {{ p.d_date1 | date:'Y-m-d (D)' | cut:"요일"}}<br>
-                                                {{ p.d_date2 | date:'Y-m-d (D)' | cut:"요일"}}
-                                            </td>
-                                            <td>
-                                                {{p.d_date1 | date:'Y-m-d (D)' | cut:"요일"}}<br>
-                                                {{p.d_city1}}-{{p.d_city2}}
-                                            </td>
-
-                                            <td>{{p.d_date1 | date:'D' | cut:"요일"}}</td>
-                                            
-                                            <td>{{p.d_city1}}</td>
-                                            <td>{{p.d_city2}}</td>
-                                            <td>{{p.basic_code}}{{p.air_code}}{{p.suffix_code}}</td>
-                                            <td>{{p.stay}} 일</td>
-                                            <td>{{p.price | intcomma }}</td>
-                                            <td>{{p.airline | upper}}</td>
-                                            <td>
-                                                
-                                                {{p.d_time1 | date:'H:i'}}-{{p.d_time2 | date:'H:i'}}+{{p.d_daychange}}
-                                            </td>
-                                            <td>{{p.r_time1 | date:'H:i'}}-{{p.r_time2 | date:'H:i'}}+{{p.r_daychange}}</td>
-                                        </tr>
-                                        {% endfor %}
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">

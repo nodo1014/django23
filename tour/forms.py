@@ -14,9 +14,9 @@ class CommentForm(forms.ModelForm):
 # class DateInput(forms.DateInput):
 #     input_type = 'date'
 class NameForm(forms.Form):
-    your_name = forms.CharField(label='Your name name', max_length=7)
     start_date = forms.DateField(label='시작일')
     end_date = forms.DateField(label='종료일')
+    keyword = forms.CharField(label='상품코드', max_length=7, required=False)
     # yoil = forms.IntegerField(label='요일 체크박스')
     # form 디자인 필요한건, 폼 트윅
     # class Meta:

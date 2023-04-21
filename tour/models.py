@@ -139,6 +139,8 @@ class TourItem(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+    
+    @property
     def item_code(self):
         day_code = self.d_date1.strftime("%Y%m%d")
         basic_code = self.basic_code.basic_code
