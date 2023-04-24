@@ -127,5 +127,10 @@ TINYMCE_DEFAULT_CONFIG = {
     "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
     "a11ycheck ltr rtl | showcomments addcomment code",
     "custom_undo_redo_levels": 10,
-    "language": "ko_kr",  # To force a specific language instead of the Django current language.
+    "autosave_ask_before_unload": 'true',
+    "autosave_interval": '30s',
+    "autosave_prefix": 'tinymce-autosave-{path}{query}-{id}-',
+    "autosave_restore_when_empty": 'false',
+    "autosave_retention": '2m',
+    "language": "ko_KR",  # To force a specific language instead of the Django current language.
 }

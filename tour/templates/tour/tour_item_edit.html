@@ -7,43 +7,97 @@
 <div class="row">
     <div class="col-xs-12">
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
-    {% csrf_token %}
-    {{ form.media }}
-    {{ form.basic_code | as_crispy_field }}
-    {{ form.suffix_code | as_crispy_field }}
-    {{ form.content | as_crispy_field }}
-    {{form}}
-    <button type="submit" class="btn btn-primary float-right">Submit</button>
-
+            {{ form.media }}
+            {{form}}
+            <button type="submit" class="btn btn-primary float-right">Submit</button>
         </form>
     </div>
 </div>
 
-<table class="table">
-    <colgroup>
-        <col width="5%">
-        <col width="15%">
-        <col width="15%">
-        <col width="50%">
-        <col width="15%">
-    </colgroup>
-    <tr class="table table-dark table-hover text-center">
-        <th>Day</th>
-        <th>장소</th>
-        <th>교통</th>
-        <th>일정</th>
-        <th>식사</th>
-</tr>
-    <tbody>
-        <tr>
-            <td class="text-center"><h3>1</h3></td>
-            <td class="text-center">바르셀로나</td>
-            <td class="text-center">스피드 보트</td>
-            <td class="text-left"> {{ form.media }}
-                {{ form.content | as_crispy_field }}</td>
-            <td class="text-center">떡볶이 정식</td>
-        </tr>
-    </tbody>
-</table>
 
+<button id='buttonIti' class="button_style" name="New Content">일정표1</button>
+<button id='buttonInfo' class="button_style" name="New Content">상품 정보</button>
+<script>
+
+
+    const defaultIti = `
+    <h1> {{ touritem.title }} </h1>
+    <p>✌️ 출국 : {{ touritem.d_date1 | date:'Y-m-d (D)' | cut:"요일" }}  {{touritem.d_city1}}-{{touritem.d_city2}} {{ touritem.d_time1 | date:'H:i'}} - {{touritem.d_time2 | date:'H:i'}} <br>
+        🤥 귀국 : {{ touritem.r_date2 | date:'Y-m-d (D)' | cut:"요일" }}  {{touritem.r_city1}}-{{touritem.r_city2}} {{ touritem.r_time1 | date:'H:i' }} - {{touritem.r_time2 | date:'H:i'}}</p>
+
+    <table class="table">
+        <colgroup>
+            <col width="5%">
+            <col width="15%">
+            <col width="15%">
+            <col width="50%">
+            <col width="15%">
+        </colgroup>
+        <tr class="table table-dark table-hover text-center">
+            <th>Day</th>
+            <th>장소</th>
+            <th>교통</th>
+            <th>일정</th>
+            <th>식사</th>
+    </tr>
+        <tbody>
+            <tr>
+                <td class="text-center"><h3>1</h3></td>
+                <td class="text-center">바르셀로나</td>
+                <td class="text-center">스피드 보트</td>
+                <td class="text-left"> 출발 </td>
+                <td class="text-center">조: <br>중: <br>석: </td>
+            </tr>
+            <tr>
+                <td class="text-center"><h3>2</h3></td>
+                <td class="text-center">바르셀로나</td>
+                <td class="text-center">스피드 보트</td>
+                <td class="text-left"> 아 몰라 </td>
+                <td class="text-center">조: <br>중: <br>석: </td>
+            </tr>
+            <tr>
+                <td class="text-center"><h3>3</h3></td>
+                <td class="text-center">바르셀로나</td>
+                <td class="text-center">스피드 보트</td>
+                <td class="text-left"> 아 몰라 </td>
+                <td class="text-center">조: <br>중: <br>석: </td>
+            </tr>
+            <tr>
+                <td class="text-center"><h3>4</h3></td>
+                <td class="text-center">바르셀로나</td>
+                <td class="text-center">스피드 보트</td>
+                <td class="text-left"> 아 몰라 </td>
+                <td class="text-center">조: <br>중: <br>석: </td>
+            </tr>
+            <tr>
+                <td class="text-center"><h3>5</h3></td>
+                <td class="text-center">바르셀로나</td>
+                <td class="text-center">스피드 보트</td>
+                <td class="text-left"> 아 몰라 </td>
+                <td class="text-center">조: <br>중: <br>석: </td>
+            </tr>
+            <tr>
+                <td class="text-center"><h3>6</h3></td>
+                <td class="text-center">바르셀로나</td>
+                <td class="text-center">스피드 보트</td>
+                <td class="text-left"> 아 몰라 </td>
+                <td class="text-center">조: <br>중: <br>석: </td>
+            </tr>
+        </tbody>
+    </table>`
+
+    const defaultInfo = `상품 정보`
+    
+    function SetDefaultIti() {
+     var ContentSet = tinymce.get('id_content').setContent(defaultIti);
+    }
+    var buttonSet = document.getElementById('buttonIti');
+    buttonSet.addEventListener('click', SetDefaultIti, false);
+
+    function SetDefaultInfo() {
+     var ContentSet = tinymce.get('id_notice').setContent(defaultInfo);
+    }
+    var buttonSet = document.getElementById('buttonInfo');
+    buttonSet.addEventListener('click', SetDefaultInfo, false);
+    </script>
 {% endblock %}
