@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Tag, BasicCode, TourItem
+from .models import *
 from rangefilter.filter import DateRangeFilter, DateTimeRangeFilter
 from markdownx.admin import MarkdownxModelAdmin
 
@@ -22,6 +22,9 @@ class BasicCodeAdmin(admin.ModelAdmin):
 class TourItemAdmin(admin.ModelAdmin):
     list_display = ["pk","d_date1","요일","item_code","air_code","suffix_code","r_date1","stay","d_time1", "d_time2",  "title", "etc", "d_city1", "d_city2","airline","price"]
     list_editable = ["stay","title","suffix_code","d_city1","d_city2","air_code","price"]
+
+class ItiAdmin(admin.ModelAdmin):
+    list_display = ["pk","item_code"]
 
 
 # class TourItemInline(admin.StackedInline):
@@ -50,10 +53,11 @@ class TourItemAdmin(admin.ModelAdmin):
     # search_fields = ['title']
 
 # admin.site.register(DetailCode, DetailCodeAdmin)
-admin.site.register(TourItem, TourItemAdmin)
+admin.site.register(TourItem, MarkdownxModelAdmin)
 admin.site.register(BasicCode, BasicCodeAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Iti, ItiAdmin)
 
 # list_display = ["id", "__str__", "publishing_date",
 #                 "updating_date", "category", "highlighted"]

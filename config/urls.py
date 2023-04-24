@@ -13,6 +13,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('markdownx/', include('markdownx.urls')),
     path('crm/', include('website.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 # static() 정적 파일들의 url을 관리. 접근한 url을 리턴.

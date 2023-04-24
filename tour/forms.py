@@ -7,7 +7,6 @@ class CommentForm(forms.ModelForm):
         model = TourItem
         fields = ('content',)
 
-
 #  그냥 Form 은 필드 정의를 별도로 작성-> 화면 렌더링, 값 받아오기 처리.
 # Form 인스턴스는 is_valid()를 갖고 있다. 유효성검사
 # 참이면 cleaned_data에 저장

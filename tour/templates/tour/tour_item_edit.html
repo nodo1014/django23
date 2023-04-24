@@ -1,0 +1,49 @@
+{% extends 'tour/base.html' %}
+{% load humanize %}
+ load staticfiles
+{% load crispy_forms_tags %}
+{% block main_area %}
+
+<div class="row">
+    <div class="col-xs-12">
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.basic_code | as_crispy_field }}
+    {{ form.suffix_code | as_crispy_field }}
+    {{ form.content | as_crispy_field }}
+    {{form}}
+    <button type="submit" class="btn btn-primary float-right">Submit</button>
+
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <colgroup>
+        <col width="5%">
+        <col width="15%">
+        <col width="15%">
+        <col width="50%">
+        <col width="15%">
+    </colgroup>
+    <tr class="table table-dark table-hover text-center">
+        <th>Day</th>
+        <th>장소</th>
+        <th>교통</th>
+        <th>일정</th>
+        <th>식사</th>
+</tr>
+    <tbody>
+        <tr>
+            <td class="text-center"><h3>1</h3></td>
+            <td class="text-center">바르셀로나</td>
+            <td class="text-center">스피드 보트</td>
+            <td class="text-left"> {{ form.media }}
+                {{ form.content | as_crispy_field }}</td>
+            <td class="text-center">떡볶이 정식</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

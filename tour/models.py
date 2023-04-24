@@ -1,14 +1,11 @@
 from datetime import date, time, timedelta
-
 from django.db import models
-
-# Create your models here.
 import os
-
 from django.contrib.auth.models import User
 from django.db import models
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdown
+from tinymce.models import HTMLField
 
 
 # //FIXME: ForeignKey -> User의 pk와 연결돼 있다는 말
@@ -41,7 +38,6 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
-
 
 
 # Post에서 변경
@@ -103,7 +99,6 @@ class TourItem(models.Model):
     suffix_code = models.CharField(max_length=2, blank=True)
     #item_code, item_no 구현..? zfill 이용. 나중에
     title = models.CharField(max_length=50, blank=True)
-    content = models.CharField(max_length=50, blank=True) # 일정표 상세
     etc = models.CharField(max_length=50, blank=True)
     airline = models.CharField(max_length=20, blank=True)
     price = models.IntegerField("숫자", default = 0, help_text="미입력시 0. 문의")
@@ -122,16 +117,13 @@ class TourItem(models.Model):
     r_city2 = models.CharField(max_length=3, blank=True)
     r_time1 = models.TimeField(default=time(23, 30))
     r_time2 = models.TimeField(default=time(6, 00))
-    # r_city1 = models.CharField(max_length=3, blank=True)
-    # r_city2 = models.CharField(max_length=3, blank=True)
-    # r_date1 = models.DateTimeField(null=True)
-    # r_date2 = models.DateTimeField(null=True)
-
     # datetime.datetime.now() <-naive
     # django.utils.timezone.now() <--time-zone-aware
-
     # 날짜객체로 date.fromisoformat('2020-01-31')
     # 날짜객체->iso date.isoformat(d1)
+    # content = MarkdownxField() # 일정표 상세
+    content = HTMLField(blank= True)
+    notice = HTMLField(blank=True) # 일정표 상세
     created_at = models.DateTimeField(auto_now_add=True)
     # DateTimeField(default=timezone.now())
     # DateTimeField(auto_now=True)
@@ -160,6 +152,23 @@ class TourItem(models.Model):
         # return f'{self.d_date1 + timedelta(self.stay - 2 + self.r_daychange)}'
         return self.d_date1 + timedelta(self.stay - 2 + self.r_daychange)
 
-    # def get_absolute_url(self):
-    #     return f'{self.get_absolute_url()}'
+    # success_url에도 사용되므로, urls.py 수정,삭제 후 어디로 갈지 고려
+    def get_absolute_url(self):
+        return f'/tour/{self.pk}/'
 
+    def get_content_markdown(self):
+        return markdown(self.content)
+
+
+class Iti(models.Model):
+    item_code = models.ForeignKey(TourItem, null=True, blank=True, on_delete=models.SET_NULL)
+    content = MarkdownxField()
+    head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
+    file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+    
+    # 객체 self 는  self.pk, self.item_code 등 변수를 갖고 있다.
+    # def get_absolute_url(self):
+    #     return f'/tour/{self.pk}/iti'
+    # self.pk 를 일정표에서 받아서...pk 에 해당하는 일정표

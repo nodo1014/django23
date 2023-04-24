@@ -8,12 +8,40 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.utils.text import slugify
 from datetime import datetime, date, time, timedelta
 from .forms import CommentForm, NameForm, ContactForm
-from .models import Category, Tag, TourItem, BasicCode
+from .models import *
 from .filters import ItemFilter
 import django_tables2 as tables
 from django.db.models import Q
 from django.db.models.functions import Concat
 from django.db.models import CharField, Value
+
+def landing(request):
+    recent_posts = TourItem.objects.order_by('-pk')[:3]
+    # model = TourItem
+    # ordering = '-pk'
+    # queryset = TourItem.objects.all() # ListView Overriding
+    # template_name = "tour/tour_item_list_3.html"
+    # form_class = NameForm
+    
+    # def get_context_data()
+    # def dispatch()
+    # def form_valid()
+
+    return render(
+        request,
+        'single_pages/landing.html',
+        {
+            'recent_posts': recent_posts,
+        }
+    )
+
+
+def about_me(request):
+    return render(
+        request,
+        'single_pages/about_me.html'
+    )
+
 
 class TourItemTable(tables.Table):
     class Meta:
@@ -83,10 +111,34 @@ class TourItemList(ListView):
         # context['tags'] = Tag.objects.all()
         # context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
+    
+class TourItemDetail(DetailView):
+    model = TourItem
+    template_name = "tour/tour_item_detail.html"
 
+class TourItemUpdate(UpdateView):
+    model = TourItem
+    fields = '__all__'
+    template_name = "tour/tour_item_edit.html"
+    
+    def form_valid(self, form):
+        response = super(TourItemUpdate, self).form_valid(form)
+        
+        return response
+    
+    
+    
+    
+
+class TourItemDelete(DeleteView):
+    model = TourItem
+    fields = '__all__'
+    template_name = "tour/tour_item_delete.html"
+    
 class TourItemCreate(CreateView):
     model = TourItem
     fields = '__all__'
+    template_name = "tour/tour_item_new.html"
 
 def index(request):
     tour_item = TourItem.objects.all()
@@ -99,10 +151,8 @@ def index(request):
             end = form.cleaned_data['end_date']
             keyword = form.cleaned_data['keyword']
             day_list2 = [(start + timedelta(days=i)) for i in range((end-start).days+1)]
-            
             tour_item = TourItem.objects.filter(Q(d_date1__range=[start, end]))
 
-            
             context = {
                 'form':form,
                 'day_list2':day_list2,
@@ -118,6 +168,7 @@ def index(request):
 
     # return render(request, 'tour/name.html', context)
     return render(request, template_name, context)
+
 
 
 

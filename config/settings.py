@@ -15,8 +15,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'parsed_data',
     'dbtest.apps.DbtestConfig',
-    'booking',      
     'tour',
+    'website',
     'blog',
     'single_pages',
     'django.contrib.admin',
@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'markdownx',
     'rangefilter',
     'django.contrib.humanize',
-    'website',
 ]
 # CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -103,8 +102,30 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
+
+# TINYMCE_JS_URL = os.path.join(STATIC_URL, "js/tinymce/tinymce.min.js")
+# TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "js/tinymce")
+TINYMCE_SPELLCHECKER = False
+
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "500px",
+    "width": "auto",
+    "menubar": "file edit view insert format table tools help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+    "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+    "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+    "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    "language": "ko_kr",  # To force a specific language instead of the Django current language.
+}
