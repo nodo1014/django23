@@ -24,7 +24,8 @@ class TourItemAdmin(admin.ModelAdmin):
     list_editable = ["stay","title","suffix_code","d_city1","d_city2","air_code","price"]
 
 class ItiAdmin(admin.ModelAdmin):
-    list_display = ["pk","item_code"]
+    list_display = ["touritem","pk","day","city","trans","food"]
+    list_editable = ["day", "city", "trans","food"]
 
 
 # class TourItemInline(admin.StackedInline):

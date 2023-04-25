@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.utils.text import slugify
 from datetime import datetime, date, time, timedelta
-from .forms import CommentForm, NameForm, ContactForm
+from .forms import *
 from .models import *
 from .filters import ItemFilter
 import django_tables2 as tables
@@ -102,12 +102,14 @@ class TourItemList(ListView):
     template_name = 'tour/tour_item_list_2.html' # 아니면, get()오버라이딩 직접 지정.
 
     def get_context_data(self, **kwargs):
-        form = NameForm()
         # context = super(PostList, self).get_context_data()
+        # context['form'] = NameForm()
+        
         context = super(TourItemList,self).get_context_data()
         context['basic_code'] = BasicCode.objects.all()
         context['categories'] = Category.objects.all()
-        context['form'] = form
+        # NameForm() 은 빈폼 인스턴스를 생성하는데... () 필요한가?
+        context['form'] = NameForm
         # context['tags'] = Tag.objects.all()
         # context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
@@ -115,6 +117,24 @@ class TourItemList(ListView):
 class TourItemDetail(DetailView):
     model = TourItem
     template_name = "tour/tour_item_detail.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(TourItemDetail, self).get_context_data()
+        # //TODO: 다중값 필드 리스트로.
+        # touritem을 참조하는 iti 를 조회 : touritem.iti_set
+        itis = self.object.iti_set.all()
+        for iti in itis:
+            f_list = iti.food.split(';') # 잘라서, 리스트로 변환
+            iti.food = f_list #객체를 db에 save()하지 않고, context 오버라이딩용
+        context['itis'] = itis
+        context['iti_form'] = ItiForm
+        return context
+
+
+class TourItemCreate(CreateView):
+    model = TourItem
+    fields = '__all__'
+    template_name = "tour/tour_item_new.html"
 
 class TourItemUpdate(UpdateView):
     model = TourItem
@@ -123,22 +143,54 @@ class TourItemUpdate(UpdateView):
     
     def form_valid(self, form):
         response = super(TourItemUpdate, self).form_valid(form)
-        
         return response
-    
-    
-    
-    
+
 
 class TourItemDelete(DeleteView):
     model = TourItem
     fields = '__all__'
     template_name = "tour/tour_item_delete.html"
     
-class TourItemCreate(CreateView):
-    model = TourItem
-    fields = '__all__'
-    template_name = "tour/tour_item_new.html"
+
+def new_iti(request, pk):
+    if request.user.is_authenticated:
+        touritem = get_object_or_404(TourItem, pk=pk)
+
+        if request.method == 'POST':
+            form = ItiForm(request.POST)
+            if form.is_valid():
+                iti = form.save(commit=False)
+                iti.touritem = touritem
+                iti.author = request.user
+                iti.save()
+                return redirect(iti.get_absolute_url())
+        else:
+            return redirect(touritem.get_absolute_url())
+    else:
+        raise PermissionDenied
+
+
+class ItiUpdate(LoginRequiredMixin, UpdateView):
+    model = Iti
+    form_class = ItiForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and request.user == self.get_object().author:
+            return super(ItiUpdate, self).dispatch(request, *args, **kwargs)
+        else:
+            raise PermissionDenied
+
+
+def delete_iti(request, pk):
+    iti = get_object_or_404(Iti, pk=pk)
+    post = iti.post
+    if request.user.is_authenticated and request.user == iti.author:
+        iti.delete()
+        return redirect(post.get_absolute_url())
+    else:
+        raise PermissionDenied
+
+
 
 def index(request):
     tour_item = TourItem.objects.all()

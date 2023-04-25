@@ -122,7 +122,7 @@ class TourItem(models.Model):
     # 날짜객체로 date.fromisoformat('2020-01-31')
     # 날짜객체->iso date.isoformat(d1)
     # content = MarkdownxField() # 일정표 상세
-    content = HTMLField(blank= True)
+    content = HTMLField(blank=True)
     notice = HTMLField(blank=True) # 일정표 상세
     created_at = models.DateTimeField(auto_now_add=True)
     # DateTimeField(default=timezone.now())
@@ -130,7 +130,7 @@ class TourItem(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'[{self.pk}]-{self.item_code}'
     
     @property
     def item_code(self):
@@ -161,14 +161,23 @@ class TourItem(models.Model):
 
 
 class Iti(models.Model):
-    item_code = models.ForeignKey(TourItem, null=True, blank=True, on_delete=models.SET_NULL)
-    content = MarkdownxField()
-    head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
-    file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
+    touritem = models.ForeignKey(TourItem, null=True, blank=True, on_delete=models.CASCADE)
+    day = models.IntegerField(blank=True)
+    city = models.CharField(max_length=100,blank=True)
+    trans = models.CharField(max_length=100,blank=True)
+    content = HTMLField(blank=True)
+    food = models.CharField(max_length=100,default="조식: 호텔식;중식: 현지식;석식: 현지식")
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     
-    # 객체 self 는  self.pk, self.item_code 등 변수를 갖고 있다.
+    # Iti의 인스턴스인 self 는  self.pk, self.item_code 등 변수를 갖고 있다.
     # def get_absolute_url(self):
     #     return f'/tour/{self.pk}/iti'
     # self.pk 를 일정표에서 받아서...pk 에 해당하는 일정표
+
+    def __str__(self):
+        return f'{self.touritem}:{self.day} 일차 {self.food}'
+
+    def get_absolute_url(self):
+        return f'{self.touritem.get_absolute_url()}#iti-{self.pk}'
+

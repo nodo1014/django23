@@ -1,6 +1,10 @@
 {% extends 'tour/base.html' %}
 {% load humanize %}
+{% load crispy_forms_tags %}
+{% load split %}
+
 {% block main_area %}
+<h3>간략 일정표(서식 변환 가능. ebay, 소셜용 등)</h3>
 <h1>{{touritem.title}}</h1>
 <p>{{touritem.item_code}}</p>
 <p>등록시간: {{touritem.created_at}}</p>
@@ -11,4 +15,62 @@
     {{object.content | safe}}
 </div>
 
+<h3>(개발중) 확정 기능, api, 모바일, 대응용</h3>
+<!-- 일정표 보여주기 -->
+
+{% if itis.exists %}
+<table class="table">
+    <colgroup>
+        <col width="4%">
+        <col width="12%">
+        <col width="12%">
+        <col width="50%">
+        <col width="12%">
+        <col width="8%">
+    </colgroup>
+    <tr class="table table-dark table-hover text-center">
+        <th>Day</th>
+        <th>장소</th>
+        <th>교통</th>
+        <th>일정</th>
+        <th>식사</th>
+        <th>권한</th>
+    </tr>   
+    <tbody>
+
+        {% for iti in itis %}
+        <!-- -% if touritem.iti_set.exists %-
+        -% for iti in touritem.iti_set.iterator %- -->
+            <tr>
+                <td class="text-center"><p>day:{{iti.day}}/pk:{{iti.pk}}</p><h3>{{forloop.counter}}</h3></td>
+                <td class="text-center">{{iti.city}}</td>
+                <td class="text-center">{{iti.trans}}</td>
+                <td class="text-left">{{iti.content|safe}}</td>
+                <td class="text-center">
+                    {% for f in iti.food %}
+                     <div>{{f}}</div>
+                    {% endfor %}
+                </td>
+                <td class="text-center">수정<br>삭제</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+     </table>
+{% endif %}
 {% endblock %}
+
+
+<!-- 일정표 추가 -->
+<h2>일정 추가</h2>
+<div id="iti_area">
+    <form action="{{ touritem.get_absolute_url }}new_iti/" method="post">
+        {% csrf_token %}
+        {{iti_form.day |as_crispy_field}}
+        {{iti_form.city |as_crispy_field}}
+        {{iti_form.trans |as_crispy_field}}
+        {{iti_form.content |as_crispy_field}}
+        {{iti_form.food |as_crispy_field}}
+        <button class="btn btn-primary" type="submit">저장</button>
+    </form>
+</div>
+
