@@ -122,7 +122,24 @@ class TourItemDetail(DetailView):
         context = super(TourItemDetail, self).get_context_data()
         # //TODO: 다중값 필드 리스트로.
         # touritem을 참조하는 iti 를 조회 : touritem.iti_set
-        itis = self.object.iti_set.all()
+        # //FIXME : share_it_chk 값에 따라, itis 변환.
+        touritem = context['object'] 
+        # print (context['object'].share_air_chk)
+        # print (context['object'].iti_confirm_chk)
+        # print (touritem.share_iti_chk)
+        # print (touritem.iti_name.pk)
+        share_itis = touritem.get_share_itis()
+        print("공유 일정: ", share_itis)
+        own_itis = touritem.get_own_itis()
+        print("저장된 itis: ", own_itis)
+        
+        if context['touritem'].share_iti_chk:    
+            itis = Iti.objects.filter(iti_name_id=touritem.iti_name.pk)
+            print('공유일정 : ', itis)
+        else:
+            itis = self.object.iti_set.all()
+            print('saved일정표', itis)
+        
         for iti in itis:
             f_list = iti.food.split(';') # 잘라서, 리스트로 변환
             iti.food = f_list #객체를 db에 save()하지 않고, context 오버라이딩용
@@ -152,6 +169,31 @@ class TourItemDelete(DeleteView):
     template_name = "tour/tour_item_delete.html"
     
 
+def save_iti(request, pk):
+    if request.user.is_authenticated:
+        touritem = get_object_or_404(TourItem, pk=pk)
+        # 저장시, 공유일정표 사용 해제
+        touritem.share_iti_chk = 0
+        touritem.save()
+    # iti 객체를 저장한다. save 로
+    # 기존 저장된 일정이 있다면, 삭제한다.
+        try:
+            Iti.objects.filter(touritem_id=touritem.pk).delete()
+        except:
+            print("기존 저장된 일정표 없뜸")
+        for object in Iti.objects.filter(iti_name_id=touritem.iti_name.pk):
+            object.pk = None
+            object.touritem_id = touritem.pk
+            # own 일정표인데, 일정표 이름이 있어서, 공유일정표로 보이는 것 방지.
+            object.iti_name_id = None
+            object.save()
+        
+        return redirect(touritem.get_absolute_url())            
+    else:
+        raise PermissionDenied
+
+        
+          
 def new_iti(request, pk):
     if request.user.is_authenticated:
         touritem = get_object_or_404(TourItem, pk=pk)

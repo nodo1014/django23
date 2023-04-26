@@ -98,24 +98,31 @@
                     <col width="5%">
                     <col width="15%">
                     <col width="15%">
-                    <col width="50%">
-                    <col width="15%">
+                    <col width="30%">
+                    <col width="35%">
                 </colgroup>
                 <tr class="table table-dark table-hover text-center">
-                    <th>Day</th>
-                    <th>장소</th>
-                    <th>교통</th>
-                    <th>일정</th>
-                    <th>식사</th>
+                    <th>코드</th>
+                    <th>공유일정</th>
+                    <th>공유블록</th>
+                    <th>iti_name</th>
+                    <th>상품명</th>
             </tr>
                 <tbody>
+                    {% for p in object_list %}
                     <tr>
-                        <td class="text-center"><h3>1</h3></td>
-                        <td class="text-center">바르셀로나</td>
-                        <td class="text-center">스피드 보트</td>
-                        <td class="text-left">코타키나 발루 어쩌고 저쩌고 궁시러ㅏㅁ이ㅓ람ㄴ어ㅏ럼낭러 동해물과 백두산이 마르고 닳도록</td>
-                        <td class="text-center">떡볶이 정식</td>
+                        <td class="text-center">
+                            <a href="{% url 'tour:tour_detail' p.pk %}">{{p.item_code}}</a></td>
+                        <td class="text-center">
+                            <input type="checkbox" {% if p.share_iti_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_iti_chk}}" name="test" value="{{p.share_iti_chk}}">
+                        </td>
+                        <td class="text-center">
+                            <input type="checkbox" {% if p.share_air_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_air_chk}}" name="test" value="{{p.share_air_chk}}">
+                        </td>
+                        <td class="text-left">{{p.iti_name}}</td>
+                        <td class="text-left">{{p.title}}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

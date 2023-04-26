@@ -89,12 +89,37 @@ class BasicCode(models.Model):
 #     def get_absolute_url(self):
 #         return f'/tour/detailcode/{self.detail_code}/'
 #         # return f'/tour/category/{self.slug}/'
+
+class ItiName(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f'/iti_name/{self.pk}/'
+    
+class ShareItiName(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f'/share_iti_name/{self.pk}/'
+        # return f'/tour/category/{self.slug}/'
 # 출발일별 상품
 class TourItem(models.Model):
-    # Comment클래스는 Tour보다 아래 있어야 한다!!
-    # TODO: 날짜+deatil_code+code_suffix 는 유일해야한다.
-    # detail_code = models.ForeignKey(DetailCode, null=True, blank=True, on_delete=models.SET_NULL, related_name = 'code')
+
     basic_code = models.ForeignKey(BasicCode, null=True, blank=True, on_delete=models.SET_NULL, related_name = 'tour_item')
+    iti_name = models.ForeignKey(ItiName, null=True, blank=True, on_delete=models.CASCADE)
+    share_air_chk = models.BooleanField(default = False, help_text='기본값 False')
+    share_iti_chk = models.BooleanField(default = True, help_text='해당 상품만 일정 수정시, 체크해제, 다시 체크하면 기본 일정표로.')
+    iti_confirm_chk = models.BooleanField(default = False, help_text='확정시, 전용일정. 로직 충돌')
     air_code = models.CharField(max_length=2)
     suffix_code = models.CharField(max_length=2, blank=True)
     #item_code, item_no 구현..? zfill 이용. 나중에
@@ -103,7 +128,6 @@ class TourItem(models.Model):
     airline = models.CharField(max_length=20, blank=True)
     price = models.IntegerField("숫자", default = 0, help_text="미입력시 0. 문의")
     author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
-    air_sync = models.BooleanField(default = True, blank=True, null=True)
     d_city1 = models.CharField(max_length=3, blank=True)
     d_city2 = models.CharField(max_length=3, blank=True)
     d_date1 = models.DateField(default=date(2000,1,1))
@@ -124,6 +148,9 @@ class TourItem(models.Model):
     # content = MarkdownxField() # 일정표 상세
     content = HTMLField(blank=True)
     notice = HTMLField(blank=True) # 일정표 상세
+    # 예정 일정표
+
+  
     created_at = models.DateTimeField(auto_now_add=True)
     # DateTimeField(default=timezone.now())
     # DateTimeField(auto_now=True)
@@ -134,11 +161,11 @@ class TourItem(models.Model):
     
     @property
     def item_code(self):
-        day_code = self.d_date1.strftime("%Y%m%d")
+        day_code = self.d_date1.strftime("%m%d")
         basic_code = self.basic_code.basic_code
         air_code = self.air_code
         code_suffix = self.suffix_code
-        full_code = (day_code+basic_code+air_code+code_suffix)
+        full_code = (day_code+'-'+basic_code+air_code+code_suffix)
         return full_code
 
     def 요일(self):
@@ -158,9 +185,24 @@ class TourItem(models.Model):
 
     def get_content_markdown(self):
         return markdown(self.content)
+    
+    def get_share_itis(self):
+        # itis = Iti.objects.filter(iti_name = self.iti_name)
+        itis = Iti.objects.filter(iti_name_id=self.iti_name.pk)
+        return itis
 
+    def get_own_itis(self):
+        # itis = self.object.iti_set.all()
+        itis = Iti.objects.filter(touritem_id=self.pk)
+        return itis
+        # return self.share_iti_name
+    
 
 class Iti(models.Model):
+    iti_name = models.ForeignKey(ItiName, null=True, blank=True, on_delete=models.CASCADE)
+    # 상품에서 일정을 수정하려면, 공유 체크 해제.
+    # 공유 해제시, 1) touritem 등록되면서, 복사생성. touritem 값이 있으면, 전용 일정이 됨
+    # 공유 체크 : 1) ItiName 일정표를 불러오고, 인스턴스의 touritem 값이 있는 레코드는 delete
     touritem = models.ForeignKey(TourItem, null=True, blank=True, on_delete=models.CASCADE)
     day = models.IntegerField(blank=True)
     city = models.CharField(max_length=100,blank=True)
@@ -180,4 +222,3 @@ class Iti(models.Model):
 
     def get_absolute_url(self):
         return f'{self.touritem.get_absolute_url()}#iti-{self.pk}'
-

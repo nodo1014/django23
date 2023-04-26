@@ -11,7 +11,8 @@ urlpatterns = [
     path('new/', views.TourItemCreate.as_view(), name='tour_new'),
     path('edit/<int:pk>/', views.TourItemUpdate.as_view(), name='tour_edit'),
     path('delete/<int:pk>/', views.TourItemDelete.as_view(), name='tour_delete'),
-    # 일정표 tour/9/iti_new/
+    # 일정표 tour/9/save_iti/
+    path('<int:pk>/save_iti/', views.save_iti, name='save_iti'),
     path('<int:pk>/new_iti/', views.new_iti, name='new_iti'),
     # path('edit_iti/<int:pk>/', views.update_iti, name='edit_iti'),
     # path('delete_iti/<int:pk>/', views.delete_iti, name='delete_iti'),

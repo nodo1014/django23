@@ -18,6 +18,21 @@
 <h3>(개발중) 확정 기능, api, 모바일, 대응용</h3>
 <!-- 일정표 보여주기 -->
 
+공유 일정표 사용 :  {% if touritem.share_iti_chk %}
+<input type="checkbox" checked> 
+<h3 class="text-light bg-warning">공유 일정 입니다.</h3>
+{% else %}
+<input type="checkbox">
+<h3 class="text-light bg-danger">저장된 '전용' 일정입니다</h3>
+{% endif %}
+{{touritem.iti_name}}
+<input type="checkbox">
+공유 블록 사용 
+{{touritem.share_air_chk}}
+{{touritem.share_iti_name}}
+<h3>일정표 저장 (공유 일정 사용 X)</h3>
+<a href="{{get_absolute_url}}save_iti/">일정표 저장</a>
+
 {% if itis.exists %}
 <table class="table">
     <colgroup>

@@ -20,13 +20,25 @@ class BasicCodeAdmin(admin.ModelAdmin):
     # list_editable = ["detail_code", "title"]
 
 class TourItemAdmin(admin.ModelAdmin):
-    list_display = ["pk","d_date1","요일","item_code","air_code","suffix_code","r_date1","stay","d_time1", "d_time2",  "title", "etc", "d_city1", "d_city2","airline","price"]
-    list_editable = ["stay","title","suffix_code","d_city1","d_city2","air_code","price"]
+    list_display = ["pk","price","share_iti_chk","iti_name","share_air_chk","d_date1","요일","item_code","air_code","suffix_code","r_date1","stay","d_time1", "d_time2",  "title", "etc", "d_city1", "d_city2","airline"]
+    list_editable = ["share_iti_chk","share_air_chk","iti_name","stay","title","suffix_code","d_city1","d_city2","air_code","price"]
 
 class ItiAdmin(admin.ModelAdmin):
-    list_display = ["touritem","pk","day","city","trans","food"]
-    list_editable = ["day", "city", "trans","food"]
+    list_display = ["pk","iti_name","touritem","day","city","trans","food"]
+    list_editable = ["iti_name","touritem","day", "city", "trans","food"]
 
+class ItiNameAdmin(admin.ModelAdmin):
+    list_display =['id','name','modified_at']
+    list_editable = ['name']
+
+#   
+# class ShareItiAdmin(admin.ModelAdmin):
+#     list_display = ["pk","iti_name","day","city","trans","food"]
+#     list_editable = ["iti_name","day", "city", "trans","food"]
+
+# class ShareItiNameAdmin(admin.ModelAdmin):
+#     list_display =['id','name','modified_at']
+#     list_editable = ['name']
 
 # class TourItemInline(admin.StackedInline):
 # class TourItemInline(admin.TabularInline):
@@ -54,11 +66,14 @@ class ItiAdmin(admin.ModelAdmin):
     # search_fields = ['title']
 
 # admin.site.register(DetailCode, DetailCodeAdmin)
-admin.site.register(TourItem, MarkdownxModelAdmin)
+admin.site.register(TourItem, TourItemAdmin)
 admin.site.register(BasicCode, BasicCodeAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Iti, ItiAdmin)
+admin.site.register(ItiName, ItiNameAdmin)
+# admin.site.register(ShareIti, ShareItiAdmin)
+# admin.site.register(ShareItiName, ShareItiNameAdmin)
 
 # list_display = ["id", "__str__", "publishing_date",
 #                 "updating_date", "category", "highlighted"]
