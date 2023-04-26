@@ -66,20 +66,25 @@
                      <div>{{f}}</div>
                     {% endfor %}
                 </td>
-                <td class="text-center">수정<br>삭제</td>
+                <td class="text-center">
+                    <a href="/tour/edit_iti/{{ iti.pk }}/?item={{touritem.pk}}">수정</a>
+                    <br>
+                    <a href="/tour/delete_iti/{{ iti.pk }}/?item={{touritem.pk}}">삭제</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
      </table>
-{% endif %}
-{% endblock %}
-
-
-<!-- 일정표 추가 -->
+     {% endif %}
+     <!-- 일정표 추가 -->
 <h2>일정 추가</h2>
+<h5>UpdateView 컨텍스트 오버라이딩 if 문으로 분기</h5>
+<p>공유 일정일 때는 iti_name 자동 추가.</p>
+<p>저장된 일정 상태일 경우, touritem 자동 추가</p>
 <div id="iti_area">
     <form action="{{ touritem.get_absolute_url }}new_iti/" method="post">
         {% csrf_token %}
+        {{iti_form.media }}
         {{iti_form.day |as_crispy_field}}
         {{iti_form.city |as_crispy_field}}
         {{iti_form.trans |as_crispy_field}}
@@ -88,4 +93,8 @@
         <button class="btn btn-primary" type="submit">저장</button>
     </form>
 </div>
+{% endblock %}
+
+
+
 

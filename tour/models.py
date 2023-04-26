@@ -218,7 +218,7 @@ class Iti(models.Model):
     # self.pk 를 일정표에서 받아서...pk 에 해당하는 일정표
 
     def __str__(self):
-        return f'{self.touritem}:{self.day} 일차 {self.food}'
+        return f'{self.pk}'
 
     def get_absolute_url(self):
         return f'{self.touritem.get_absolute_url()}#iti-{self.pk}'

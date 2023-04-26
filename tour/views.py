@@ -203,7 +203,6 @@ def new_iti(request, pk):
             if form.is_valid():
                 iti = form.save(commit=False)
                 iti.touritem = touritem
-                iti.author = request.user
                 iti.save()
                 return redirect(iti.get_absolute_url())
         else:
@@ -215,9 +214,10 @@ def new_iti(request, pk):
 class ItiUpdate(LoginRequiredMixin, UpdateView):
     model = Iti
     form_class = ItiForm
-
     def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated and request.user == self.get_object().author:
+        # if request.user.is_authenticated and request.user == self.get_object().author:
+        # get_object()... DetailView에서는 self.object 로 사용했었는데..
+        if request.user.is_authenticated:
             return super(ItiUpdate, self).dispatch(request, *args, **kwargs)
         else:
             raise PermissionDenied
@@ -225,10 +225,21 @@ class ItiUpdate(LoginRequiredMixin, UpdateView):
 
 def delete_iti(request, pk):
     iti = get_object_or_404(Iti, pk=pk)
-    post = iti.post
-    if request.user.is_authenticated and request.user == iti.author:
+    print(request.GET['item']) #<WSGIRequest: GET '/tour/delete_iti/5/'>
+    url = '/tour/'+(request.GET['item']+'/')
+    # 일정 삭제 후, 원래 일정표url로 리디렉트 하기 위해, touritem인스턴스 저장.
+    # iti 에 touritem 이 없는 경우는? 즉, 수정/삭제는 같지만, 리디렉트 할 방법이....???
+    if iti.touritem : #저장 일정이면, touritem이 있으면....
+        touritem = iti.touritem #
+    else:
+        # 고민...ㅠㅠ 
+        touritem = request.GET['item']
+    
+    # if request.user.is_authenticated and request.user == iti.author:
+    if request.user.is_authenticated:
         iti.delete()
-        return redirect(post.get_absolute_url())
+        # return redirect(touritem.get_absolute_url())
+        return redirect(url)
     else:
         raise PermissionDenied
 
