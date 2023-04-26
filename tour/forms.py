@@ -5,7 +5,7 @@ from django import forms
 class ItiForm(forms.ModelForm):
     class Meta:
         model = Iti
-        fields = ('day','city','trans','content','food')
+        fields = ('iti_name','day','city','trans','content','food')
 
 #  그냥 Form 은 필드 정의를 별도로 작성-> 화면 렌더링, 값 받아오기 처리.
 # Form 인스턴스는 is_valid()를 갖고 있다. 유효성검사

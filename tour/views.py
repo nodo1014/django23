@@ -148,11 +148,52 @@ class TourItemDetail(DetailView):
         return context
 
 
-class TourItemCreate(CreateView):
+class TourItemCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = TourItem
     fields = '__all__'
+    # fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
     template_name = "tour/tour_item_new.html"
+    
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.is_staff
+    
+    def form_valid(self, form):
+        current_user = self.request.user
+        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser):
+            # form.instance.author = current_user
+            response = super(TourItemCreate, self).form_valid(form)
+            # tags_str = self.request.POST.get('tags_str')
+            # tags_str = self.request.POST['tags_str']
 
+            return response
+
+        else:
+                return redirect('/tour/index2')
+
+def new_iti(request, pk):
+    if request.user.is_authenticated:
+        touritem = get_object_or_404(TourItem, pk=pk)
+
+        if request.method == 'POST':
+            form = ItiForm(request.POST)
+            if form.is_valid():
+                iti = form.save(commit=False)
+                if touritem.share_iti_chk == 0: # 저장 일정이면 상품연결
+                    iti.touritem = touritem    
+                else:
+                    #//FIXME: 공유일정 이름을 못넣어. 폼에서 컨텍스트 처리
+                    #iti.iti_name = 
+                    # 공유일정이면, 리턴도 문제가 있네. ㅠ 아호...url 처리?
+                    
+                    pass
+                iti.save()
+                # return redirect(iti.get_absolute_url())
+                return redirect(touritem.get_absolute_url())
+        else:
+            return redirect(touritem.get_absolute_url())
+    else:
+        raise PermissionDenied
+    
 class TourItemUpdate(UpdateView):
     model = TourItem
     fields = '__all__'
@@ -162,7 +203,17 @@ class TourItemUpdate(UpdateView):
         response = super(TourItemUpdate, self).form_valid(form)
         return response
 
-
+class ItiUpdate(LoginRequiredMixin, UpdateView):
+    model = Iti
+    form_class = ItiForm
+    def dispatch(self, request, *args, **kwargs):
+        # if request.user.is_authenticated and request.user == self.get_object().author:
+        # get_object()... DetailView에서는 self.object 로 사용했었는데..
+        if request.user.is_authenticated:
+            return super(ItiUpdate, self).dispatch(request, *args, **kwargs)
+        else:
+            raise PermissionDenied
+        
 class TourItemDelete(DeleteView):
     model = TourItem
     fields = '__all__'
@@ -191,36 +242,6 @@ def save_iti(request, pk):
         return redirect(touritem.get_absolute_url())            
     else:
         raise PermissionDenied
-
-        
-          
-def new_iti(request, pk):
-    if request.user.is_authenticated:
-        touritem = get_object_or_404(TourItem, pk=pk)
-
-        if request.method == 'POST':
-            form = ItiForm(request.POST)
-            if form.is_valid():
-                iti = form.save(commit=False)
-                iti.touritem = touritem
-                iti.save()
-                return redirect(iti.get_absolute_url())
-        else:
-            return redirect(touritem.get_absolute_url())
-    else:
-        raise PermissionDenied
-
-
-class ItiUpdate(LoginRequiredMixin, UpdateView):
-    model = Iti
-    form_class = ItiForm
-    def dispatch(self, request, *args, **kwargs):
-        # if request.user.is_authenticated and request.user == self.get_object().author:
-        # get_object()... DetailView에서는 self.object 로 사용했었는데..
-        if request.user.is_authenticated:
-            return super(ItiUpdate, self).dispatch(request, *args, **kwargs)
-        else:
-            raise PermissionDenied
 
 
 def delete_iti(request, pk):

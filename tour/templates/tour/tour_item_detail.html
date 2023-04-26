@@ -77,7 +77,7 @@
      </table>
      {% endif %}
      <!-- 일정표 추가 -->
-<h2>일정 추가</h2>
+<h2>일정 추가 (공유 일정표명: {{touritem.iti_name}} )</h2>
 <h5>UpdateView 컨텍스트 오버라이딩 if 문으로 분기</h5>
 <p>공유 일정일 때는 iti_name 자동 추가.</p>
 <p>저장된 일정 상태일 경우, touritem 자동 추가</p>
@@ -85,6 +85,7 @@
     <form action="{{ touritem.get_absolute_url }}new_iti/" method="post">
         {% csrf_token %}
         {{iti_form.media }}
+        {{iti_form.iti_name |as_crispy_field}}
         {{iti_form.day |as_crispy_field}}
         {{iti_form.city |as_crispy_field}}
         {{iti_form.trans |as_crispy_field}}
