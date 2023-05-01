@@ -1,8 +1,5 @@
 {% load static %}
 <!DOCTYPE html>
-{% block head_title %}
-{{ object_list.first }} - 브라우저 header
-{% endblock %}
 
 <html lang="en">
     <head>
@@ -11,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>스피드</title>
+        <title></title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="{% static 'tour/css/styles.css' %}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -47,28 +44,62 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <div class="sb-sidenav-menu-heading">코어</div>
+                            <a class="nav-link" href="/tour/item/">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                tour_item
                             </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link" href="/blog/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                DoIt장고_블로그
+                            </a>
+                            <a class="nav-link" href="/crm/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                CRM
+                            </a>
+                            <a class="nav-link" href="/block/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                블록 Block
+                            </a>
+                            <h5>코드리스트(basic코드+구분코드)</h5>
+                            ?item_code = asp132&start_day=오늘 
+                            {% for obj in object_list %}
+                                        
+                            {{ obj.pk }}<a class="nav-link" href="#">{{obj.basiccode_fk}}{{obj.air_code}}{{obj.suffix_code}}</a> {{obj.item_code}}
+
+                            {% endfor %}
+
+                            <h5>touritem리스트</h5>
+                            {% for obj in object_list %}
+                                        
+                            <a class="nav-link" href="#">{{ obj.pk }} {{obj.title}}</a>
+                            {% endfor %}
+
+
+                            <div class="sb-sidenav-menu-heading">앱Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                상품 코드 리스트
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    {% for obj in object_list %}
+                                        
+                                    <a class="nav-link" href="#">{{ obj.pk }}</a>
+                                    {% endfor %}
                                 </nav>
                             </div>
+
+
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
+                                페이지
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+
+
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
@@ -95,7 +126,9 @@
                                     </div>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
+
+
+                            <div class="sb-sidenav-menu-heading">애드온</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts

@@ -10,13 +10,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'bus',
+    'blog1',
+    'website',
     'django_tables2',
     'material',
     'widget_tweaks',
     'parsed_data',
     'dbtest.apps.DbtestConfig',
+    'block',
     'tour',
-    'website',
     'blog',
     'single_pages',
     'django.contrib.admin',

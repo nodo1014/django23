@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet"  href="#">
+</head>
+
+<body>
+    <div id="signup" align="center">
+       
+                <form method="POST" action="">
+                        {% csrf_token %}
+                    <div class="signup-page" style="padding-top: 20px;">
+                        <div class="form">
+                            <form class="signup-form">
+                                <input type="text" id="username" name="username" placeholder="아이디" /><br>
+                                <input type="password" id="password" name="password" placeholder="비밀번호" /><br>
+                                <input type="password" id="password" name="password" placeholder="비밀번호 확인" /><br>
+                                <button type="submit" value="login">회원가입</button>
+
+                            </form>
+                            <p class="message">계정이 이미 있으신가요? <a href="{% url 'login' %}">로그인하기</a></p>
+                        </div>
+                    </div>
+                </form>
+             </div>
+        </div>
+    </div>
+</body>
+</html>

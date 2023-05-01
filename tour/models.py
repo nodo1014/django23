@@ -42,7 +42,7 @@ class Category(models.Model):
 
 # Post에서 변경
 class BasicCode(models.Model):
-    basic_code = models.CharField('기초코드',max_length=6, unique=True, help_text="예)ATP101")
+    name = models.CharField('기초코드',max_length=6, unique=True, help_text="예)ATP101")
     title = models.CharField('기초 상품 제목', max_length=80, help_text="방콕/파타야 빠빠빠 상품")
     hook_text = models.CharField('상품설명',max_length=120, blank=True)
     # content = models.TextField()
@@ -60,7 +60,7 @@ class BasicCode(models.Model):
 
     #  __str__메서드 : 객체 자체의 내용을 출력
     def __str__(self):
-        return f'{self.basic_code}'
+        return f'{self.name}'
 
     def get_absolute_url(self):
         return f'/tour/{self.pk}/'
@@ -77,19 +77,6 @@ class BasicCode(models.Model):
     def get_content_markdown(self):
         return markdown(self.content)
 
-# class DetailCode(models.Model):
-#     basic_code = models.ForeignKey(BasicCode, null=True, blank=True, on_delete=models.SET_NULL)
-#     detail_code = models.CharField('상세코드',max_length=4, unique=True, help_text="예)KE00 항공+숫자로 작성... 이건...TourItem에서 입력하는게 맞을 듯")
-#     title = models.CharField('의미없음-메모용', max_length=50, blank=True)
-#     # slug = models.SlugField(max_length=50, unique=True, null=True, blank=True, allow_unicode=True)
-
-#     def __str__(self):
-#         return f'{self.basic_code}{self.detail_code} : {self.title}'
-
-#     def get_absolute_url(self):
-#         return f'/tour/detailcode/{self.detail_code}/'
-#         # return f'/tour/category/{self.slug}/'
-
 class ItiName(models.Model):
     name = models.CharField(max_length=50, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -101,46 +88,36 @@ class ItiName(models.Model):
     def get_absolute_url(self):
         return f'/iti_name/{self.pk}/'
     
-class ShareItiName(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    modified_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        return f'/share_iti_name/{self.pk}/'
-        # return f'/tour/category/{self.slug}/'
+    
 # 출발일별 상품
 class TourItem(models.Model):
 
-    basic_code = models.ForeignKey(BasicCode, null=True, blank=True, on_delete=models.SET_NULL, related_name = 'tour_item')
+    basiccode_fk = models.ForeignKey(BasicCode, null=True, blank=True, on_delete=models.SET_NULL, related_name = 'touritem_basiccode')
     iti_name = models.ForeignKey(ItiName, null=True, blank=True, on_delete=models.CASCADE)
     share_air_chk = models.BooleanField(default = False, help_text='기본값 False')
     share_iti_chk = models.BooleanField(default = True, help_text='해당 상품만 일정 수정시, 체크해제, 다시 체크하면 기본 일정표로.')
     iti_confirm_chk = models.BooleanField(default = False, help_text='확정시, 전용일정. 로직 충돌')
-    air_code = models.CharField(max_length=2)
+    air_code = models.CharField("항공코드", max_length=2)
     suffix_code = models.CharField(max_length=2, blank=True)
     #item_code, item_no 구현..? zfill 이용. 나중에
-    title = models.CharField(max_length=50, blank=True)
-    etc = models.CharField(max_length=50, blank=True)
-    airline = models.CharField(max_length=20, blank=True)
+    title = models.CharField("상품명", max_length=50, blank=True)
+    airline = models.CharField("항공사", max_length=20, blank=True)
     price = models.IntegerField("숫자", default = 0, help_text="미입력시 0. 문의")
     author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     d_city1 = models.CharField(max_length=3, blank=True)
     d_city2 = models.CharField(max_length=3, blank=True)
     d_date1 = models.DateField(default=date(2000,1,1))
-    # d_date2 = models.DateField(default=date(2000,1,2))
+    d_date2 = models.DateField(default=date(2000,1,2))
     d_daychange = models.IntegerField(default=1)
     stay = models.IntegerField(default=5)
     r_daychange = models.IntegerField(default=1)
-    d_time1 = models.TimeField(default=time(19,00))
-    d_time2 = models.TimeField(default=time(23,30))
+    d_time1 = models.TimeField(default=time(00,00))
+    d_time2 = models.TimeField(default=time(00,00))
     r_city1 = models.CharField(max_length=3, blank=True)
     r_city2 = models.CharField(max_length=3, blank=True)
-    r_time1 = models.TimeField(default=time(23, 30))
-    r_time2 = models.TimeField(default=time(6, 00))
+    r_time1 = models.TimeField(default=time(00, 00))
+    r_time2 = models.TimeField(default=time(00, 00))
     # datetime.datetime.now() <-naive
     # django.utils.timezone.now() <--time-zone-aware
     # 날짜객체로 date.fromisoformat('2020-01-31')
@@ -157,16 +134,24 @@ class TourItem(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'[{self.pk}]-{self.item_code}'
+        return self.item_code
     
     @property
-    def item_code(self):
+    def item_no(self):
         day_code = self.d_date1.strftime("%m%d")
-        basic_code = self.basic_code.basic_code
+        basiccode_fk = self.basiccode_fk.name
         air_code = self.air_code
         code_suffix = self.suffix_code
-        full_code = (day_code+'-'+basic_code+air_code+code_suffix)
-        return full_code
+        item = (day_code+'-'+basiccode_fk+air_code+code_suffix)
+        return item
+    @property
+    def item_code(self):
+        # day_code = self.d_date1.strftime("%m%d")
+        basiccode_fk = self.basiccode_fk.name
+        air_code = self.air_code
+        code_suffix = self.suffix_code
+        code = (basiccode_fk+air_code+code_suffix)
+        return code
 
     def 요일(self):
         return f'{date.strftime(self.d_date1, "%a")}'
@@ -178,7 +163,8 @@ class TourItem(models.Model):
     def r_date2(self):
         # return f'{self.d_date1 + timedelta(self.stay - 2 + self.r_daychange)}'
         return self.d_date1 + timedelta(self.stay - 2 + self.r_daychange)
-
+    def night(self):
+        return self.stay - self.r_daychange - 1
     # success_url에도 사용되므로, urls.py 수정,삭제 후 어디로 갈지 고려
     def get_absolute_url(self):
         return f'/tour/{self.pk}/'
@@ -198,6 +184,8 @@ class TourItem(models.Model):
         # return self.share_iti_name
     
 
+    
+    
 class Iti(models.Model):
     iti_name = models.ForeignKey(ItiName, null=True, blank=True, on_delete=models.CASCADE)
     # 상품에서 일정을 수정하려면, 공유 체크 해제.

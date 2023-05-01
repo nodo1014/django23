@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <title>예매날짜</title>
+    <style>
+        form {
+            padding: 100px;
+        }
+
+        .regibox {
+            width: 800px;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: solid black;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    {% if user.is_authenticated %}
+    <li><a> 어서오세요! {{user}}님 </a></li>
+    <li><a href="{% url 'logout' %}" type="submit">로그아웃</a></li>
+    <form method="POST" action="mypage">
+        {% csrf_token %}
+        <input type="hidden" id="user" name="user" value={{user}}>
+        <button type="submit" value="submit">마이페이지</button>
+    </form>
+    
+
+    <div class="regibox" align="center">
+        <form method="POST" action="select_date">
+            {% csrf_token %}
+            <input type="date" id="date" name="date" value="2021-02-20" min="2021-02-20" max="2022-01-01">
+            <input type="hidden" id="user" name="user" value={{user}}>
+            <br><br>
+            <button type="submit" value="submit">예매할 날짜 선택</button>
+        </form>
+    </div>
+    <br><br>
+    <div class="regibox" align="center">
+        <form method="POST" action="cancel_date">
+            {% csrf_token %}
+            <input type="date" id="date" name="date" value="2021-02-20" min="2021-02-20" max="2022-01-01">
+            <input type="hidden" id="user" name="user" value={{user}}>
+            <br><br>
+            <button type="submit" value="submit">취소할 날짜 선택</button>
+        </form>
+    </div>
+    {% else %}
+    <li><a href="{% url 'login' %}" type="submit">로그인</a></li>
+    <li><a href="{% url 'signup' %}" type="submit">회원가입</a></li>
+    {% endif %}
+</body>
+
+</html>

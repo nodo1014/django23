@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <title>마이페이지</title>
+    <style>
+        * {
+            font-size: 16px;
+            font-family: Consolas, sans-serif;
+        }
+
+        .table {
+            width: 800px;
+            margin: 0 auto;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+
+        }
+
+        h3 {
+            text-decoration: underline #4CAF50;
+            text-underline-position: under;
+        }
+
+        table,
+        tr td {
+
+            border: 1px solid rgb(139, 139, 139);
+            color: black;
+
+
+        }
+
+        tbody {
+
+            display: block;
+
+            height: 150px;
+
+            overflow: auto;
+            text-align: center;
+
+        }
+
+        thead,
+        tbody tr {
+
+            display: table;
+
+            width: 100%;
+
+            table-layout: fixed;
+            /* even columns width , fix width of table too*/
+
+        }
+
+        thead {
+            text-align: center;
+
+            width: calc(100% - 1em)
+                /* scrollbar is average 1em/16px width, remove it from thead width */
+
+        }
+
+        table {
+
+            width: 400px;
+
+        }
+    </style>
+</head>
+
+<a href="{% url 'date' %}" type="submit">뒤로가기</a>
+
+<body>
+    <div class="table">
+        <h3>{{user}}</h3>
+        <table>
+            <thead>
+
+                <th>날짜</th>
+                <th>자리번호</th>
+            </thead>
+            <tbody>
+                {% for info in info %}
+
+                <tr>
+
+                    <td>{{info.date}}</td>
+                    <td bgcolor="#FFEFD5">{{info.number}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>

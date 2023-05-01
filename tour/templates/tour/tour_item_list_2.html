@@ -1,18 +1,28 @@
 {% extends 'tour/base.html' %}
 {% load humanize %}
 {% block main_area %}
-    {% block search_area %}
+
         <div class="container-fluid px-4">
             <h1 class="mt-4">상품 조회</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">코드, 한글 , 날짜 조회</li>
             </ol>
+            <div>
+                전체선택<input type="checkbox" name="yoil" onclick="javascript:yoil()">
+                월<input type="checkbox" name='yoil_1' value="1">
+                화<input type="checkbox" name='yoil_2' value="2">
+                수<input type="checkbox" name='yoil_3' value="3">
+                목<input type="checkbox" name='yoil_4' value="4">
+                금<input type="checkbox" name='yoil_5' value="5">
+                토<input type="checkbox" name='yoil_6' value="6">
+                일<input type="checkbox" name='yoil_7' value="7">
 
+            </div>
         <div>
             <div class="row">
                 <div class="col">
                     <div class="card card-body">    
-                        <form action="{% url 'tour:index2' %}" method="get">
+                        <form action="{% url 'tour:item' %}" method="get">
                             {% csrf_token %}
                         <div style="display:flex;justify-content:between-around;align-items:center;">
                             {{form.as_p}}
@@ -23,8 +33,52 @@
                         </form>
                     </div>
                 </div>
-            </div> 
-        {% endblock %}
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card card-body"> 
+                           
+                        <script language="javascript">
+                   
+                            function yoil(){
+                            
+                            if(document.all['yoil'].checked == true)
+                            {
+                            for(i=1; i<8;i++){
+                            document.all['yoil_'+i].checked = true;
+                            }
+                            }
+                            else if(document.all['yoil'].checked == false)
+                            {
+                            for(i=1; i<8;i++){
+                            document.all['yoil_'+i].checked = false;
+                            }
+                            }
+                            return;
+                            }
+            
+                            </script>
+
+
+                <ul>
+                    {% for bc in basiccode %}
+                     <li>   기본코드: {{ bc.name }} : {{bc.title}} {{bc.query_code}}
+                       
+                            <ul>
+                            {% for item in bc.touritem_rn.iterator %}
+                            <li>상품코드 : {{item.item_code}}</li>
+                            {% endfor %}
+                        </ul>
+                        
+                     </li>
+                    {% endfor %}
+                </ul>
+ 
+                    </div>
+                </div>
+            </div>
+        
 
 
     <div class="card mb-4">
@@ -43,40 +97,41 @@
                 <thead>
                     <tr>
                         <th>상품명</th>
-                        <th>출발일~도착일</th>
+                        <th>일정</th>
+                        <th>출발일</th>
                         <th>요일</th>
+                        <th>도착일</th>
                         <th>출발지</th>
                         <th>도착지</th>
-                        <th>상품명</th>
-                        <th>일정</th>
+                        <th>코드</th>
                         <th>상품가</th>
                         <th>항공</th>
                         <th>출발편</th>
                         <th>리턴편</th>
-                        <th>수정|삭제 </th>
+                        <th>관리</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for p in object_list %}
                     <tr>
-                        <td>
-                            <a href="{% url 'tour:tour_detail' p.pk %}">{{ p.title }}</a>
-                        </td>
+                        <td><a href="{% url 'tour:tour_detail' p.pk %}">{{p.basiccode_fk}}{{p.air_code}}{{p.suffix_code}}</a></td>
+                        <td>{{p.stay}} 일</td>
                         <td>
                             {{ p.d_date1 | date:'Y-m-d (D)' | cut:"요일"}}<br>
                             {{ p.d_date2 | date:'Y-m-d (D)' | cut:"요일"}}
                         </td>
+                        <td>{{p.d_date1 | date:'D' | cut:"요일"}}</td>
                         <td>
-                            {{p.d_date1 | date:'Y-m-d (D)' | cut:"요일"}}<br>
-                            {{p.d_city1}}-{{p.d_city2}}
+                            {{ p.title }}
+                        </td>
+                        <td>
+                            {{p.r_date2 | date:'Y-m-d (D)' | cut:"요일"}}<br>
+                            {{p.r_city1}}-{{p.r_city2}}
                         </td>
 
-                        <td>{{p.d_date1 | date:'D' | cut:"요일"}}</td>
                         
                         <td>{{p.d_city1}}</td>
                         <td>{{p.d_city2}}</td>
-                        <td>{{p.basic_code}}{{p.air_code}}{{p.suffix_code}}</td>
-                        <td>{{p.stay}} 일</td>
                         <td>{{p.price | intcomma }}</td>
                         <td>{{p.airline | upper}}</td>
                         <td>
@@ -87,6 +142,7 @@
                         <td>
                             <a href="{% url 'tour:tour_edit' p.pk %}">수정</a>
                             <a href="{% url 'tour:tour_delete' p.pk %}">삭제</a>
+                            <a href="{% url 'tour:tour_copy' p.pk %}">복사</a>
                         </td>
                     </tr>
                     {% endfor %}

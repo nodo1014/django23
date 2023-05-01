@@ -13,23 +13,29 @@ class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 class BasicCodeAdmin(admin.ModelAdmin):
-    list_display = ["basic_code","title"]
+    list_display = ["name","title"]
 
 # class DetailCodeAdmin(admin.ModelAdmin):
 #     list_display = ["basic_code","detail_code", "title"]
     # list_editable = ["detail_code", "title"]
 
 class TourItemAdmin(admin.ModelAdmin):
-    list_display = ["pk","price","share_iti_chk","iti_name","share_air_chk","d_date1","요일","item_code","air_code","suffix_code","r_date1","stay","d_time1", "d_time2",  "title", "etc", "d_city1", "d_city2","airline"]
+    # fieldsets = [
+    #     (None, {'fields': ['item_code']}),
+    #     ('필드셋', {'fields': ['']}),
+        
+    # ]
+    list_display = ["pk","price","share_iti_chk","iti_name","share_air_chk","d_date1","요일","item_code","air_code","suffix_code","r_date1","stay","d_time1", "d_time2",  "title", "d_city1", "d_city2","airline"]
     list_editable = ["share_iti_chk","share_air_chk","iti_name","stay","title","suffix_code","d_city1","d_city2","air_code","price"]
+
+class ItiNameAdmin(admin.ModelAdmin):
+    list_display =['id','name','modified_at']
+    list_editable = ['name']
 
 class ItiAdmin(admin.ModelAdmin):
     list_display = ["pk","iti_name","touritem","day","city","trans","food"]
     list_editable = ["iti_name","touritem","day", "city", "trans","food"]
 
-class ItiNameAdmin(admin.ModelAdmin):
-    list_display =['id','name','modified_at']
-    list_editable = ['name']
 
 #   
 # class ShareItiAdmin(admin.ModelAdmin):
@@ -72,6 +78,7 @@ admin.site.register(Tag, TagAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Iti, ItiAdmin)
 admin.site.register(ItiName, ItiNameAdmin)
+
 # admin.site.register(ShareIti, ShareItiAdmin)
 # admin.site.register(ShareItiName, ShareItiNameAdmin)
 
