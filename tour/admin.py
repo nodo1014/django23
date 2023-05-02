@@ -25,8 +25,8 @@ class TourItemAdmin(admin.ModelAdmin):
     #     ('필드셋', {'fields': ['']}),
         
     # ]
-    list_display = ["pk","price","share_iti_chk","iti_name","share_air_chk","d_date1","요일","item_code","air_code","suffix_code","r_date1","stay","d_time1", "d_time2",  "title", "d_city1", "d_city2","airline"]
-    list_editable = ["share_iti_chk","share_air_chk","iti_name","stay","title","suffix_code","d_city1","d_city2","air_code","price"]
+    list_display = ["pk","price","share_iti_chk","iti_name","share_air_chk","d_date1","요일","item_code","air_code","suffix_code","r_date1","d_time1", "d_time2",  "title", "d_city1", "d_city2","airline"]
+    list_editable = ["share_iti_chk","share_air_chk","iti_name","title","suffix_code","d_city1","d_city2","air_code","price"]
 
 class ItiNameAdmin(admin.ModelAdmin):
     list_display =['id','name','modified_at']

@@ -34,59 +34,68 @@
                     <div class="card card-body">    
                         <form method="POST">
                             {% csrf_token %}
-                        <div style="display:flex;justify-content:between-around;align-items:center;">
-                            <div>
+                            <div style="display:flex;align-items:center;">
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="all" onclick="javascript:checkAll()">
-                                <label class="form-check-label" for="전체 선택">전체onClick</label>
-
-                            </div>
-
+                                    <input class="form-check-input" type="checkbox" id="all" onclick="javascript:checkAll()">
+                                    <label class="form-check-label" for="전체 선택">전체 선택</label>
+                                </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="0" id="yoil_0" name="yoil">
-                                    <label class="form-check-label" for="월">월</label>
+                                    <label class="form-check-label" for="yoil_0">월</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="1" id="yoil_1" name="yoil">
-                                    <label class="form-check-label" for="화">화</label>
+                                    <label class="form-check-label" for="yoil_1">화</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="2" id="yoil_2" name="yoil">
-                                    <label class="form-check-label" for="수">수</label>
+                                    <label class="form-check-label" for="yoil_2">수</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="3" id="yoil_3" name="yoil">
-                                    <label class="form-check-label" for="목">목</label>
+                                    <label class="form-check-label" for="yoil_3">목</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="4" id="yoil_4" name="yoil">
-                                    <label class="form-check-label" for="금">금</label>
+                                    <label class="form-check-label" for="yoil_4">금</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="5" id="yoil_5" name="yoil">
-                                    <label class="form-check-label" for="토">토</label>
+                                    <label class="form-check-label" for="yoil_5">토</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="6" id="yoil_6" name="yoil">
-                                    <label class="form-check-label" for="일">일</label>
+                                    <label class="form-check-label" for="yoil_6">일</label>
                                 </div>
-                
                             </div>
-                            <div>
+                            <div style="display:flex;justify-content:between-around;align-items:center;">
 
+                            <div>
                                 시작일: {{copyform.start_date}}
                                 종료일: {{copyform.end_date}}
                                 <input type="hidden" name="item_no" value="{{object.pk}}">
+                                <button class="btn btn-danger" type="submit">저장</button>
                             </div>
-                            <button class="btn btn-danger" type="submit">
-                            저장
-                            </button>
+
                         </div>
                         </form>
+
                     </div>
                 </div>
             </div>
-
+            <div>
+                {% if messages %}
+                <section id="messages">
+                    <ul>
+                        {% for message in messages %}
+                        <li class="{{ message.tags }}">
+                            <p>{{ message }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                {% endif %}
+            </div>
 
 
     <div class="card mb-4">
@@ -108,11 +117,11 @@
                     <col width="10%">
                 </colgroup>
                 <tr class="table table-dark table-hover text-center">
-                    <th>출발일</th>
-                    <th>코드</th>
+                    <th>선택</th>
+                    <th>출발</th>
+                    <th>도착</th>
                     <th>일정</th>
-                    <th>도착일</th>
-                    <th>공유블록</th>
+                    <th>상품코드</th>
                     <th>iti_name</th>
                     <th>상품명</th>
             </tr>
@@ -123,10 +132,10 @@
                             <input type="checkbox" class="custom-control-input" id="{{p.share_iti_chk}}" name="test" value="{{p.pk}}">
                         </td>
                         <td class="text-left">{{p.d_date1|date:'m-d (D)'|cut:'요일'}}</td>
-                        <td class="text-left">{{p.r_date2|date:'m-d (D)'|cut:'요일'}}}</td>
-                        <td class="text-left">{{p.stay}}</td>
+                        <td class="text-left">{{p.r_date2|date:'m-d (D)'|cut:'요일'}}</td>
+                        <td class="text-left">{{p.night}}박{{p.period}}일</td>
                         <td class="text-center">
-                            <a href="#">{{p.item_code}}</a></td>
+                            <a href="{% url 'tour:tour_detail' p.pk %}">{{p.item_code}}</a></td>
                         <td class="text-center">
                             <input type="checkbox" {% if p.share_air_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_air_chk}}" name="test" value="{{p.share_air_chk}}">
                         </td>
@@ -144,21 +153,18 @@
 <script language="javascript">
    
     function checkAll(){
-    
-    if(document.getElementById('all').checked == true)
-// document.all() 함수 대신 document.getElementById() 함수를 이용할 것
-    {
-    for(i=0; i<7;i++){
-    document.getElementById('yoil_'+i).checked = true;
-    }
-    }
-    else if(document.getElementById('all').checked == false)
-    {
-    for(i=0; i<7;i++){
-    document.getElementById('yoil_'+i).checked = false;
-    }
-    }
-    return;
+        const all = document.getElementById('all')
+        const yoil =document.getElementsByName('yoil')
+        if(all.checked == true){
+            for(i=0; i<yoil.length ;i++){
+            yoil[i].checked = true;
+            }
+        } else if(all.checked == false) {
+            for(i=0; i<yoil.length;i++){
+            yoil[i].checked = false;
+            }
+        }
+        return;
     }
 
     </script>

@@ -62,18 +62,17 @@
                                 블록 Block
                             </a>
                             <h5>코드리스트(basic코드+구분코드)</h5>
-                            ?item_code = asp132&start_day=오늘 
-                            {% for obj in object_list %}
+                     
                                         
-                            {{ obj.pk }}<a class="nav-link" href="#">{{obj.basiccode_fk}}{{obj.air_code}}{{obj.suffix_code}}</a> {{obj.item_code}}
+                            <a class="nav-link" href="#">사이드목록
 
-                            {% endfor %}
+                          
 
                             <h5>touritem리스트</h5>
-                            {% for obj in object_list %}
+                         
                                         
-                            <a class="nav-link" href="#">{{ obj.pk }} {{obj.title}}</a>
-                            {% endfor %}
+                            <a class="nav-link" href="#">사이드 목록</a>
+                   
 
 
                             <div class="sb-sidenav-menu-heading">앱Interface</div>
@@ -84,10 +83,10 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    {% for obj in object_list %}
+                        
                                         
-                                    <a class="nav-link" href="#">{{ obj.pk }}</a>
-                                    {% endfor %}
+                                    <a class="nav-link" href="#"></a>
+                   
                                 </nav>
                             </div>
 

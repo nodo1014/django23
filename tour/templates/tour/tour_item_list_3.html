@@ -115,7 +115,7 @@
                     {% for p in object_list %}
                     <tr>
                         <td><a href="{% url 'tour:tour_detail' p.pk %}">{{p.basiccode_fk}}{{p.air_code}}{{p.suffix_code}}</a></td>
-                        <td>{{p.stay}} 일</td>
+                        <td>{{p.period}} 일</td>
                         <td>
                             {{ p.d_date1 | date:'Y-m-d (D)' | cut:"요일"}}<br>
                             {{ p.d_date2 | date:'Y-m-d (D)' | cut:"요일"}}
@@ -149,19 +149,27 @@
 
                 </tbody>
             </table>
-
+<div class="row">
+    선택 상품(을) 
+<select name="manage" id="" class="selectpicker" data-style="btn-primary">
+    <option value="delete">삭제 합니다</option>
+    <option value="modify">공유 수정</option>
+</select>
+</div>
             <table class="table">
                 <colgroup>
                     <col width="5%">
                     <col width="15%">
-                    <col width="15%">
+                    <col width="10%">
+                    <col width="10%">
                     <col width="30%">
-                    <col width="35%">
+                    <col width="30%">
                 </colgroup>
-                <tr class="table table-dark table-hover text-center">
+                <tr class="table table-dark table-hover text-center align-middle">
+                    <th>선택</th>
                     <th>코드</th>
-                    <th>공유일정</th>
-                    <th>공유블록</th>
+                    <th>공유<br>일정</th>
+                    <th>공유<br>블록</th>
                     <th>iti_name</th>
                     <th>상품명</th>
             </tr>
@@ -169,12 +177,15 @@
                     {% for p in object_list %}
                     <tr>
                         <td class="text-center">
-                            <a href="{% url 'tour:tour_detail' p.pk %}">{{p.item_code}}</a></td>
-                        <td class="text-center">
-                            <input type="checkbox" {% if p.share_iti_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_iti_chk}}" name="test" value="{{p.share_iti_chk}}">
+                            <input type="checkbox" class="custom-control-input" id="{{p.pk}}" name="chk_pk" value="{{p.pk}}">
                         </td>
                         <td class="text-center">
-                            <input type="checkbox" {% if p.share_air_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_air_chk}}" name="test" value="{{p.share_air_chk}}">
+                            <a href="{% url 'tour:tour_detail' p.pk %}">{{p.item_code}}</a></td>
+                        <td class="text-center">
+                            <input type="checkbox" {% if p.share_iti_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_iti_chk}}" name="chk_iti" value="{{p.share_iti_chk}}">
+                        </td>
+                        <td class="text-center">
+                            <input type="checkbox" {% if p.share_air_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_air_chk}}" name="chk_air" value="{{p.share_air_chk}}">
                         </td>
                         <td class="text-left">{{p.iti_name}}</td>
                         <td class="text-left">{{p.title}}</td>

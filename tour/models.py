@@ -105,19 +105,23 @@ class TourItem(models.Model):
     airline = models.CharField("항공사", max_length=20, blank=True)
     price = models.IntegerField("숫자", default = 0, help_text="미입력시 0. 문의")
     author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
-    d_city1 = models.CharField(max_length=3, blank=True)
-    d_city2 = models.CharField(max_length=3, blank=True)
+    d_city1 = models.CharField(max_length=3, blank=True,default='ICN')
+    d_city2 = models.CharField(max_length=3, blank=True,default='VTE')
+    
     d_date1 = models.DateField(default=date(2000,1,1))
     d_date2 = models.DateField(default=date(2000,1,2))
-    d_daychange = models.IntegerField(default=1)
-    stay = models.IntegerField(default=5)
-    r_daychange = models.IntegerField(default=1)
-    d_time1 = models.TimeField(default=time(00,00))
-    d_time2 = models.TimeField(default=time(00,00))
-    r_city1 = models.CharField(max_length=3, blank=True)
-    r_city2 = models.CharField(max_length=3, blank=True)
-    r_time1 = models.TimeField(default=time(00, 00))
-    r_time2 = models.TimeField(default=time(00, 00))
+    d_time1 = models.TimeField(default=time(12,12))
+    d_time2 = models.TimeField(default=time(12,12))
+    # d_daychange = models.IntegerField(default=1)
+    # stay = models.IntegerField(default=5)
+    # r_daychange = models.IntegerField(default=1)
+    r_city1 = models.CharField(max_length=3, blank=True,default='VTE')
+    r_city2 = models.CharField(max_length=3, blank=True,default='ICN')
+
+    r_date1 = models.DateField(default=date(2000,1,5))
+    r_date2 = models.DateField(default=date(2000,1,6))
+    r_time1 = models.TimeField(default=time(12,12))
+    r_time2 = models.TimeField(default=time(12,12))
     # datetime.datetime.now() <-naive
     # django.utils.timezone.now() <--time-zone-aware
     # 날짜객체로 date.fromisoformat('2020-01-31')
@@ -156,15 +160,20 @@ class TourItem(models.Model):
     def 요일(self):
         return f'{date.strftime(self.d_date1, "%a")}'
     @property
-    def r_date1(self):
-        return self.d_date1 + timedelta(self.stay -2 )
+    def d_daychange(self):
+        return (self.d_date2 - self.d_date1).days
         # f'{}' 스트링을 안쓰면, date 객체로 리턴.->템플릿 필터에서 format 사용가능.
-
-    def r_date2(self):
+    @property
+    def r_daychange(self):
         # return f'{self.d_date1 + timedelta(self.stay - 2 + self.r_daychange)}'
-        return self.d_date1 + timedelta(self.stay - 2 + self.r_daychange)
+        return (self.r_date2 - self.r_date1).days
+    @property
+    def r_offset(self):
+        return (self.r_date1 - self.d_date1).days
     def night(self):
-        return self.stay - self.r_daychange - 1
+        return (self.r_date2 - self.d_date1 - (self.r_date2 - self.r_date1)).days
+    def period(self):
+        return (self.r_date2 - self.d_date1 ).days + 1
     # success_url에도 사용되므로, urls.py 수정,삭제 후 어디로 갈지 고려
     def get_absolute_url(self):
         return f'/tour/{self.pk}/'

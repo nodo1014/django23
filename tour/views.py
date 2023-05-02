@@ -5,7 +5,7 @@ from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.utils.text import slugify
 from datetime import datetime, date, time, timedelta
@@ -14,6 +14,7 @@ from .models import *
 from django.db.models import Q
 from django.db.models.functions import Concat
 from django.db.models import CharField, Value
+from django.contrib import messages
 
 def landing(request):
     recent_posts = TourItem.objects.order_by('-pk')[:3]
@@ -231,13 +232,24 @@ def TourItemCopy(request, pk):
                 if str(target_date.weekday()) in yoil:
                     if target_date in dupe_list:
                         print(target_date,target_date.strftime('%a'),"는 이미 등록된 상품이 있습니다")
+                        
+                        messages.add_message(request,messages.ERROR,
+                        f'{target_date} 은 이미 등록된 상품이 있습니다만?'
+                        )
                     else:
                         print(target_date, "추가")
                         origin.pk = None
                         origin.d_date1 = target_date
+                        origin.d_date2 = target_date + timedelta(days=origin.d_daychange) 
+                        origin.r_date1 = target_date + timedelta(days=origin.r_offset) 
+                        origin.r_date2 = target_date + timedelta(days=origin.r_daychange) 
+                        
                         origin.save()
             count = TourItem.objects.filter(basiccode_fk=origin.basiccode_fk).count()
             print('상품수: ', count)
+            messages.add_message(request, messages.SUCCESS,
+                                 f'{count} 개 상품이 있습니다만??'
+                                 )
             context = {
                 'form':form,
                 'copyform':copyform,
@@ -319,6 +331,8 @@ class ItiUpdate(LoginRequiredMixin, UpdateView):
 class TourItemDelete(DeleteView):
     model = TourItem
     fields = '__all__'
+    # success_url = '/tour/item_lv/'
+    success_url = reverse_lazy('tour:item_lv')
     template_name = "tour/tour_item_delete.html"
     
 
