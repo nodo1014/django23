@@ -1,5 +1,7 @@
+from datetime import date, timedelta
 from .models import TourItem, Iti
 from django import forms
+
 
 
 class ItiForm(forms.ModelForm):
@@ -15,8 +17,8 @@ class ItiForm(forms.ModelForm):
 
 
 class DayForm(forms.Form):
-    start_date = forms.DateField(label='시작일')
-    end_date = forms.DateField(label='종료일')
+    start_date = forms.DateField(label='시작일', initial=date.today())
+    end_date = forms.DateField(label='종료일', initial=date.today()+timedelta(days=210))
     keyword = forms.CharField(label='상품코드 또는 상품명', max_length=10, required=False)
     # yoil = forms.IntegerField(label='요일 체크박스')
     # form 디자인 필요한건, 폼 트윅

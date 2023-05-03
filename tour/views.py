@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Dict
 from django import http
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
@@ -15,6 +15,7 @@ from django.db.models import Q
 from django.db.models.functions import Concat
 from django.db.models import CharField, Value
 from django.contrib import messages
+
 
 def landing(request):
     recent_posts = TourItem.objects.order_by('-pk')[:3]
@@ -48,11 +49,9 @@ def index(request):
 
     if request.method == 'POST':
         form = DayForm(request.POST)
-        # keyword = request.POST['keyword']
         if form.is_valid():
             start = form.cleaned_data['start_date'] #
             end = form.cleaned_data['end_date']
-            keyword = form.cleaned_data['keyword']
             day_list2 = [(start + timedelta(days=i)) for i in range((end-start).days+1)]
             tour_item = TourItem.objects.filter(Q(d_date1__range=[start, end]))
 
@@ -73,44 +72,73 @@ def index(request):
     return render(request, 'tour/tour_item_list_1.html', context)
 
 class TourItemTable(ListView):
+    model = TourItem
     # 리스트뷰는 폼뷰X. get post 오버라이딩
-    queryset = TourItem.objects.all() # ListView Overriding
+    # queryset = TourItem.objects.all() # ListView Overriding
     basiccode = BasicCode.objects.all()
+
     template_name = "tour/tour_item_list_3.html"
-    form_class = DayForm
-    initial = {'start_date':'2023-01-02', 'end_date':'2023-08-31'}
+    # form_class = DayForm
+   
+    # initial = {'start_date': today, 'end_date': end}
     
-    def get(self, request, *args, **kwargs):
-        form = self.form_class(initial = self.initial)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['form'] = DayForm
+        context['basiccode'] = self.basiccode
+        
+        return context
+    
+    # def get(self, request, *args, **kwargs):
+        # today = date.today()
+        # end = today + timedelta(days=210)
+        # initial = {'start_date': today, 'end_date':'2023-08-31'}
+    #     form = self.form_class(initial = initial)
  
-        context = {
-                'form':form,
-                'table':self.queryset,
-                'object_list':self.queryset,
-                'basiccode':self.basiccode,
-        }
-        return render(request, self.template_name, context)
+    #     context = {
+    #             'object_list':self.queryset,
+    #             'form':form,
+    #             'table':self.queryset,
+    #             'basiccode':self.basiccode,
+    #     }
+    #     return render(request, self.template_name, context)
+
     
     def post(self, request, *args, **kwargs):
-        form = DayForm(request.POST)
-        # keyword = request.POST['keyword']
-        if form.is_valid():
-            start = form.cleaned_data['start_date'] #
-            end = form.cleaned_data['end_date']
-            keyword = form.cleaned_data['keyword']
-            day_list2 = [(start + timedelta(days=i)) for i in range((end-start).days+1)]
-            
-            tour_item = TourItem.objects.annotate(code=Concat('basiccode_fk__name', 'air_code','suffix_code')).filter(Q(d_date1__range=[start, end]) & (Q(code__icontains=keyword) | Q(title__icontains=keyword)))
-            # tour_item = TourItem.objects.annotate(item_code=Concat( 'air_code',Value(' '), 'suffix_code',output_field=CharField())).filter(Q(d_date1__range=[start, end]) | (Q(item_code__icontains=keyword)))
-            # 'basic_code__basic_code',Value(' '),
-            print(tour_item)
-            context = {
-                'form':form,
-                'day_list2':day_list2,
-                'object_list':tour_item,
-                'basiccode': self.basiccode,
-            }
-        return render(request, self.template_name, context)
+        if 'search' in request.POST:
+            form = DayForm(request.POST)
+            # keyword = request.POST['keyword']
+            if form.is_valid():
+                start = form.cleaned_data['start_date'] #
+                end = form.cleaned_data['end_date']
+                keyword = form.cleaned_data['keyword']
+                day_list2 = [(start + timedelta(days=i)) for i in range((end-start).days+1)]
+                
+                tour_item = TourItem.objects.annotate(code=Concat('basiccode_fk__name', 'air_code','suffix_code')).filter(Q(d_date1__range=[start, end]) & (Q(code__icontains=keyword) | Q(title__icontains=keyword)))
+                # tour_item = TourItem.objects.annotate(item_code=Concat( 'air_code',Value(' '), 'suffix_code',output_field=CharField())).filter(Q(d_date1__range=[start, end]) | (Q(item_code__icontains=keyword)))
+                # 'basic_code__basic_code',Value(' '),
+                print(tour_item)
+                context = {
+                    'form':form,
+                    'day_list2':day_list2,
+                    'object_list':tour_item,
+                    'basiccode': self.basiccode,
+                }
+            return render(request, self.template_name, context)
+            return redirect('/tour/item_lv/')
+        if 'chk_delete' in request.POST:
+            chk_pk_list = request.POST.getlist('chk_pk', None)
+            # //TODO: int로 변환
+            # items_map = map(int, chk_pk_list)
+            # chk_pk_list = list(items_map)
+            print(chk_pk_list)
+            for item in chk_pk_list:
+                print(item)
+                TourItem.objects.filter(id=item).delete()
+            # reverse 사용하니, httpresponse 반환해야한다며 오류 발생. redirect 나 render 사용해야함
+            return redirect('/tour/item_lv/')
+            # return reverse('tour:item_lv') 
+
     
 # 한 페이지에 FORM 과 List가 함께 있고,
 # 0) CBV: 폼_발리드, 인증, 믹스드인
@@ -218,9 +246,10 @@ def TourItemCopy(request, pk):
             # print(tour_item)
             origin = TourItem.objects.get(pk=item_no)
             dupe_item = TourItem.objects.annotate(code=Concat('basiccode_fk__name', 'air_code','suffix_code')).filter(code=origin.item_code)
-            # dupe_list = []
-            # for item in dupe_item:
-            #     dupe_list.append(item.d_date1)
+            b = origin.d_daychange
+            c = origin.r_offset
+            d = origin.r_daychange
+            print('b,c,d', b, c, d)
             dupe_list = [item.d_date1 for item in dupe_item]    
             
             print("듀프리스트: ", dupe_list)
@@ -238,11 +267,17 @@ def TourItemCopy(request, pk):
                         )
                     else:
                         print(target_date, "추가")
+                        print(target_date)
                         origin.pk = None
                         origin.d_date1 = target_date
-                        origin.d_date2 = target_date + timedelta(days=origin.d_daychange) 
-                        origin.r_date1 = target_date + timedelta(days=origin.r_offset) 
-                        origin.r_date2 = target_date + timedelta(days=origin.r_daychange) 
+                        origin.d_date2 = target_date + timedelta(days=b)
+                        origin.r_date1 = target_date + timedelta(days=c) 
+                        origin.r_date2 = target_date + timedelta(days=(c+d)) 
+                        print(origin.r_offset)
+                        print(origin.d_daychange)
+                        print(origin.r_daychange)
+
+                        print(origin.d_date1, origin.d_date2,origin.r_date1, origin.r_date2) 
                         
                         origin.save()
             count = TourItem.objects.filter(basiccode_fk=origin.basiccode_fk).count()

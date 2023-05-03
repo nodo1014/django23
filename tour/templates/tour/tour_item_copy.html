@@ -133,7 +133,7 @@
                         </td>
                         <td class="text-left">{{p.d_date1|date:'m-d (D)'|cut:'요일'}}</td>
                         <td class="text-left">{{p.r_date2|date:'m-d (D)'|cut:'요일'}}</td>
-                        <td class="text-left">{{p.night}}박{{p.period}}일</td>
+                        <td class="text-left">{{p.night}}night{{p.period}}period</td>
                         <td class="text-center">
                             <a href="{% url 'tour:tour_detail' p.pk %}">{{p.item_code}}</a></td>
                         <td class="text-center">
