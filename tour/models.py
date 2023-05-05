@@ -95,8 +95,8 @@ class TourItem(models.Model):
 
     basiccode_fk = models.ForeignKey(BasicCode, null=True, blank=True, on_delete=models.SET_NULL, related_name = 'touritem_basiccode')
     iti_name = models.ForeignKey(ItiName, null=True, blank=True, on_delete=models.CASCADE)
-    share_air_chk = models.BooleanField(default = False, help_text='기본값 False')
-    share_iti_chk = models.BooleanField(default = True, help_text='해당 상품만 일정 수정시, 체크해제, 다시 체크하면 기본 일정표로.')
+    share_air_chk = models.BooleanField(default = 0, help_text='기본값 False')
+    share_iti_chk = models.BooleanField(default = 1, help_text='해당 상품만 일정 수정시, 체크해제, 다시 체크하면 기본 일정표로.')
     iti_confirm_chk = models.BooleanField(default = False, help_text='확정시, 전용일정. 로직 충돌')
     air_code = models.CharField("항공코드", max_length=2)
     suffix_code = models.CharField(max_length=2, blank=True)

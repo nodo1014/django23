@@ -25,7 +25,7 @@
                         <form action="{% url 'tour:item_lv' %}" method="POST">
                             {% csrf_token %}
                         <div style="display:flex;justify-content:between-around;align-items:center;">
-                            {{form.as_p}}
+                            {{form}}
                             <button class="btn btn-primary" type="submit" name="search">
                             조회
                             </button>
@@ -65,7 +65,7 @@
                     {% for bc in basiccode %}
                      <li>   기본코드: {{ bc.name }} : {{bc.title}} {{bc.query_code}}
                        
-                            <ul>
+                        <ul>
                             {% for item in bc.touritem_basiccode.iterator %}
                             <li>상품코드 : {{item.item_code}}</li>
                             {% endfor %}
@@ -152,11 +152,30 @@
             <form action="" method="POST">
                             {% csrf_token %}
 <div class="float-right">
-    선택 상품(을) 
+    선택 상품(을) <br>
+    <button type="submit" class="btn btn-danger" name="chk_delete">삭제</button>
+    공유일정 사용 {{list_form.iti_check}} 
+    공유블럭 사용{{list_form.air_check}}
+    <!-- <input type="checkbox" name="iti_check" value='1' id="iti_check"/>
+    <input type="checkbox" name="air_check" value='1' id="air_check"/> -->
     <button type="submit" class="btn btn-warning" name="chk_modify">수정</button>
-<button type="submit" class="btn btn-danger" name="chk_delete">삭제</button>합니다.
 
 </div>
+
+<div>
+    {% for checkbox in yoil_form.yoil %}
+        {{checkbox}}
+    {% endfor %}
+</div>
+<!-- <div class="btn-group" data-toggle="buttons">  -->
+<div>
+    {% for checkbox in yoil_form.yoil %}
+        <!-- <label class="btn btn-warning"> -->
+        {{ checkbox.tag }} {{ checkbox.choice_label }}
+        <!-- </label> -->
+    {% endfor %}
+</div>
+
             <table class="table">
                 <colgroup>
                     <col width="5%">
@@ -181,15 +200,16 @@
                     {% for p in object_list %}
                     <tr>
                         <td class="text-center">
+                            <!-- {{list_form.chk_pk}} -->
                             <input type="checkbox" class="custom-control-input" id="{{p.pk}}" name="chk_pk" value="{{p.pk}}">
                         </td>
                         <td class="text-center">
                             <a href="{% url 'tour:tour_detail' p.pk %}">{{p.pk}}</a></td>
                         <td class="text-center">
-                            <input type="checkbox" {% if p.share_iti_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_iti_chk}}" name="chk_iti" value="{{p.share_iti_chk}}">
+                            <input type="checkbox" disabled {% if p.share_iti_chk %}checked {% endif %} class="custom-control-input" id="iti_{{p.pk}}" name="chk_iti" value="{{p.share_iti_chk}}">
                         </td>
                         <td class="text-center">
-                            <input type="checkbox" {% if p.share_air_chk %}checked {% endif %} class="custom-control-input" id="{{p.share_air_chk}}" name="chk_air" value="{{p.share_air_chk}}">
+                            <input type="checkbox" disabled {% if p.share_air_chk %}checked {% endif %} class="custom-control-input" id="air_{{p.pk}}" name="chk_air" value="{{p.share_air_chk}}">
                         </td>
                         <td class="text-left">{{p.d_date1}}</td>
                         <td class="text-left">{{p.r_date2}}</td>

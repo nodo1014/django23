@@ -10,6 +10,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.utils.text import slugify
 from datetime import datetime, date, time, timedelta
 from .forms import *
+from django.forms import formset_factory
 from .models import *
 from django.db.models import Q
 from django.db.models.functions import Concat
@@ -23,7 +24,7 @@ def landing(request):
     # ordering = '-pk'
     # queryset = TourItem.objects.all() # ListView Overriding
     # template_name = "tour/tour_item_list_3.html"
-    # form_class = DayForm
+    # form_class = SearchForm
     
     # def get_context_data()
     # def dispatch()
@@ -48,7 +49,7 @@ def index(request):
     tour_item = TourItem.objects.all()
 
     if request.method == 'POST':
-        form = DayForm(request.POST)
+        form = SearchForm(request.POST)
         if form.is_valid():
             start = form.cleaned_data['start_date'] #
             end = form.cleaned_data['end_date']
@@ -62,7 +63,7 @@ def index(request):
             }
 
     else:
-        form = DayForm()
+        form = SearchForm()
         context = {
             'form':form,
             'object_list':tour_item,
@@ -74,19 +75,24 @@ def index(request):
 class TourItemTable(ListView):
     model = TourItem
     # 리스트뷰는 폼뷰X. get post 오버라이딩
-    # queryset = TourItem.objects.all() # ListView Overriding
+    queryset = TourItem.objects.all().order_by('pk') # ListView Overriding
     basiccode = BasicCode.objects.all()
 
     template_name = "tour/tour_item_list_3.html"
-    # form_class = DayForm
-   
+    # yoil_form = YoilForm(initial={'요일': [0,1,2,3,4,5,6],})
+
+    # form_class = SearchForm
     # initial = {'start_date': today, 'end_date': end}
     
     def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        context['form'] = DayForm
+        context = super().get_context_data() #ListView 의 object queryset에 추가
+        context['form'] = SearchForm
         context['basiccode'] = self.basiccode
-        
+        context['list_form'] = ListForm
+        context['yoil_form'] = YoilForm(initial={'yoil': [0,1,2,3,4,5,6],})
+        # context['yoil_form'] = YoilForm()
+        # queryset=ExampleT.objects.filter(id=var_id).order_by('value1')
+        # form = HiddenForm(initial={'ids': [o.id for o in queryset]})
         return context
     
     # def get(self, request, *args, **kwargs):
@@ -106,7 +112,7 @@ class TourItemTable(ListView):
     
     def post(self, request, *args, **kwargs):
         if 'search' in request.POST:
-            form = DayForm(request.POST)
+            form = SearchForm(request.POST)
             # keyword = request.POST['keyword']
             if form.is_valid():
                 start = form.cleaned_data['start_date'] #
@@ -129,14 +135,38 @@ class TourItemTable(ListView):
         if 'chk_delete' in request.POST:
             chk_pk_list = request.POST.getlist('chk_pk', None)
             # //TODO: int로 변환
-            # items_map = map(int, chk_pk_list)
-            # chk_pk_list = list(items_map)
-            print(chk_pk_list)
+            chk_pk_list = list(map(int, chk_pk_list))
+ 
             for item in chk_pk_list:
                 print(item)
                 TourItem.objects.filter(id=item).delete()
             # reverse 사용하니, httpresponse 반환해야한다며 오류 발생. redirect 나 render 사용해야함
             return redirect('/tour/item_lv/')
+            # return reverse('tour:item_lv') 
+        if 'chk_modify' in request.POST:
+            chk_pk_list = request.POST.getlist('chk_pk', None)
+            chk_iti = request.POST.get('iti_check', None)
+            chk_air = request.POST.get('air_check', None)
+            # if (chk_iti == '1'):
+            #     chk_iti = 1
+            # else:
+            #     chk_iti = 0
+            chk_iti=1 if chk_iti=='1' else 0
+            chk_air=1 if chk_air=='1' else 0
+            
+            #벌크업데이트
+            # TourItem.objects.filter(id__in=[2, 3, 5]).update(chk_air = 1)
+            TourItem.objects.filter(id__in=chk_pk_list).update(share_iti_chk=chk_iti, share_air_chk=chk_air)
+
+            # for i, item in enumerate(chk_pk_list):
+            #     print(i, item)
+            #     Item = TourItem.objects.get(id=item)
+            #     # Item.share_air_chk = chk_air_list[i]
+            #     Item.share_iti_chk = chk_iti
+            #     Item.share_air_chk = chk_air
+            #     Item.save()
+            # reverse 사용하니, httpresponse 반환해야한다며 오류 발생. redirect 나 render 사용해야함
+            return redirect('tour:item_lv')
             # return reverse('tour:item_lv') 
 
     
@@ -150,16 +180,16 @@ class TourItemList(ListView):
     model = TourItem
     ordering = 'd_date1'
     template_name = 'tour/tour_item_list_2.html' # 아니면, get()오버라이딩 직접 지정.
-    queryset = TourItem.objects.all()
+    # queryset = TourItem.objects.all()
     def get_context_data(self, **kwargs):
         # context = super(PostList, self).get_context_data()
-        # context['form'] = DayForm()
+        # context['form'] = SearchForm()
         
         context = super(TourItemList,self).get_context_data()
         context['basiccode'] = BasicCode.objects.all()
         context['categories'] = Category.objects.all()
-        # DayForm() 은 빈폼 인스턴스를 생성하는데... () 필요한가?
-        context['form'] = DayForm
+        # SearchForm() 은 빈폼 인스턴스를 생성하는데... () 필요한가?
+        context['form'] = SearchForm
         # context['tags'] = Tag.objects.all()
         # context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
@@ -225,7 +255,7 @@ def TourItemCopy(request, pk):
     code_list = TourItem.objects.annotate(code=Concat('basiccode_fk__name', 'air_code','suffix_code')).filter(code=tour_item.item_code)
 
     if request.method == 'POST':
-        form = DayForm(request.POST)
+        form = SearchForm(request.POST)
         copyform = CopyForm(request.POST)
         yoil = request.POST.getlist('yoil')
         item_no = request.POST['item_no']
@@ -296,7 +326,7 @@ def TourItemCopy(request, pk):
 
 
     else:
-        form = DayForm()
+        form = SearchForm()
         copyform = CopyForm()
         context = {
             'form':form,
