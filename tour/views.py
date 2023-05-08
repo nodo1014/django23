@@ -207,9 +207,9 @@ class TourItemDetail(DetailView):
         # print (touritem.share_iti_chk)
         # print (touritem.iti_name.pk)
         share_itis = touritem.get_share_itis()
-        print("공유 일정: ", share_itis)
+        # print("공유 일정: ", share_itis)
         own_itis = touritem.get_own_itis()
-        print("저장된 itis: ", own_itis)
+        # print("저장된 itis: ", own_itis)
         
         if context['touritem'].share_iti_chk:    
             itis = Iti.objects.filter(iti_name_id=touritem.iti_name.pk)
@@ -297,6 +297,7 @@ def TourItemCopy(request, pk):
                         print(target_date, "추가")
                         print(target_date)
                         origin.pk = None
+                        origin.share_iti_chk = 1
                         origin.d_date1 = target_date
                         origin.d_date2 = target_date + timedelta(days=b)
                         origin.r_date1 = target_date + timedelta(days=c) 

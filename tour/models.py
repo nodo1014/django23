@@ -2,6 +2,7 @@ from datetime import date, time, timedelta
 import os
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from block.models import *
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdown
@@ -175,8 +176,6 @@ class TourItem(models.Model):
     def period(self):
         return (self.r_date2 - self.d_date1 ).days + 1
     # success_url에도 사용되므로, urls.py 수정,삭제 후 어디로 갈지 고려
-    def get_absolute_url(self):
-        return f'/tour/{self.pk}/'
 
     def get_content_markdown(self):
         return markdown(self.content)
@@ -191,6 +190,9 @@ class TourItem(models.Model):
         itis = Iti.objects.filter(touritem_id=self.pk)
         return itis
         # return self.share_iti_name
+    def get_absolute_url(self):
+        # return f'/tour/{self.pk}/'
+        return reverse('tour:tour_detail', args=(self.pk,))
     
 
     
