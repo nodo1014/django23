@@ -1,8 +1,8 @@
 from datetime import date, time, timedelta
-from django.db import models
 import os
-from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
+from block.models import *
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdown
 from tinymce.models import HTMLField
@@ -92,7 +92,7 @@ class ItiName(models.Model):
     
 # 출발일별 상품
 class TourItem(models.Model):
-
+    blockitem_fk = models.ForeignKey(BlockItem, null=True, blank=True, on_delete=models.SET_NULL)
     basiccode_fk = models.ForeignKey(BasicCode, null=True, blank=True, on_delete=models.SET_NULL, related_name = 'touritem_basiccode')
     iti_name = models.ForeignKey(ItiName, null=True, blank=True, on_delete=models.CASCADE)
     share_air_chk = models.BooleanField(default = 0, help_text='기본값 False')
@@ -104,7 +104,7 @@ class TourItem(models.Model):
     title = models.CharField("상품명", max_length=50, blank=True)
     airline = models.CharField("항공사", max_length=20, blank=True)
     price = models.IntegerField("숫자", default = 0, help_text="미입력시 0. 문의")
-    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    # author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     d_city1 = models.CharField(max_length=3, blank=True,default='ICN')
     d_city2 = models.CharField(max_length=3, blank=True,default='VTE')
     
@@ -219,3 +219,4 @@ class Iti(models.Model):
 
     def get_absolute_url(self):
         return f'{self.touritem.get_absolute_url()}#iti-{self.pk}'
+

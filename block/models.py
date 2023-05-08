@@ -1,14 +1,11 @@
 from datetime import date, time, timedelta
 from django.db import models
-import os
-from django.contrib.auth.models import User
-from django.db import models
-from markdownx.models import MarkdownxField
-from markdownx.utils import markdown
-from tinymce.models import HTMLField
+
 
 class Block(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, unique=True, default='ICNDAD-KE000/KE111-3n5d(하계)')
+    content = models.TextField(blank=True,null=True,default='냉무')
+    
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
@@ -22,8 +19,8 @@ class BlockItem(models.Model):
     # area_code = models.CharField(max_length=20) #초이스필드 불필요
     name_fk = models.ForeignKey(Block, null=True, blank=True, on_delete=models.CASCADE)
     # air_code = models.CharField("항공 코드", max_length=2)
-    d_fltno = models.CharField("출발 편명", max_length=6, default='KE0000')
-    r_fltno = models.CharField("리턴 편명", max_length=6, default='KE0000')
+    d_fltno = models.CharField("출발 편명", max_length=6, default='KE000')
+    r_fltno = models.CharField("리턴 편명", max_length=6, default='KE000')
     airline = models.CharField("항공사", max_length=20, blank=True)
     price = models.IntegerField("숫자", default = 0, help_text="미입력시 0. 문의")
     d_city1 = models.CharField(max_length=3, blank=True, default="ICN")

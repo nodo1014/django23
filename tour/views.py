@@ -1,20 +1,18 @@
-from typing import Any, Dict
-from django import http
+
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
-from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
+# from django.core.mail import send_mail
+# from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.utils.text import slugify
-from datetime import datetime, date, time, timedelta
-from .forms import *
-from django.forms import formset_factory
+# from django.utils.text import slugify
+from datetime import timedelta
+
+from tour.forms import *
 from .models import *
 from django.db.models import Q
 from django.db.models.functions import Concat
-from django.db.models import CharField, Value
 from django.contrib import messages
 
 
