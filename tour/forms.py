@@ -18,9 +18,9 @@ class ItiForm(forms.ModelForm):
 
 
 class SearchForm(forms.Form):
-    start_date = forms.DateField(label='시작일', initial=date.today())
-    end_date = forms.DateField(label='종료일', initial=date.today()+timedelta(days=210))
-    keyword = forms.CharField(label='상품코드 또는 상품명', max_length=10, required=False)
+    start_date = forms.DateField(label='조회기간', initial=date.today())
+    end_date = forms.DateField(label='', initial=date.today()+timedelta(days=120))
+    keyword = forms.CharField(label='',required=False, widget=forms.TextInput(attrs={'placeholder': '코드 또는 상품명'}))
 #     yoil = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple(),
 #     choices=((0, "월"),(1, "화"), (2, "수"), (3, "목"), (4, "금"), (5, "토"), (6, "일"),),
 # )

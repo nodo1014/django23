@@ -2,6 +2,7 @@
 {% load humanize %}
 {% load crispy_forms_tags %}
 {% load split %}
+<!-- {% load material_form %} -->
 
 {% block main_area %}
 <h3>간략 일정표(서식 변환 가능. ebay, 소셜용 등)</h3>
@@ -84,16 +85,25 @@
 <div id="iti_area">
     <form action="{{ touritem.get_absolute_url }}new_iti/" method="post">
         {% csrf_token %}
-        {{iti_form.media }}
-        {{iti_form.iti_name |as_crispy_field}}
-        {{iti_form.day |as_crispy_field}}
-        {{iti_form.city |as_crispy_field}}
-        {{iti_form.trans |as_crispy_field}}
-        {{iti_form.content |as_crispy_field}}
-        {{iti_form.food |as_crispy_field}}
+        <div class="row">
+            <div class="col-sm-9 col-md-9">
+                {{iti_form.content}}
+
+            </div>
+            <div class="col-sm-3 col-md-3">
+
+                {{iti_form.media }}<br>
+                {{iti_form.iti_name}}<br>
+                {{iti_form.day}}<br>
+                {{iti_form.city}}<br>
+                {{iti_form.trans}}<br>
+                {{iti_form.food}}
+            </div>
+        </div>
         <button class="btn btn-primary" type="submit">저장</button>
     </form>
 </div>
+
 {% endblock %}
 
 

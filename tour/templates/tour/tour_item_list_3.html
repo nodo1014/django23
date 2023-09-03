@@ -25,7 +25,7 @@
                         <form action="{% url 'tour:item_lv' %}" method="POST">
                             {% csrf_token %}
                         <div style="display:flex;justify-content:between-around;align-items:center;">
-                            {{form}}
+                            {{form.as_table}}
                             <button class="btn btn-primary" type="submit" name="search">
                             조회
                             </button>
@@ -97,48 +97,31 @@
                 <thead>
                     <tr>
                         <th>상품명</th>
-                        <th>일정</th>
-                        <th>출발일</th>
-                        <th>요일</th>
-                        <th>도착일</th>
-                        <th>출발지</th>
-                        <th>도착지</th>
-                        <th>코드</th>
-                        <th>상품가</th>
+                        <th>기간</th>
+                        <th>출발일/도착일</th>
                         <th>항공</th>
-                        <th>출발편</th>
-                        <th>리턴편</th>
+                        <th>출/도착</th>
+                        <th>상품가</th>
+
                         <th>관리</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for p in object_list %}
                     <tr>
-                        <td><a href="{% url 'tour:tour_detail' p.pk %}">{{p.basiccode_fk}}{{p.air_code}}{{p.suffix_code}}</a></td>
-                        <td>{{p.period}} 일</td>
+                        <td><a href="{% url 'tour:tour_detail' p.pk %}"> {{ p.title }}<br>{{p.basiccode_fk}}{{p.air_code}}{{p.suffix_code}}</a></td>
+             <td>{{p.period}} 일</td>
                         <td>
                             {{ p.d_date1 | date:'Y-m-d (D)' | cut:"요일"}}<br>
-                            {{ p.d_date2 | date:'Y-m-d (D)' | cut:"요일"}}
+                            {{ p.r_date2 | date:'Y-m-d (D)' | cut:"요일"}}
                         </td>
-                        <td>{{p.d_date1 | date:'D' | cut:"요일"}}</td>
+                        <td>{{p.airline|upper}}</td>
                         <td>
-                            {{ p.title }}
-                        </td>
-                        <td>
-                            {{p.r_date2 | date:'Y-m-d (D)' | cut:"요일"}}<br>
-                            {{p.r_city1}}-{{p.r_city2}}
+                            {{p.d_city1}}-{{p.d_city2}}
                         </td>
 
-                        
-                        <td>{{p.d_city1}}</td>
-                        <td>{{p.d_city2}}</td>
                         <td>{{p.price | intcomma }}</td>
-                        <td>{{p.airline | upper}}</td>
-                        <td>
-                            
-                            {{p.d_time1 | date:'H:i'}}-{{p.d_time2 | date:'H:i'}}+{{p.d_daychange}}
-                        </td>
-                        <td>{{p.r_time1 | date:'H:i'}}-{{p.r_time2 | date:'H:i'}}+{{p.r_daychange}}</td>
+
                         <td>
                             <a href="{% url 'tour:tour_edit' p.pk %}">수정</a>
                             <a href="{% url 'tour:tour_delete' p.pk %}">삭제</a>
@@ -152,7 +135,7 @@
             <form action="" method="POST">
                             {% csrf_token %}
 <div class="float-right">
-    선택 상품(을) <br>
+    선택 상품(을) 
     <button type="submit" class="btn btn-danger" name="chk_delete">삭제</button>
     공유일정 사용 {{list_form.iti_check}} 
     공유블럭 사용{{list_form.air_check}}
@@ -201,15 +184,15 @@
                     <tr>
                         <td class="text-center">
                             <!-- {{list_form.chk_pk}} -->
-                            <input type="checkbox" class="custom-control-input" id="{{p.pk}}" name="chk_pk" value="{{p.pk}}">
+                            <input type="checkbox" class="form-control-input" id="{{p.pk}}" name="chk_pk" value="{{p.pk}}">
                         </td>
                         <td class="text-center">
                             <a href="{% url 'tour:tour_detail' p.pk %}">{{p.pk}}</a></td>
                         <td class="text-center">
-                            <input type="checkbox" disabled {% if p.share_iti_chk %}checked {% endif %} class="custom-control-input" id="iti_{{p.pk}}" name="chk_iti" value="{{p.share_iti_chk}}">
+                            <input type="checkbox" disabled {% if p.share_iti_chk %}checked {% endif %} class="form-control-input" id="iti_{{p.pk}}" name="chk_iti" value="{{p.share_iti_chk}}">
                         </td>
                         <td class="text-center">
-                            <input type="checkbox" disabled {% if p.share_air_chk %}checked {% endif %} class="custom-control-input" id="air_{{p.pk}}" name="chk_air" value="{{p.share_air_chk}}">
+                            <input type="checkbox" disabled {% if p.share_air_chk %}checked {% endif %} class="form-control-input" id="air_{{p.pk}}" name="chk_air" value="{{p.share_air_chk}}">
                         </td>
                         <td class="text-left">{{p.d_date1}}</td>
                         <td class="text-left">{{p.r_date2}}</td>
