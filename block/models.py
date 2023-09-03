@@ -42,7 +42,7 @@ class BlockItem(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.pk}'
+        return f'{self.pk}-{self.d_city1}{self.d_city2}-{self.airline}{self.d_fltno}/{self.r_fltno}-{self.stay}일'
    
 
     def 요일(self):
