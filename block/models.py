@@ -22,7 +22,7 @@ class BlockItem(models.Model):
     d_fltno = models.CharField("출발 편명", max_length=6, default='KE000')
     r_fltno = models.CharField("리턴 편명", max_length=6, default='KE000')
     airline = models.CharField("항공사", max_length=20, blank=True)
-    price = models.IntegerField("숫자", default = 0, help_text="미입력시 0. 문의")
+    price = models.IntegerField("항공료", default = 0, help_text="미입력시 0. 문의")
     d_city1 = models.CharField(max_length=3, blank=True, default="ICN")
     d_city2 = models.CharField(max_length=3, blank=True, default="CJU")
     d_date1 = models.DateField(default=date(2000,1,1))

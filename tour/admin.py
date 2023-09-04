@@ -1,7 +1,5 @@
 from django.contrib import admin
 from .models import *
-from rangefilter.filter import DateRangeFilter, DateTimeRangeFilter
-from markdownx.admin import MarkdownxModelAdmin
 
 # register(모델, 모델Admin)
 # admin.site.register(Post)

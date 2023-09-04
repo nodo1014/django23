@@ -14,8 +14,8 @@ class BlockItemAdmin(admin.ModelAdmin):
     #     ('필드셋', {'fields': ['']}),
         
     # ]
-    list_display = ['pk']
-    # list_editable = ["price"]
+    list_display = ['pk','name_fk','d_date1','stay','d_fltno','r_fltno','airline','price','d_city1','d_city2']
+    list_editable = ["price"]
     
 class BlockAdmin(admin.ModelAdmin):
     list_display = ['pk','name', 'content']
